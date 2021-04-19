@@ -1,0 +1,192 @@
+{
+  "format_version": "1.10.0",
+  "animation_controllers": {
+    "controller.animation.akm_setup": {
+      "initial_state": "default",
+      "states": {
+        "default": {
+          "transitions": [
+            {
+              "akm": "q.get_equipped_item_name(0) == 'akm' && (q.scoreboard('akm') >= 1 && q.scoreboard('akm') <= 30)"
+            },
+            {
+              "akm_empty": "(q.scoreboard('akm') == 0) && q.get_equipped_item_name(0) == 'akm'"
+            }
+          ]
+        },
+        "akm": {
+          "animations": [
+            "akm_onfire",
+            "akm_bullet_counter"
+          ],
+          "transitions": [
+            {
+              "default": "q.get_equipped_item_name(0) != 'akm'"
+            },
+            {
+              "akm_empty": "(q.scoreboard('akm') == 0) && q.get_equipped_item_name(0) == 'akm'"
+            }
+          ]
+        },
+        "akm_empty": {
+          "on_entry": [
+            "/function ammo/akm",
+            "/replaceitem entity @s slot.weapon.mainhand 0 ar:akm_empty 1 0"
+          ],
+          "transitions": [
+            {
+              "default": "q.get_equipped_item_name(0) != 'akm'"
+            }
+          ]
+        }
+      }
+    },
+    "controller.animation.akm_onfire": {
+      "initial_state": "inactive",
+      "states": {
+        "inactive": {
+          "transitions": [
+            {
+              "fire": "q.get_equipped_item_name(0) == 'akm' && q.is_using_item"
+            }
+          ]
+        },
+        "firing": {
+          "on_entry": [
+            "v.bullet_fire = q.life_time;"
+          ],
+          "transitions": [
+            {
+              "inactive": "q.get_equipped_item_name(0) != 'akm' || !q.is_using_item"
+            },
+            {
+              "fire": "(q.life_time - v.bullet_fire) >= (6.0 / 70.0)"
+            }
+          ]
+        },
+        "fire": {
+          "on_entry": [
+            "@s akm:fire",
+            "/scoreboard players remove @s[m=!c,scores={akm=1..30}] akm 1",
+            "/particle minecraft:eyeofender_death_explode_particle ^ ^1 ^1"
+          ],
+          "transitions": [
+            {
+              "firing": "1.0"
+            }
+          ],
+          "on_exit": [
+            "v.bullet_fire = q.life_time;"
+          ]
+        }
+      }
+    },
+    "controller.animation.akm_bullet_counter": {
+      "initial_state": "default",
+      "states": {
+        "default": {
+          "transitions": [
+            {
+              "akm_show": "q.get_equipped_item_name(0) == 'akm'"
+            }
+          ]
+        },
+        "akm_show": {
+          "transitions": [
+            {
+              "default": "q.get_equipped_item_name(0) == 'akm'"
+            }
+          ],
+          "on_entry": [
+            "/function ammo/akm"
+          ]
+        }
+      }
+    },
+    "controller.animation.akm_onempty": {
+      "initial_state": "default",
+      "states": {
+        "default": {
+          "transitions": [
+            {
+              "akm_empty": "q.get_equipped_item_name(0) == 'akm_empty' && q.is_using_item && q.scoreboard('akm') == 0"
+            }
+          ]
+        },
+        "akm_empty": {
+          "on_entry": [
+            "/function ammo/akm",
+            "/playsound pixelpoly.empty_gun @a[r=10]"
+          ],
+          "transitions": [
+            {
+              "default": "q.get_equipped_item_name(0) != 'akm_empty' || !q.is_using_item"
+            }
+          ]
+        }
+      }
+    },
+    "controller.animation.akm_reload": {
+      "initial_state": "default",
+      "states": {
+        "default": {
+          "transitions": [
+            {
+              "akm_mag": "q.get_equipped_item_name(0) == 'akm_mag' && q.is_using_item && q.scoreboard('akm') == 0"
+            }
+          ]
+        },
+        "akm_mag": {
+          "transitions": [
+            {
+              "reload_start": "q.get_equipped_item_name(0) == 'akm_mag' && q.scoreboard('akm') == 0"
+            },
+            {
+              "default": "q.get_equipped_item_name(0) != 'akm_mag'"
+            }
+          ]
+        },
+        "reload_start": {
+          "on_entry": [
+            "/tag @s add reload",
+            "/replaceitem entity @s slot.weapon.mainhand 0 ar:akm_empty 1 0",
+            "v.r = q.life_time;"
+          ],
+          "transitions": [
+            {
+              "reloaded": "(q.life_time - v.r) >= (40.0 / 15.0) && q.get_equipped_item_name(0) == 'akm_empty' && q.scoreboard('akm') == 0"
+            },
+            {
+              "reload_error": "q.get_equipped_item_name(0) != 'akm_empty'"
+            }
+          ]
+        },
+        "reloaded": {
+          "on_entry": [
+            "/tag @s remove reload",
+            "/scoreboard players set @s akm 30",
+            "/clear @s ar:akm_empty",
+            "/replaceitem entity @s slot.weapon.mainhand 0 ar:akm 1 0"
+          ],
+          "transitions": [
+            {
+              "default": "1.0"
+            }
+          ]
+        },
+        "reload_error": {
+          "on_entry": [
+            "/tag @s remove reload",
+            "/clear @s ar:akm_empty 0 1",
+            "/replaceitem entity @s slot.weapon.mainhand 0 ar:akm_mag 1 0"
+          ],
+          "transitions": [
+            {
+              "default": "1.0"
+            }
+          ]
+        }
+      }
+    }
+  }
+}

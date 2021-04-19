@@ -1,0 +1,16 @@
+package com.bedrockk.behaviorpacks.definition.recipe;
+
+import com.bedrockk.behaviorpacks.type.JsonList;
+import lombok.Data;
+
+import java.util.List;
+import java.util.Map;
+
+@Data
+public class ShapedRecipeDefinition extends RecipeDefinition {
+    private String group;
+    private List<String> pattern;
+    private int priority = 0;
+    private Map<String, ItemEntry> key;
+    private JsonList<ItemEntry> result;
+}

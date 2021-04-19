@@ -1,0 +1,12 @@
+{
+  "size": 2,
+  "meyveler": {
+    "elma": {
+      "size": 3
+    },
+    "muz": {
+      "size": 1,
+      "bozuk": true
+    }
+  }
+}

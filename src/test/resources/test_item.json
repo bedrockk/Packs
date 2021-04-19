@@ -1,0 +1,16 @@
+{
+  "format_version": "1.10",
+  "minecraft:item": {
+    "description": {
+      "identifier": "minecraft:trident"
+    },
+    "components": {
+      "minecraft:damageable": {
+        "max_damage": 250,
+        "repair_items": [
+          "minecraft:trident"
+        ]
+      }
+    }
+  }
+}

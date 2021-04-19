@@ -1,0 +1,6 @@
+{
+  "test": "is_baby",
+  "operator": "!=",
+  "subject": "self",
+  "value": false
+}
