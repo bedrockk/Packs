@@ -6,7 +6,6 @@ import com.bedrockk.behaviorpacks.type.BlockReference;
 import com.bedrockk.behaviorpacks.type.MolangExpression;
 import lombok.Data;
 
-import java.util.List;
 import java.util.Map;
 
 @Data

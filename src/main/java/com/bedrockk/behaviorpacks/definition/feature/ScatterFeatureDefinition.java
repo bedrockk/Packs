@@ -5,7 +5,6 @@ import com.bedrockk.behaviorpacks.description.definition.DefinitionDescription;
 import com.bedrockk.behaviorpacks.type.*;
 import lombok.Data;
 
-import java.util.List;
 import java.util.Map;
 
 @Data

@@ -6,7 +6,6 @@ import com.bedrockk.behaviorpacks.type.BlockReference;
 import lombok.Data;
 
 import java.util.List;
-import java.util.Locale;
 import java.util.Map;
 
 @Data

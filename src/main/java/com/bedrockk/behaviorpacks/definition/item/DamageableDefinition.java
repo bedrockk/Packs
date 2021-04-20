@@ -1,6 +1,5 @@
 package com.bedrockk.behaviorpacks.definition.item;
 
-import com.bedrockk.behaviorpacks.definition.VersionedDefinition;
 import com.bedrockk.behaviorpacks.node.ItemComponentNode;
 import com.bedrockk.behaviorpacks.type.Range;
 import lombok.Data;

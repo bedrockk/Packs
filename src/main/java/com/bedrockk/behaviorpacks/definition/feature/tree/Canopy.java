@@ -6,8 +6,6 @@ import com.bedrockk.behaviorpacks.type.JsonList;
 import com.bedrockk.behaviorpacks.type.Range;
 import lombok.Data;
 
-import java.util.List;
-
 @Data
 public class Canopy {
     private Range canopyOffset;

@@ -7,7 +7,6 @@ import com.bedrockk.behaviorpacks.type.MolangExpression;
 import lombok.Data;
 
 import java.util.Map;
-import java.util.Optional;
 
 @Data
 public class UnderwaterCaveCarverFeatureDefinition extends FeatureDefinition {

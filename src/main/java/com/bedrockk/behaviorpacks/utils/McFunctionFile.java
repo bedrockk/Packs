@@ -4,7 +4,7 @@ import lombok.Data;
 
 import java.io.*;
 import java.nio.charset.StandardCharsets;
-import java.util.*;
+import java.util.LinkedList;
 
 @Data
 public class McFunctionFile {

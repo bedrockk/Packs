@@ -2,15 +2,11 @@ package com.bedrockk.behaviorpacks.type;
 
 import com.bedrockk.behaviorpacks.BehaviorPackFactory;
 import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonValue;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.node.ArrayNode;
 import com.fasterxml.jackson.databind.node.ObjectNode;
-
 import lombok.Value;
-
-import java.util.List;
 
 @Value
 public class Range {

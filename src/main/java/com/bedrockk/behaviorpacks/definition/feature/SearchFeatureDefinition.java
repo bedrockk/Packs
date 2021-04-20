@@ -8,7 +8,6 @@ import com.fasterxml.jackson.annotation.JsonValue;
 import lombok.Data;
 import lombok.RequiredArgsConstructor;
 
-import java.util.List;
 import java.util.Map;
 
 @Data

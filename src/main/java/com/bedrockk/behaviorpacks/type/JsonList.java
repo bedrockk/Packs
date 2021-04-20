@@ -7,7 +7,7 @@ import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.node.ArrayNode;
 
-import java.util.*;
+import java.util.ArrayList;
 import java.util.stream.Collectors;
 
 public class JsonList<E> extends ArrayList<E> {

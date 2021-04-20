@@ -6,7 +6,6 @@ import com.fasterxml.jackson.core.JsonToken;
 import com.fasterxml.jackson.core.type.WritableTypeId;
 import com.fasterxml.jackson.databind.BeanProperty;
 import com.fasterxml.jackson.databind.jsontype.TypeIdResolver;
-import com.fasterxml.jackson.databind.jsontype.impl.AsExistingPropertyTypeSerializer;
 import com.fasterxml.jackson.databind.jsontype.impl.AsPropertyTypeSerializer;
 
 import java.io.IOException;

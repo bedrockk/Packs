@@ -1,8 +1,6 @@
 package com.bedrockk.behaviorpacks.definition.item;
 
 import com.bedrockk.behaviorpacks.BehaviorPackFactory;
-import com.bedrockk.behaviorpacks.definition.FilterDefinition;
-import com.bedrockk.behaviorpacks.node.EntityComponentNode;
 import com.bedrockk.behaviorpacks.type.DamageType;
 import com.bedrockk.behaviorpacks.type.EffectType;
 import com.bedrockk.behaviorpacks.type.ImmutableVec3;

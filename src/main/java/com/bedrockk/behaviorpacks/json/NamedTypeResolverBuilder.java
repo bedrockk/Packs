@@ -5,7 +5,8 @@ import com.fasterxml.jackson.databind.JavaType;
 import com.fasterxml.jackson.databind.SerializationConfig;
 import com.fasterxml.jackson.databind.cfg.MapperConfig;
 import com.fasterxml.jackson.databind.jsontype.*;
-import com.fasterxml.jackson.databind.jsontype.impl.*;
+import com.fasterxml.jackson.databind.jsontype.impl.StdTypeResolverBuilder;
+import com.fasterxml.jackson.databind.jsontype.impl.TypeNameIdResolver;
 
 import java.util.Collection;
 

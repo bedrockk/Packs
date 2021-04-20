@@ -6,7 +6,6 @@ import com.bedrockk.behaviorpacks.json.DefinitionTypeResolverBuilder;
 import com.bedrockk.behaviorpacks.type.SemVersion;
 import com.bedrockk.behaviorpacks.utils.DefinitionIds;
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonSubTypes;
 import com.fasterxml.jackson.annotation.JsonSubTypes.Type;
 import com.fasterxml.jackson.annotation.JsonTypeInfo;

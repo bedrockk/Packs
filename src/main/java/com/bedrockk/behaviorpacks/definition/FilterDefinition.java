@@ -1,6 +1,6 @@
 package com.bedrockk.behaviorpacks.definition;
 
-import com.fasterxml.jackson.annotation.*;
+import com.fasterxml.jackson.annotation.JsonValue;
 import lombok.Data;
 import lombok.RequiredArgsConstructor;
 

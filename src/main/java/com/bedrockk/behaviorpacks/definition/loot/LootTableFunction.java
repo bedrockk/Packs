@@ -1,14 +1,12 @@
 package com.bedrockk.behaviorpacks.definition.loot;
 
-import com.bedrockk.behaviorpacks.definition.loot.condition.*;
 import com.bedrockk.behaviorpacks.definition.loot.function.*;
-import lombok.Data;
-
-import java.util.List;
-
 import com.fasterxml.jackson.annotation.JsonSubTypes;
 import com.fasterxml.jackson.annotation.JsonSubTypes.Type;
 import com.fasterxml.jackson.annotation.JsonTypeInfo;
+import lombok.Data;
+
+import java.util.List;
 
 @JsonTypeInfo(use = JsonTypeInfo.Id.NAME, property = "function", visible = true)
 @JsonSubTypes({

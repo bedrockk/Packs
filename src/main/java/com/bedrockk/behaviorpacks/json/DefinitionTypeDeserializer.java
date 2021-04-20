@@ -5,7 +5,10 @@ import com.bedrockk.behaviorpacks.type.SemVersion;
 import com.fasterxml.jackson.annotation.JsonTypeInfo;
 import com.fasterxml.jackson.core.JsonParser;
 import com.fasterxml.jackson.core.JsonToken;
-import com.fasterxml.jackson.databind.*;
+import com.fasterxml.jackson.databind.BeanProperty;
+import com.fasterxml.jackson.databind.DeserializationConfig;
+import com.fasterxml.jackson.databind.DeserializationContext;
+import com.fasterxml.jackson.databind.JavaType;
 import com.fasterxml.jackson.databind.exc.InvalidTypeIdException;
 import com.fasterxml.jackson.databind.jsontype.NamedType;
 import com.fasterxml.jackson.databind.jsontype.TypeDeserializer;
@@ -14,7 +17,7 @@ import com.fasterxml.jackson.databind.jsontype.impl.AsPropertyTypeDeserializer;
 import com.fasterxml.jackson.databind.util.TokenBuffer;
 
 import java.io.IOException;
-import java.util.*;
+import java.util.Collection;
 
 public class DefinitionTypeDeserializer extends AsPropertyTypeDeserializer {
     private static final long serialVersionUID = 1L;
