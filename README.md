@@ -9,7 +9,7 @@ A library for de/serialization of definitions on Minecraft: BE BehaviorPacks
 
 I'm currently using Github Packages for publishing.
 
-1. Add the authentication to your global settings.xml to access Github Package Registry
+1. Add the authentication to your global `settings.xml` to access Github Package Registry
 ``` xml
 <servers>
     <server>
@@ -20,7 +20,7 @@ I'm currently using Github Packages for publishing.
 </servers>
 ```
 
-2. Add the bedrockk's package repository
+2. Add the bedrockk's package repository to `pom.xml`
 ```xml
 <repository>
     <id>github</id>
