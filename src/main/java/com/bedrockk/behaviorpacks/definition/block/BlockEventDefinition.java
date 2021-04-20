@@ -11,6 +11,7 @@ import com.fasterxml.jackson.annotation.JsonValue;
 import com.fasterxml.jackson.databind.node.ObjectNode;
 import lombok.Data;
 
+import java.nio.file.Path;
 import java.util.List;
 import java.util.Locale;
 import java.util.Map;
@@ -55,7 +56,7 @@ public class BlockEventDefinition {
 
     @Data
     public static class SpawnLoot {
-        private String table;
+        private Path table;
     }
 
     @Data

@@ -2,14 +2,13 @@ package com.bedrockk.behaviorpacks;
 
 import com.bedrockk.behaviorpacks.definition.*;
 import com.bedrockk.behaviorpacks.definition.recipe.RecipeDefinition;
-import com.bedrockk.behaviorpacks.definition.recipe.ShapedRecipeDefinition;
 import com.bedrockk.molang.util.Util;
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonProperty;
-import lombok.Value;
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.JsonNode;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
+import org.opentest4j.AssertionFailedError;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -23,8 +22,9 @@ public class DeserializeTest {
         InputStream file = getClass().getClassLoader().getResourceAsStream("test_recipe.json");
         Assertions.assertNotNull(file);
 
-        RecipeDefinition root = BehaviorPackFactory.deserializeRecipe(Util.readFile(file));
-        System.out.println(BehaviorPackFactory.serialize(root));
+        String input = Util.readFile(file);
+        RecipeDefinition root = BehaviorPackFactory.deserializeRecipe(input);
+        assertResult(input, root);
     }
 
     @Test
@@ -33,8 +33,9 @@ public class DeserializeTest {
         InputStream file = getClass().getClassLoader().getResourceAsStream("test_item.json");
         Assertions.assertNotNull(file);
 
-        ItemDefinition root = BehaviorPackFactory.deserializeItem(Util.readFile(file));
-        System.out.println(BehaviorPackFactory.serialize(root));
+        String input = Util.readFile(file);
+        ItemDefinition root = BehaviorPackFactory.deserializeItem(input);
+        assertResult(input, root);
     }
 
     @Test
@@ -43,8 +44,9 @@ public class DeserializeTest {
         InputStream file = getClass().getClassLoader().getResourceAsStream("test_feature_rule.json");
         Assertions.assertNotNull(file);
 
-        FeatureRuleDefinition root = BehaviorPackFactory.deserializeFeatureRule(Util.readFile(file));
-        System.out.println(BehaviorPackFactory.serialize(root));
+        String input = Util.readFile(file);
+        FeatureRuleDefinition root = BehaviorPackFactory.deserializeFeatureRule(input);
+        assertResult(input, root);
     }
 
     @Test
@@ -53,18 +55,31 @@ public class DeserializeTest {
         InputStream file = getClass().getClassLoader().getResourceAsStream("test_feature.json");
         Assertions.assertNotNull(file);
 
-        FeatureDefinition root = BehaviorPackFactory.deserializeFeature(Util.readFile(file));
-        System.out.println(BehaviorPackFactory.serialize(root));
+        String input = Util.readFile(file);
+        FeatureDefinition root = BehaviorPackFactory.deserializeFeature(input);
+        assertResult(input, root);
+    }
+
+    @Test
+    @DisplayName("Loot Table Test")
+    public void testLootTable() throws IOException {
+        InputStream file = getClass().getClassLoader().getResourceAsStream("test_loot_table.json");
+        Assertions.assertNotNull(file);
+
+        String input = Util.readFile(file);
+        LootTableDefinition root = BehaviorPackFactory.deserializeLootTable(input);
+        assertResult(input, root);
     }
 
     @Test
     @DisplayName("Animation Controller Test")
-    public void testController() throws IOException {
-        InputStream file = getClass().getClassLoader().getResourceAsStream("test_controller.json");
+    public void testAnimationController() throws IOException {
+        InputStream file = getClass().getClassLoader().getResourceAsStream("test_animation_controller.json");
         Assertions.assertNotNull(file);
 
-        AnimationControllersDefinition root = BehaviorPackFactory.deserializeAnimationControllers(Util.readFile(file));
-        System.out.println(BehaviorPackFactory.serialize(root));
+        String input = Util.readFile(file);
+        AnimationControllerDefinition root = BehaviorPackFactory.deserializeAnimationController(input);
+        assertResult(input, root);
     }
 
     @Test
@@ -73,7 +88,33 @@ public class DeserializeTest {
         InputStream file = getClass().getClassLoader().getResourceAsStream("test_filter.json");
         Assertions.assertNotNull(file);
 
-        FilterDefinition definition = BehaviorPackFactory.MAPPER.readValue(Util.readFile(file), FilterDefinition.class);
-        System.out.println(BehaviorPackFactory.serialize(definition));
+        String input = Util.readFile(file);
+        FilterDefinition root = BehaviorPackFactory.MAPPER.readValue(input, FilterDefinition.class);
+        assertResult(input, root);
+    }
+
+    private static void assertResult(String input, Definition definition) throws JsonProcessingException {
+        JsonNode expected = BehaviorPackFactory.MAPPER.readTree(input);
+        assertTree(expected, BehaviorPackFactory.toJsonNode(definition));
+    }
+
+    private static void assertTree(JsonNode expected, JsonNode actual) {
+        if (expected.isObject() && actual.isObject()) {
+            expected.fields().forEachRemaining(e -> {
+                String k = e.getKey();
+                JsonNode v = e.getValue();
+                if (actual.has(k)) {
+                    assertTree(v, actual.get(k));
+                } else {
+                    throw new AssertionFailedError("Key " + k + " not found in output");
+                }
+            });
+        } else if (expected.isArray() && actual.isArray()) {
+            for (int i = 0; i < expected.size(); i++) {
+                assertTree(expected.get(i), actual.get(i));
+            }
+        }
+
+        Assertions.assertEquals(expected.getNodeType(), actual.getNodeType());
     }
 }

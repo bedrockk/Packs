@@ -10,7 +10,7 @@ import java.util.Locale;
 @Data
 public class FilterDefinition implements Definition {
     private Operator operator;
-    private Subject subject = Subject.SELF;
+    private Subject subject;
     private String test;
     private Object value;
     private String domain = null;

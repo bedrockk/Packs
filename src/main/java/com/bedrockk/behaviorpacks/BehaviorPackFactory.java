@@ -9,8 +9,6 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.*;
 import com.fasterxml.jackson.databind.json.JsonMapper;
 
-import java.util.Locale;
-
 public class BehaviorPackFactory {
     public static final SemVersion FORMAT_VERSION = SemVersion.of("1.16.200");
     public static final ObjectMapper MAPPER = new JsonMapper()
@@ -33,8 +31,12 @@ public class BehaviorPackFactory {
         return MAPPER.readValue(json, ItemDefinition.class);
     }
 
-    public static AnimationControllersDefinition deserializeAnimationControllers(String json) throws JsonProcessingException {
-        return MAPPER.readValue(json, AnimationControllersDefinition.class);
+    public static AnimationDefinition deserializeAnimation(String json) throws JsonProcessingException {
+        return MAPPER.readValue(json, AnimationDefinition.class);
+    }
+
+    public static AnimationControllerDefinition deserializeAnimationController(String json) throws JsonProcessingException {
+        return MAPPER.readValue(json, AnimationControllerDefinition.class);
     }
 
     public static RecipeDefinition deserializeRecipe(String json) throws JsonProcessingException {
@@ -47,6 +49,10 @@ public class BehaviorPackFactory {
 
     public static FeatureDefinition deserializeFeature(String json) throws JsonProcessingException {
         return MAPPER.readValue(json, FeatureDefinition.class);
+    }
+
+    public static LootTableDefinition deserializeLootTable(String json) throws JsonProcessingException {
+        return MAPPER.readValue(json, LootTableDefinition.class);
     }
 
     public static String serialize(Object object) throws JsonProcessingException {

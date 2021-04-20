@@ -11,6 +11,15 @@ import java.util.*;
 import java.util.stream.Collectors;
 
 public class JsonList<E> extends ArrayList<E> {
+    private boolean minimized = false;
+
+    public boolean isMinimized() {
+        return minimized;
+    }
+
+    public void setMinimized(boolean minimized) {
+        this.minimized = minimized;
+    }
 
     @JsonCreator
     public static <T> JsonList<T> fromJson(JsonNode node) {
@@ -22,13 +31,14 @@ public class JsonList<E> extends ArrayList<E> {
         } else {
             T type = BehaviorPackFactory.MAPPER.convertValue(node, new TypeReference<T>() {});
             list.add(type);
+            list.setMinimized(true);
         }
         return list;
     }
 
     @JsonValue
     public JsonNode toJson() {
-        if (this.size() == 1) {
+        if (this.isMinimized() && this.size() == 1) {
             return BehaviorPackFactory.toJsonNode(this.get(0));
         } else {
             ArrayNode node = BehaviorPackFactory.MAPPER.createArrayNode();
