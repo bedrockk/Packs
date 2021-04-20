@@ -1,5 +1,7 @@
 package com.bedrockk.behaviorpacks.type;
 
+import java.util.Locale;
+
 public enum ItemCategoryType {
     NATURE,
     CONSTRUCTION,
@@ -10,6 +12,6 @@ public enum ItemCategoryType {
 
     @Override
     public String toString() {
-        return name().toLowerCase();
+        return name().toLowerCase(Locale.ENGLISH);
     }
 }

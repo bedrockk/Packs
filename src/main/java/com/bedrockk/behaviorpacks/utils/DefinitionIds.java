@@ -14,4 +14,19 @@ public class DefinitionIds {
     public static final String RECIPE_SHAPELESS = "minecraft:recipe_shapeless";
     public static final String RECIPE_BREWING_MIX = "minecraft:recipe_brewing_mix";
     public static final String RECIPE_BREWING_CONTAINER = "minecraft:recipe_brewing_container";
+    public static final String FEATURE_RULES = "minecraft:feature_rules";
+    public static final String FEATURE_AGGREGATE = "minecraft:aggregate_feature";
+    public static final String FEATURE_CAVE_CARVER = "minecraft:cave_carver_feature";
+    public static final String FEATURE_GROWING_PLANT = "minecraft:growing_plant_feature";
+    public static final String FEATURE_HELL_CAVE_CARVER = "minecraft:hell_cave_carver_feature";
+    public static final String FEATURE_ORE = "minecraft:ore_feature";
+    public static final String FEATURE_SCATTER = "minecraft:scatter_feature";
+    public static final String FEATURE_SEARCH = "minecraft:search_feature";
+    public static final String FEATURE_SEQUENCE = "minecraft:sequence_feature";
+    public static final String FEATURE_SINGLE_BLOCK = "minecraft:single_block_feature";
+    public static final String FEATURE_SNAP_TO_SURFACE = "minecraft:snap_to_surface_feature";
+    public static final String FEATURE_STRUCTURE_TEMPLATE = "minecraft:structure_template_feature";
+    public static final String FEATURE_TREE = "minecraft:tree_feature";
+    public static final String FEATURE_UNDERWATER_CAVE_CARVER = "minecraft:underwater_cave_carver_feature";
+    public static final String FEATURE_WEIGHTED_RANDOM = "minecraft:weighted_random_feature";
 }

@@ -2,6 +2,8 @@ package com.bedrockk.behaviorpacks.definition.item;
 
 import lombok.Data;
 
+import java.util.Locale;
+
 @Data
 public class SignDefinition implements ItemComponentDefinition {
     private SignType type;
@@ -16,7 +18,7 @@ public class SignDefinition implements ItemComponentDefinition {
 
         @Override
         public String toString() {
-            return name().toLowerCase();
+            return name().toLowerCase(Locale.ENGLISH);
         }
     }
 }

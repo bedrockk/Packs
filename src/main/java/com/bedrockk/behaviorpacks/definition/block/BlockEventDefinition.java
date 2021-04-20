@@ -12,6 +12,7 @@ import com.fasterxml.jackson.databind.node.ObjectNode;
 import lombok.Data;
 
 import java.util.List;
+import java.util.Locale;
 import java.util.Map;
 
 @Data
@@ -146,7 +147,7 @@ public class BlockEventDefinition {
 
         @Override
         public String toString() {
-            return name().toLowerCase();
+            return name().toLowerCase(Locale.ENGLISH);
         }
     }
 }

@@ -2,6 +2,8 @@ package com.bedrockk.behaviorpacks.definition.item;
 
 import lombok.Data;
 
+import java.util.Locale;
+
 @Data
 public class CooldownDefinition implements ItemComponentDefinition {
     private Category category;
@@ -13,7 +15,7 @@ public class CooldownDefinition implements ItemComponentDefinition {
 
         @Override
         public String toString() {
-            return name().toLowerCase();
+            return name().toLowerCase(Locale.ENGLISH);
         }
     }
 }

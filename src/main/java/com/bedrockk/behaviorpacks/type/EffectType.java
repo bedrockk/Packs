@@ -1,5 +1,7 @@
 package com.bedrockk.behaviorpacks.type;
 
+import java.util.Locale;
+
 public enum EffectType {
     ALL,
     ABSORPTION,
@@ -34,6 +36,6 @@ public enum EffectType {
 
     @Override
     public String toString() {
-        return name().toLowerCase();
+        return name().toLowerCase(Locale.ENGLISH);
     }
 }

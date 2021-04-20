@@ -2,6 +2,8 @@ package com.bedrockk.behaviorpacks.definition.item;
 
 import lombok.Data;
 
+import java.util.Locale;
+
 @Data
 public class DoorDefinition implements ItemComponentDefinition {
     private MaterialType material;
@@ -13,7 +15,7 @@ public class DoorDefinition implements ItemComponentDefinition {
 
         @Override
         public String toString() {
-            return name().toLowerCase();
+            return name().toLowerCase(Locale.ENGLISH);
         }
     }
 
@@ -28,7 +30,7 @@ public class DoorDefinition implements ItemComponentDefinition {
 
         @Override
         public String toString() {
-            return name().toLowerCase();
+            return name().toLowerCase(Locale.ENGLISH);
         }
     }
 }

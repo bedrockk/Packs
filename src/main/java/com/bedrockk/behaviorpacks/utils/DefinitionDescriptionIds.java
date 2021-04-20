@@ -13,4 +13,5 @@ public class DefinitionDescriptionIds {
     public static final String RUNTIME_IDENTIFIER = "runtime_identifier";
     public static final String ANIMATIONS = "animations";
     public static final String SCRIPTS = "scripts";
+    public static final String PLACES_FEATURE = "places_feature";
 }

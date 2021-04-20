@@ -1,5 +1,7 @@
 package com.bedrockk.behaviorpacks.type;
 
+import java.util.Locale;
+
 public enum InventoryType {
     MINECART_CHEST,
     HORSE,
@@ -10,7 +12,6 @@ public enum InventoryType {
 
     @Override
     public String toString() {
-        return name().toLowerCase();
+        return name().toLowerCase(Locale.ENGLISH);
     }
-
 }

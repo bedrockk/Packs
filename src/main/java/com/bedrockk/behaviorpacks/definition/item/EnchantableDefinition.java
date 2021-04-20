@@ -2,6 +2,8 @@ package com.bedrockk.behaviorpacks.definition.item;
 
 import lombok.Data;
 
+import java.util.Locale;
+
 @Data
 public class EnchantableDefinition implements ItemComponentDefinition {
     private EnchantSlot slot;
@@ -26,7 +28,7 @@ public class EnchantableDefinition implements ItemComponentDefinition {
 
         @Override
         public String toString() {
-            return name().toLowerCase();
+            return name().toLowerCase(Locale.ENGLISH);
         }
     }
 }

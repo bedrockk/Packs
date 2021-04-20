@@ -1,5 +1,7 @@
 package com.bedrockk.behaviorpacks.type;
 
+import java.util.Locale;
+
 public enum EquipmentSlotType {
     ANY,
     ARMOR,
@@ -11,6 +13,6 @@ public enum EquipmentSlotType {
 
     @Override
     public String toString() {
-        return name().toLowerCase();
+        return name().toLowerCase(Locale.ENGLISH);
     }
 }

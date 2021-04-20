@@ -1,4 +1,4 @@
-package com.bedrockk.behaviorpacks.type;
+package com.bedrockk.behaviorpacks.utils;
 
 import lombok.Data;
 

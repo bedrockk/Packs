@@ -5,6 +5,7 @@ import lombok.Data;
 import lombok.RequiredArgsConstructor;
 
 import java.util.List;
+import java.util.Locale;
 
 @Data
 public class FilterDefinition implements Definition {
@@ -53,7 +54,7 @@ public class FilterDefinition implements Definition {
 
         @Override
         public String toString() {
-            return name().toLowerCase();
+            return name().toLowerCase(Locale.ENGLISH);
         }
     }
 }

@@ -3,10 +3,7 @@ package com.bedrockk.behaviorpacks.definition;
 import com.bedrockk.behaviorpacks.type.SemVersion;
 import lombok.Data;
 
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.List;
-import java.util.UUID;
+import java.util.*;
 
 @Data
 public class PackManifestDefinition implements Definition {
@@ -66,7 +63,7 @@ public class PackManifestDefinition implements Definition {
 
         @Override
         public String toString() {
-            return name().toLowerCase();
+            return name().toLowerCase(Locale.ENGLISH);
         }
     }
 
@@ -77,7 +74,7 @@ public class PackManifestDefinition implements Definition {
 
         @Override
         public String toString() {
-            return name().toLowerCase();
+            return name().toLowerCase(Locale.ENGLISH);
         }
     }
 }

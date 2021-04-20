@@ -64,4 +64,5 @@ public class ItemComponentIds {
     public static final String SHEARS = "minecraft:shears";
     public static final String SKULL = "minecraft:skull";
     public static final String MOB_PLACER = "minecraft:mob_placer";
+    public static final String PORTFOLIO = "minecraft:portfolio";
 }

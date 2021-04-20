@@ -20,9 +20,9 @@
         "data": 4
       }
     },
-    "result": {
+    "result": [{
       "item": "minecraft:boat",
       "data": 4
-    }
+    }]
   }
 }

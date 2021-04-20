@@ -1,9 +1,6 @@
 package com.bedrockk.behaviorpacks;
 
-import com.bedrockk.behaviorpacks.definition.AnimationControllersDefinition;
-import com.bedrockk.behaviorpacks.definition.BlockDefinition;
-import com.bedrockk.behaviorpacks.definition.EntityDefinition;
-import com.bedrockk.behaviorpacks.definition.ItemDefinition;
+import com.bedrockk.behaviorpacks.definition.*;
 import com.bedrockk.behaviorpacks.definition.recipe.RecipeDefinition;
 import com.bedrockk.behaviorpacks.type.SemVersion;
 import com.fasterxml.jackson.annotation.JsonInclude;
@@ -12,8 +9,9 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.*;
 import com.fasterxml.jackson.databind.json.JsonMapper;
 
-public class BehaviorPackFactory {
+import java.util.Locale;
 
+public class BehaviorPackFactory {
     public static final SemVersion FORMAT_VERSION = SemVersion.of("1.16.200");
     public static final ObjectMapper MAPPER = new JsonMapper()
             .enable(JsonParser.Feature.ALLOW_COMMENTS)
@@ -41,6 +39,14 @@ public class BehaviorPackFactory {
 
     public static RecipeDefinition deserializeRecipe(String json) throws JsonProcessingException {
         return MAPPER.readValue(json, RecipeDefinition.class);
+    }
+
+    public static FeatureRuleDefinition deserializeFeatureRule(String json) throws JsonProcessingException {
+        return MAPPER.readValue(json, FeatureRuleDefinition.class);
+    }
+
+    public static FeatureDefinition deserializeFeature(String json) throws JsonProcessingException {
+        return MAPPER.readValue(json, FeatureDefinition.class);
     }
 
     public static String serialize(Object object) throws JsonProcessingException {

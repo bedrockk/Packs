@@ -13,6 +13,7 @@ import com.fasterxml.jackson.databind.node.ObjectNode;
 import lombok.Data;
 
 import java.util.List;
+import java.util.Locale;
 
 @Data
 public class ItemEventDefinition {
@@ -111,7 +112,7 @@ public class ItemEventDefinition {
 
         @Override
         public String toString() {
-            return name().toLowerCase();
+            return name().toLowerCase(Locale.ENGLISH);
         }
     }
 }

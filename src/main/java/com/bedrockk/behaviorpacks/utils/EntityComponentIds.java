@@ -119,6 +119,7 @@ public class EntityComponentIds {
     public static final String BEHAVIOR_VEX_RANDOM_MOVE = "minecraft:behavior.vex_random_move";
     public static final String BEHAVIOR_WITHER_RANDOM_ATTACK_POS_GOAL = "minecraft:behavior.wither_random_attack_pos_goal";
     public static final String BEHAVIOR_WITHER_TARGET_HIGHEST_DAMAGE = "minecraft:behavior.wither_target_highest_damage";
+    public static final String BALLOON = "minecraft:balloon";
     public static final String ATTACK = "minecraft:attack";
     public static final String SPELL_EFFECTS = "minecraft:spell_effects";
     public static final String STRENGTH = "minecraft:strength";
