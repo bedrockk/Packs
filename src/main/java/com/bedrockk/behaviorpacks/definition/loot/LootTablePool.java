@@ -10,7 +10,7 @@ public class LootTablePool {
     private List<LootTableCondition> conditions;
     private Tiers tiers;
     private Range rolls;
-    private List<LootTableEntry> entries;
+    private List<LootPoolEntry> entries;
 
     @Data
     public static class Tiers {

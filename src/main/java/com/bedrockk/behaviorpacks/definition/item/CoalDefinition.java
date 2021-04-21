@@ -1,5 +1,7 @@
 package com.bedrockk.behaviorpacks.definition.item;
 
-public class CoalDefinition implements ItemComponentDefinition {
+import com.bedrockk.behaviorpacks.node.ItemComponentNode;
+
+public class CoalDefinition implements ItemComponentNode {
     // noop
 }

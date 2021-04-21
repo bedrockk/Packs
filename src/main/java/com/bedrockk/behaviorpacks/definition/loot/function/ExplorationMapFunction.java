@@ -4,6 +4,6 @@ import com.bedrockk.behaviorpacks.definition.loot.LootTableFunction;
 import lombok.Data;
 
 @Data
-public class ExplorationMapFunction extends LootTableFunction {
+public class ExplorationMapFunction implements LootTableFunction {
     private String destination; // structure name
 }

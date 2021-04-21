@@ -29,7 +29,6 @@ import java.util.List;
         @Type(name = "set_name", value = SetNameFunction.class),
         @Type(name = "specific_enchants", value = SpecificEnchantsFunction.class)
 })
-@Data
-public abstract class LootTableFunction {
-    private List<LootTableCondition> conditions;
+public interface LootTableFunction {
+
 }

@@ -4,6 +4,6 @@ import com.bedrockk.behaviorpacks.definition.loot.LootTableFunction;
 import lombok.Data;
 
 @Data
-public class SetNameFunction extends LootTableFunction {
+public class SetNameFunction implements LootTableFunction {
     private String name;
 }

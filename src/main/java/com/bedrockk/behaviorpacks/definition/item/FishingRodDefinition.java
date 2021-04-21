@@ -1,5 +1,7 @@
 package com.bedrockk.behaviorpacks.definition.item;
 
-public class FishingRodDefinition implements ItemComponentDefinition {
+import com.bedrockk.behaviorpacks.node.ItemComponentNode;
+
+public class FishingRodDefinition implements ItemComponentNode {
     // noop
 }

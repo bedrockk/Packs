@@ -1,9 +1,9 @@
 package com.bedrockk.behaviorpacks.definition.loot.entry;
 
-import com.bedrockk.behaviorpacks.definition.loot.LootTableEntry;
+import com.bedrockk.behaviorpacks.definition.loot.LootPoolEntry;
 import lombok.Data;
 
 @Data
-public class EmptyEntry implements LootTableEntry {
+public class EmptyEntry extends LootPoolEntry {
     private int weight;
 }

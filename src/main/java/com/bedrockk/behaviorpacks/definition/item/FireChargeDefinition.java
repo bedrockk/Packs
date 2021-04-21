@@ -1,5 +1,7 @@
 package com.bedrockk.behaviorpacks.definition.item;
 
-public class FireChargeDefinition implements ItemComponentDefinition {
+import com.bedrockk.behaviorpacks.node.ItemComponentNode;
+
+public class FireChargeDefinition implements ItemComponentNode {
     // noop
 }

@@ -7,7 +7,7 @@ import java.util.List;
 
 // TODO: converter for format version < 1.16.100
 @Data
-public class SetBannerDetailsFunction extends LootTableFunction {
+public class SetBannerDetailsFunction implements LootTableFunction {
     private String type; // default or illager_captain
     private String baseColor;
     private List<Pattern> patterns;

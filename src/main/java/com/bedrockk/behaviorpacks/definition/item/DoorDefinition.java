@@ -1,11 +1,12 @@
 package com.bedrockk.behaviorpacks.definition.item;
 
+import com.bedrockk.behaviorpacks.node.ItemComponentNode;
 import lombok.Data;
 
 import java.util.Locale;
 
 @Data
-public class DoorDefinition implements ItemComponentDefinition {
+public class DoorDefinition implements ItemComponentNode {
     private MaterialType material;
     private DoorType type;
 

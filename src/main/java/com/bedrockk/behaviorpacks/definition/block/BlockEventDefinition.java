@@ -99,13 +99,13 @@ public class BlockEventDefinition {
     @Data
     public static class PlayEffect {
         private int data;
-        private EntityEventDefinition.Target target;
+        private Target target;
         private String effect;
     }
 
     @Data
     public static class PlaySound {
-        private EntityEventDefinition.Target target;
+        private Target target;
         private String sound;
     }
 

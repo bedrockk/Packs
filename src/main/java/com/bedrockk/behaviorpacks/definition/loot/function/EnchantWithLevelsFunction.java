@@ -5,7 +5,8 @@ import com.bedrockk.behaviorpacks.type.Range;
 import lombok.Data;
 
 @Data
-public class EnchantWithLevelsFunction extends LootTableFunction {
-    private double chance;
+public class EnchantWithLevelsFunction implements LootTableFunction {
+    private Double chance;
     private Range levels;
+    private boolean treasure;
 }

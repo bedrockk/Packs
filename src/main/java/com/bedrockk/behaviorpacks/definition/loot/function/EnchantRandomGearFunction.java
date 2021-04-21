@@ -4,6 +4,6 @@ import com.bedrockk.behaviorpacks.definition.loot.LootTableFunction;
 import lombok.Data;
 
 @Data
-public class EnchantRandomGearFunction extends LootTableFunction {
+public class EnchantRandomGearFunction implements LootTableFunction {
     private double chance;
 }

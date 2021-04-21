@@ -6,6 +6,9 @@ import com.bedrockk.behaviorpacks.definition.loot.entry.TableEntry;
 import com.fasterxml.jackson.annotation.JsonSubTypes;
 import com.fasterxml.jackson.annotation.JsonSubTypes.Type;
 import com.fasterxml.jackson.annotation.JsonTypeInfo;
+import lombok.Data;
+
+import java.util.List;
 
 @JsonTypeInfo(use = JsonTypeInfo.Id.NAME, property = "type", visible = true)
 @JsonSubTypes({
@@ -13,5 +16,7 @@ import com.fasterxml.jackson.annotation.JsonTypeInfo;
         @Type(name = "table", value = TableEntry.class),
         @Type(name = "empty", value = EmptyEntry.class)
 })
-public interface LootTableEntry {
+@Data
+public abstract class LootPoolEntry {
+    private List<LootTableCondition> conditions;
 }

@@ -6,7 +6,7 @@ import lombok.Data;
 import java.util.List;
 
 @Data
-public class SetBookContentsFunction extends LootTableFunction {
+public class SetBookContentsFunction implements LootTableFunction {
     private String author;
     private String title;
     private List<String> pages;

@@ -16,7 +16,7 @@ public class BehaviorPackFactory {
             .enable(MapperFeature.ACCEPT_CASE_INSENSITIVE_ENUMS)
             .enable(SerializationFeature.WRITE_ENUMS_USING_TO_STRING)
             .disable(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES)
-            .setSerializationInclusion(JsonInclude.Include.NON_NULL)
+            .setSerializationInclusion(JsonInclude.Include.NON_EMPTY)
             .setPropertyNamingStrategy(new PropertyNamingStrategies.SnakeCaseStrategy());
 
     public static EntityDefinition deserializeEntity(String json) throws JsonProcessingException {
@@ -53,6 +53,14 @@ public class BehaviorPackFactory {
 
     public static LootTableDefinition deserializeLootTable(String json) throws JsonProcessingException {
         return MAPPER.readValue(json, LootTableDefinition.class);
+    }
+
+    public static FogDefinition deserializeFog(String json) throws JsonProcessingException {
+        return MAPPER.readValue(json, FogDefinition.class);
+    }
+
+    public static TradeTableDefinition deserializeTradeTable(String json) throws JsonProcessingException {
+        return MAPPER.readValue(json, TradeTableDefinition.class);
     }
 
     public static String serialize(Object object) throws JsonProcessingException {

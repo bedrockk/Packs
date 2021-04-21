@@ -4,6 +4,6 @@ import com.bedrockk.behaviorpacks.definition.loot.LootTableFunction;
 import lombok.Data;
 
 @Data
-public class EnchantRandomlyFunction extends LootTableFunction {
+public class EnchantRandomlyFunction implements LootTableFunction {
     private boolean treasure;
 }

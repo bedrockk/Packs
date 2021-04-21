@@ -1,5 +1,7 @@
 package com.bedrockk.behaviorpacks.definition.item;
 
-public class BucketDefinition implements ItemComponentDefinition {
+import com.bedrockk.behaviorpacks.node.ItemComponentNode;
+
+public class BucketDefinition implements ItemComponentNode {
     // noop
 }

@@ -1,5 +1,7 @@
 package com.bedrockk.behaviorpacks.definition.item;
 
-public class NameTagDefinition implements ItemComponentDefinition {
+import com.bedrockk.behaviorpacks.node.ItemComponentNode;
+
+public class NameTagDefinition implements ItemComponentNode {
     // noop
 }

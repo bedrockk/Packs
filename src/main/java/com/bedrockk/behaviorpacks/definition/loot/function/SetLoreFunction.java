@@ -6,6 +6,6 @@ import lombok.Data;
 import java.util.List;
 
 @Data
-public class SetLoreFunction extends LootTableFunction {
+public class SetLoreFunction implements LootTableFunction {
     private List<String> lore;
 }

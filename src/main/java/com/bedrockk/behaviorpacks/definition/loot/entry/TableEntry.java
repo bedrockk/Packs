@@ -1,12 +1,12 @@
 package com.bedrockk.behaviorpacks.definition.loot.entry;
 
-import com.bedrockk.behaviorpacks.definition.loot.LootTableEntry;
+import com.bedrockk.behaviorpacks.definition.loot.LootPoolEntry;
 import lombok.Data;
 
 import java.nio.file.Path;
 
 @Data
-public class TableEntry implements LootTableEntry {
+public class TableEntry extends LootPoolEntry {
     private Path name;
     private int weight;
 }

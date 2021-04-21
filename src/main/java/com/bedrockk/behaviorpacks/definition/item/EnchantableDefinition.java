@@ -1,11 +1,12 @@
 package com.bedrockk.behaviorpacks.definition.item;
 
+import com.bedrockk.behaviorpacks.node.ItemComponentNode;
 import lombok.Data;
 
 import java.util.Locale;
 
 @Data
-public class EnchantableDefinition implements ItemComponentDefinition {
+public class EnchantableDefinition implements ItemComponentNode {
     private EnchantSlot slot;
     private int value;
 

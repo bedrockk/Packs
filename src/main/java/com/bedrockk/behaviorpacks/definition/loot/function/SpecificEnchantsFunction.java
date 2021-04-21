@@ -7,7 +7,7 @@ import lombok.Data;
 import java.util.List;
 
 @Data
-public class SpecificEnchantsFunction extends LootTableFunction {
+public class SpecificEnchantsFunction implements LootTableFunction {
     private List<Enchant> enchants;
 
     @Data

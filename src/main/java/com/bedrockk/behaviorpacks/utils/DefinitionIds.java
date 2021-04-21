@@ -29,4 +29,5 @@ public class DefinitionIds {
     public static final String FEATURE_TREE = "minecraft:tree_feature";
     public static final String FEATURE_UNDERWATER_CAVE_CARVER = "minecraft:underwater_cave_carver_feature";
     public static final String FEATURE_WEIGHTED_RANDOM = "minecraft:weighted_random_feature";
+    public static final String FOG_SETTINGS = "minecraft:fog_settings";
 }

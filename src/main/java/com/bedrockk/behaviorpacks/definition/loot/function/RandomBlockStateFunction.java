@@ -5,7 +5,7 @@ import com.bedrockk.behaviorpacks.type.Range;
 import lombok.Data;
 
 @Data
-public class RandomBlockStateFunction extends LootTableFunction {
+public class RandomBlockStateFunction implements LootTableFunction {
     private String blockState;
     private Range values;
 }

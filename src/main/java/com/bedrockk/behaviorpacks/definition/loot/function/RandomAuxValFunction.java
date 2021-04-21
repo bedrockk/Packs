@@ -5,6 +5,6 @@ import com.bedrockk.behaviorpacks.type.Range;
 import lombok.Data;
 
 @Data
-public class RandomAuxValFunction extends LootTableFunction {
+public class RandomAuxValFunction implements LootTableFunction {
     private Range values;
 }

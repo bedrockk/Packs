@@ -6,6 +6,6 @@ import lombok.Data;
 import java.nio.file.Path;
 
 @Data
-public class FillContainerFunction extends LootTableFunction {
+public class FillContainerFunction implements LootTableFunction {
     private Path lootTable;
 }

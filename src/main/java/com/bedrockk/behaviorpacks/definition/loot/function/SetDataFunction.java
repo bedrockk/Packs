@@ -5,6 +5,6 @@ import com.bedrockk.behaviorpacks.type.Range;
 import lombok.Data;
 
 @Data
-public class SetDataFunction extends LootTableFunction {
+public class SetDataFunction implements LootTableFunction {
     private Range data;
 }
