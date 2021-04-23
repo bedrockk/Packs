@@ -23,7 +23,7 @@ public class DeserializeTest {
         Assertions.assertNotNull(file);
 
         String input = Util.readFile(file);
-        RecipeDefinition root = BehaviorPackFactory.deserializeRecipe(input);
+        RecipeDefinition root = PackHelper.deserializeRecipe(input);
         assertResult(input, root);
     }
 
@@ -34,7 +34,7 @@ public class DeserializeTest {
         Assertions.assertNotNull(file);
 
         String input = Util.readFile(file);
-        ItemDefinition root = BehaviorPackFactory.deserializeItem(input);
+        ItemDefinition root = PackHelper.deserializeItem(input);
         assertResult(input, root);
     }
 
@@ -45,7 +45,7 @@ public class DeserializeTest {
         Assertions.assertNotNull(file);
 
         String input = Util.readFile(file);
-        FeatureRuleDefinition root = BehaviorPackFactory.deserializeFeatureRule(input);
+        FeatureRuleDefinition root = PackHelper.deserializeFeatureRule(input);
         assertResult(input, root);
     }
 
@@ -56,7 +56,7 @@ public class DeserializeTest {
         Assertions.assertNotNull(file);
 
         String input = Util.readFile(file);
-        FeatureDefinition root = BehaviorPackFactory.deserializeFeature(input);
+        FeatureDefinition root = PackHelper.deserializeFeature(input);
         assertResult(input, root);
     }
 
@@ -67,7 +67,7 @@ public class DeserializeTest {
         Assertions.assertNotNull(file);
 
         String input = Util.readFile(file);
-        LootTableDefinition root = BehaviorPackFactory.deserializeLootTable(input);
+        LootTableDefinition root = PackHelper.deserializeLootTable(input);
         assertResult(input, root);
     }
 
@@ -78,7 +78,7 @@ public class DeserializeTest {
         Assertions.assertNotNull(file);
 
         String input = Util.readFile(file);
-        AnimationControllerDefinition root = BehaviorPackFactory.deserializeAnimationController(input);
+        AnimationControllerDefinition root = PackHelper.deserializeAnimationController(input);
         assertResult(input, root);
     }
 
@@ -89,13 +89,13 @@ public class DeserializeTest {
         Assertions.assertNotNull(file);
 
         String input = Util.readFile(file);
-        FilterDefinition root = BehaviorPackFactory.MAPPER.readValue(input, FilterDefinition.class);
+        EntityFilterDefinition root = PackHelper.MAPPER.readValue(input, EntityFilterDefinition.class);
         assertResult(input, root);
     }
 
     private static void assertResult(String input, Definition definition) throws JsonProcessingException {
-        JsonNode expected = BehaviorPackFactory.MAPPER.readTree(input);
-        assertTree(expected, BehaviorPackFactory.toJsonNode(definition));
+        JsonNode expected = PackHelper.MAPPER.readTree(input);
+        assertTree(expected, PackHelper.toJsonNode(definition));
     }
 
     private static void assertTree(JsonNode expected, JsonNode actual) {

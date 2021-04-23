@@ -1,6 +1,6 @@
 package com.bedrockk.behaviorpacks.json;
 
-import com.bedrockk.behaviorpacks.BehaviorPackFactory;
+import com.bedrockk.behaviorpacks.PackHelper;
 import com.bedrockk.behaviorpacks.definition.VersionedDefinition;
 import com.bedrockk.behaviorpacks.type.SemVersion;
 import com.fasterxml.jackson.annotation.JsonTypeInfo;
@@ -36,7 +36,7 @@ public class DefinitionTypeSerializer extends AsExistingPropertyTypeSerializer {
         if (idMetadata.forValue instanceof VersionedDefinition) {
             SemVersion version = ((VersionedDefinition) idMetadata.forValue).getFormatVersion();
             if (version == null) {
-                version = BehaviorPackFactory.FORMAT_VERSION;
+                version = PackHelper.FORMAT_VERSION;
             }
             g.writeStringField("format_version", version.toString());
         }

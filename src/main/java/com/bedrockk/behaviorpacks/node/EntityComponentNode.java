@@ -1,12 +1,12 @@
 package com.bedrockk.behaviorpacks.node;
 
-import com.bedrockk.behaviorpacks.description.attribute.AttackDescription;
-import com.bedrockk.behaviorpacks.description.attribute.SpellEffectsDescription;
-import com.bedrockk.behaviorpacks.description.attribute.StrengthDescription;
-import com.bedrockk.behaviorpacks.description.property.AmbientSoundIntervalDescription;
-import com.bedrockk.behaviorpacks.description.property.CanClimbDescription;
-import com.bedrockk.behaviorpacks.description.property.CanFlyDescription;
-import com.bedrockk.behaviorpacks.description.property.CanPowerJumpDescription;
+import com.bedrockk.behaviorpacks.description.entity.AttackDescription;
+import com.bedrockk.behaviorpacks.description.entity.SpellEffectsDescription;
+import com.bedrockk.behaviorpacks.description.entity.StrengthDescription;
+import com.bedrockk.behaviorpacks.definition.entity.AmbientSoundIntervalDefinition;
+import com.bedrockk.behaviorpacks.definition.entity.CanClimbDefinition;
+import com.bedrockk.behaviorpacks.definition.entity.CanFlyDefinition;
+import com.bedrockk.behaviorpacks.definition.entity.CanPowerJumpDefinition;
 import com.bedrockk.behaviorpacks.description.trigger.*;
 import com.bedrockk.behaviorpacks.json.NamedTypeResolverBuilder;
 import com.bedrockk.behaviorpacks.utils.EntityComponentIds;
@@ -23,44 +23,44 @@ import com.fasterxml.jackson.databind.annotation.JsonTypeResolver;
         @Type(name = EntityComponentIds.SPELL_EFFECTS, value = SpellEffectsDescription.class),
         @Type(name = EntityComponentIds.STRENGTH, value = StrengthDescription.class),
         // properties
-        @Type(name = EntityComponentIds.AMBIENT_SOUND_INTERVAL, value = AmbientSoundIntervalDescription.class),
-        @Type(name = EntityComponentIds.CAN_CLIMB, value = CanClimbDescription.class),
-        @Type(name = EntityComponentIds.CAN_FLY, value = CanFlyDescription.class),
-        @Type(name = EntityComponentIds.CAN_POWER_JUMP, value = CanPowerJumpDescription.class),
-        @Type(name = EntityComponentIds.COLLISION_BOX, value = CanClimbDescription.class),
-        @Type(name = EntityComponentIds.COLOR2, value = CanClimbDescription.class),
-        @Type(name = EntityComponentIds.COLOR, value = CanClimbDescription.class),
-        @Type(name = EntityComponentIds.DEFAULT_LOOK_ANGLE, value = CanClimbDescription.class),
-        @Type(name = EntityComponentIds.EQUIPMENT, value = CanClimbDescription.class),
-        @Type(name = EntityComponentIds.TYPE_FAMILY, value = CanClimbDescription.class),
-        @Type(name = EntityComponentIds.FIRE_IMMUNE, value = CanClimbDescription.class),
-        @Type(name = EntityComponentIds.FLOATS_IN_LIQUID, value = CanClimbDescription.class),
-        @Type(name = EntityComponentIds.FLYING_SPEED, value = CanClimbDescription.class),
-        @Type(name = EntityComponentIds.FRICTION_MODIFIER, value = CanClimbDescription.class),
-        @Type(name = EntityComponentIds.GROUND_OFFSET, value = CanClimbDescription.class),
-        @Type(name = EntityComponentIds.INPUT_GROUND_CONTROLLED, value = CanClimbDescription.class),
-        @Type(name = EntityComponentIds.IS_BABY, value = CanClimbDescription.class),
-        @Type(name = EntityComponentIds.IS_CHARGED, value = CanClimbDescription.class),
-        @Type(name = EntityComponentIds.IS_CHESTED, value = CanClimbDescription.class),
-        @Type(name = EntityComponentIds.IS_DYEABLE, value = CanClimbDescription.class),
-        @Type(name = EntityComponentIds.IS_HIDDEN_WHEN_INVISIBLE, value = CanClimbDescription.class),
-        @Type(name = EntityComponentIds.IS_IGNITED, value = CanClimbDescription.class),
-        @Type(name = EntityComponentIds.IS_ILLAGER_CAPTAIN, value = CanClimbDescription.class),
-        @Type(name = EntityComponentIds.IS_SADDLED, value = CanClimbDescription.class),
-        @Type(name = EntityComponentIds.IS_SHAKING, value = CanClimbDescription.class),
-        @Type(name = EntityComponentIds.IS_SHEARED, value = CanClimbDescription.class),
-        @Type(name = EntityComponentIds.IS_STUNNED, value = CanClimbDescription.class),
-        @Type(name = EntityComponentIds.IS_TAMED, value = CanClimbDescription.class),
-        @Type(name = EntityComponentIds.ITEM_CONTROLLABLE, value = CanClimbDescription.class),
-        @Type(name = EntityComponentIds.LOOT, value = CanClimbDescription.class),
-        @Type(name = EntityComponentIds.MARK_VARIANT, value = CanClimbDescription.class),
-        @Type(name = EntityComponentIds.PUSH_THROUGH, value = CanClimbDescription.class),
-        @Type(name = EntityComponentIds.SCALE, value = CanClimbDescription.class),
-        @Type(name = EntityComponentIds.SKIN_ID, value = CanClimbDescription.class),
-        @Type(name = EntityComponentIds.SOUND_VOLUME, value = CanClimbDescription.class),
-        @Type(name = EntityComponentIds.VARIANT, value = CanClimbDescription.class),
-        @Type(name = EntityComponentIds.WALK_ANIMATION_SPEED, value = CanClimbDescription.class),
-        @Type(name = EntityComponentIds.WANTS_JOCKEY, value = CanClimbDescription.class),
+        @Type(name = EntityComponentIds.AMBIENT_SOUND_INTERVAL, value = AmbientSoundIntervalDefinition.class),
+        @Type(name = EntityComponentIds.CAN_CLIMB, value = CanClimbDefinition.class),
+        @Type(name = EntityComponentIds.CAN_FLY, value = CanFlyDefinition.class),
+        @Type(name = EntityComponentIds.CAN_POWER_JUMP, value = CanPowerJumpDefinition.class),
+        @Type(name = EntityComponentIds.COLLISION_BOX, value = CanClimbDefinition.class),
+        @Type(name = EntityComponentIds.COLOR2, value = CanClimbDefinition.class),
+        @Type(name = EntityComponentIds.COLOR, value = CanClimbDefinition.class),
+        @Type(name = EntityComponentIds.DEFAULT_LOOK_ANGLE, value = CanClimbDefinition.class),
+        @Type(name = EntityComponentIds.EQUIPMENT, value = CanClimbDefinition.class),
+        @Type(name = EntityComponentIds.TYPE_FAMILY, value = CanClimbDefinition.class),
+        @Type(name = EntityComponentIds.FIRE_IMMUNE, value = CanClimbDefinition.class),
+        @Type(name = EntityComponentIds.FLOATS_IN_LIQUID, value = CanClimbDefinition.class),
+        @Type(name = EntityComponentIds.FLYING_SPEED, value = CanClimbDefinition.class),
+        @Type(name = EntityComponentIds.FRICTION_MODIFIER, value = CanClimbDefinition.class),
+        @Type(name = EntityComponentIds.GROUND_OFFSET, value = CanClimbDefinition.class),
+        @Type(name = EntityComponentIds.INPUT_GROUND_CONTROLLED, value = CanClimbDefinition.class),
+        @Type(name = EntityComponentIds.IS_BABY, value = CanClimbDefinition.class),
+        @Type(name = EntityComponentIds.IS_CHARGED, value = CanClimbDefinition.class),
+        @Type(name = EntityComponentIds.IS_CHESTED, value = CanClimbDefinition.class),
+        @Type(name = EntityComponentIds.IS_DYEABLE, value = CanClimbDefinition.class),
+        @Type(name = EntityComponentIds.IS_HIDDEN_WHEN_INVISIBLE, value = CanClimbDefinition.class),
+        @Type(name = EntityComponentIds.IS_IGNITED, value = CanClimbDefinition.class),
+        @Type(name = EntityComponentIds.IS_ILLAGER_CAPTAIN, value = CanClimbDefinition.class),
+        @Type(name = EntityComponentIds.IS_SADDLED, value = CanClimbDefinition.class),
+        @Type(name = EntityComponentIds.IS_SHAKING, value = CanClimbDefinition.class),
+        @Type(name = EntityComponentIds.IS_SHEARED, value = CanClimbDefinition.class),
+        @Type(name = EntityComponentIds.IS_STUNNED, value = CanClimbDefinition.class),
+        @Type(name = EntityComponentIds.IS_TAMED, value = CanClimbDefinition.class),
+        @Type(name = EntityComponentIds.ITEM_CONTROLLABLE, value = CanClimbDefinition.class),
+        @Type(name = EntityComponentIds.LOOT, value = CanClimbDefinition.class),
+        @Type(name = EntityComponentIds.MARK_VARIANT, value = CanClimbDefinition.class),
+        @Type(name = EntityComponentIds.PUSH_THROUGH, value = CanClimbDefinition.class),
+        @Type(name = EntityComponentIds.SCALE, value = CanClimbDefinition.class),
+        @Type(name = EntityComponentIds.SKIN_ID, value = CanClimbDefinition.class),
+        @Type(name = EntityComponentIds.SOUND_VOLUME, value = CanClimbDefinition.class),
+        @Type(name = EntityComponentIds.VARIANT, value = CanClimbDefinition.class),
+        @Type(name = EntityComponentIds.WALK_ANIMATION_SPEED, value = CanClimbDefinition.class),
+        @Type(name = EntityComponentIds.WANTS_JOCKEY, value = CanClimbDefinition.class),
         // triggers
         @Type(name = EntityComponentIds.ON_DEATH, value = OnDeathDescription.class),
         @Type(name = EntityComponentIds.ON_FRIENDLY_ANGER, value = OnFriendlyAngerDescription.class),

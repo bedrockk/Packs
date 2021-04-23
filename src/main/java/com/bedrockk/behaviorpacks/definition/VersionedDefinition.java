@@ -36,8 +36,7 @@ import com.fasterxml.jackson.databind.annotation.JsonTypeResolver;
         @Type(name = DefinitionIds.FEATURE_STRUCTURE_TEMPLATE, value = StructureTemplateFeatureDefinition.class),
         @Type(name = DefinitionIds.FEATURE_TREE, value = TreeFeatureDefinition.class),
         @Type(name = DefinitionIds.FEATURE_UNDERWATER_CAVE_CARVER, value = UnderwaterCaveCarverFeatureDefinition.class),
-        @Type(name = DefinitionIds.FEATURE_WEIGHTED_RANDOM, value = WeightedRandomFeatureDefinition.class),
-        @Type(name = DefinitionIds.FOG_SETTINGS, value = FogDefinition.class)
+        @Type(name = DefinitionIds.FEATURE_WEIGHTED_RANDOM, value = WeightedRandomFeatureDefinition.class)
 })
 public abstract class VersionedDefinition implements Definition {
     @JsonIgnore

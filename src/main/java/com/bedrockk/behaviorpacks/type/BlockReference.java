@@ -1,6 +1,6 @@
 package com.bedrockk.behaviorpacks.type;
 
-import com.bedrockk.behaviorpacks.BehaviorPackFactory;
+import com.bedrockk.behaviorpacks.PackHelper;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonValue;
@@ -26,11 +26,11 @@ public class BlockReference {
     @JsonValue
     public JsonNode toJson() {
         if (this.states.isEmpty()) {
-            return BehaviorPackFactory.toJsonNode(this.name);
+            return PackHelper.toJsonNode(this.name);
         } else {
-            ObjectNode node = BehaviorPackFactory.MAPPER.createObjectNode();
-            node.set("name", BehaviorPackFactory.toJsonNode(this.name));
-            node.set("states", BehaviorPackFactory.toJsonNode(this.states));
+            ObjectNode node = PackHelper.MAPPER.createObjectNode();
+            node.set("name", PackHelper.toJsonNode(this.name));
+            node.set("states", PackHelper.toJsonNode(this.states));
             return node;
         }
     }

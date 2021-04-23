@@ -1,6 +1,6 @@
 package com.bedrockk.behaviorpacks.type;
 
-import com.bedrockk.behaviorpacks.BehaviorPackFactory;
+import com.bedrockk.behaviorpacks.PackHelper;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
 import com.fasterxml.jackson.databind.JsonNode;
@@ -39,12 +39,12 @@ public class Range {
             default:
             case TYPE_OBJECT:
             case TYPE_OBJECT_RANGE:
-                ObjectNode node = BehaviorPackFactory.MAPPER.createObjectNode();
+                ObjectNode node = PackHelper.MAPPER.createObjectNode();
                 node.set(this.type == TYPE_OBJECT_RANGE ? "range_min" : "min", this.castToNearest(this.min));
                 node.set(this.type == TYPE_OBJECT_RANGE ? "range_max" : "max", this.castToNearest(this.max));
                 return node;
             case TYPE_ARRAY:
-                ArrayNode node2 = BehaviorPackFactory.MAPPER.createArrayNode();
+                ArrayNode node2 = PackHelper.MAPPER.createArrayNode();
                 node2.add(this.castToNearest(this.min));
                 node2.add(this.castToNearest(this.max));
                 return node2;
@@ -54,6 +54,6 @@ public class Range {
     }
 
     private JsonNode castToNearest(Double value) {
-        return BehaviorPackFactory.toJsonNode(value % 1 == 0 ? value.intValue() : value);
+        return PackHelper.toJsonNode(value % 1 == 0 ? value.intValue() : value);
     }
 }

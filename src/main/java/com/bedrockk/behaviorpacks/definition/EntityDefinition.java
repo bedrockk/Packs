@@ -1,7 +1,7 @@
 package com.bedrockk.behaviorpacks.definition;
 
 import com.bedrockk.behaviorpacks.definition.entity.EntityEventDefinition;
-import com.bedrockk.behaviorpacks.description.definition.DefinitionDescription;
+import com.bedrockk.behaviorpacks.description.DefinitionDescription;
 import com.bedrockk.behaviorpacks.node.EntityComponentNode;
 import lombok.Data;
 

@@ -1,6 +1,6 @@
 package com.bedrockk.behaviorpacks.definition;
 
-import com.bedrockk.behaviorpacks.BehaviorPackFactory;
+import com.bedrockk.behaviorpacks.PackHelper;
 import com.bedrockk.behaviorpacks.type.AnimationEvent;
 import com.bedrockk.behaviorpacks.type.MolangExpression;
 import com.bedrockk.behaviorpacks.type.SemVersion;
@@ -55,11 +55,11 @@ public class AnimationControllerDefinition implements Definition {
         @JsonValue
         public JsonNode toJson() {
             if (this.condition == null) {
-                return BehaviorPackFactory.toJsonNode(this.animation);
+                return PackHelper.toJsonNode(this.animation);
             }
 
-            ObjectNode node = BehaviorPackFactory.MAPPER.createObjectNode();
-            node.set(this.animation, BehaviorPackFactory.toJsonNode(this.condition));
+            ObjectNode node = PackHelper.MAPPER.createObjectNode();
+            node.set(this.animation, PackHelper.toJsonNode(this.condition));
             return node;
         }
     }

@@ -1,7 +1,7 @@
 package com.bedrockk.behaviorpacks.definition.feature;
 
 import com.bedrockk.behaviorpacks.definition.FeatureDefinition;
-import com.bedrockk.behaviorpacks.description.definition.DefinitionDescription;
+import com.bedrockk.behaviorpacks.description.DefinitionDescription;
 import com.bedrockk.behaviorpacks.type.*;
 import lombok.Data;
 

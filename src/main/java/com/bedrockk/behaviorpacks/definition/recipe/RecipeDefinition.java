@@ -1,7 +1,7 @@
 package com.bedrockk.behaviorpacks.definition.recipe;
 
 import com.bedrockk.behaviorpacks.definition.VersionedDefinition;
-import com.bedrockk.behaviorpacks.description.definition.DefinitionDescription;
+import com.bedrockk.behaviorpacks.description.DefinitionDescription;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 

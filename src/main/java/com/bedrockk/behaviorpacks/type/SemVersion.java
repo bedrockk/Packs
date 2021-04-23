@@ -1,6 +1,6 @@
 package com.bedrockk.behaviorpacks.type;
 
-import com.bedrockk.behaviorpacks.BehaviorPackFactory;
+import com.bedrockk.behaviorpacks.PackHelper;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
 import com.fasterxml.jackson.databind.JsonNode;
@@ -37,9 +37,9 @@ public class SemVersion implements Comparable<SemVersion> {
     @JsonValue
     public JsonNode toJson() {
         if (!isString) {
-            return BehaviorPackFactory.toJsonNode(Arrays.asList(major, minor, revision));
+            return PackHelper.toJsonNode(Arrays.asList(major, minor, revision));
         } else {
-            return BehaviorPackFactory.toJsonNode(toString());
+            return PackHelper.toJsonNode(toString());
         }
     }
 

@@ -1,14 +1,10 @@
 package com.bedrockk.behaviorpacks.definition;
 
-import com.bedrockk.behaviorpacks.description.definition.DefinitionDescription;
-import com.bedrockk.behaviorpacks.type.Chance;
-import com.bedrockk.behaviorpacks.type.CoordinateEvalOrderType;
-import com.bedrockk.behaviorpacks.type.FeatureCoordinate;
-import com.bedrockk.behaviorpacks.type.MolangExpression;
+import com.bedrockk.behaviorpacks.description.DefinitionDescription;
+import com.bedrockk.behaviorpacks.type.*;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.Data;
 
-import java.util.List;
 import java.util.Locale;
 import java.util.Map;
 
@@ -22,7 +18,7 @@ public class FeatureRuleDefinition extends VersionedDefinition {
     public static class Conditions {
         private PlacementPass placementPass;
         @JsonProperty("minecraft:biome_filter")
-        private List<FilterDefinition> filterGroup;
+        private JsonList<BiomeFilterDefinition> filters;
     }
 
     @Data

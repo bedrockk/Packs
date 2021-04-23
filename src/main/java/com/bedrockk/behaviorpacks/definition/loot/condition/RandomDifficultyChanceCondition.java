@@ -6,6 +6,6 @@ import lombok.Data;
 @Data
 public class RandomDifficultyChanceCondition implements LootTableCondition {
     private double defaultChance;
-    private double peaceful;
+    private Double peaceful;
     private double hard;
 }

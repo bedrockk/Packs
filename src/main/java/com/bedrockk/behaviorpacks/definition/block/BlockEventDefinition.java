@@ -1,7 +1,6 @@
 package com.bedrockk.behaviorpacks.definition.block;
 
-import com.bedrockk.behaviorpacks.BehaviorPackFactory;
-import com.bedrockk.behaviorpacks.definition.entity.EntityEventDefinition;
+import com.bedrockk.behaviorpacks.PackHelper;
 import com.bedrockk.behaviorpacks.type.DamageType;
 import com.bedrockk.behaviorpacks.type.EffectType;
 import com.bedrockk.behaviorpacks.type.ImmutableVec3;
@@ -131,13 +130,13 @@ public class BlockEventDefinition {
         @JsonCreator
         public void fromJson(ObjectNode node) {
             this.weight = node.remove("weight").asInt();
-            this.event = BehaviorPackFactory.MAPPER.convertValue(node, BlockEventDefinition.class);
+            this.event = PackHelper.MAPPER.convertValue(node, BlockEventDefinition.class);
         }
 
         @JsonValue
         public ObjectNode toJson() {
-            ObjectNode node = (ObjectNode) BehaviorPackFactory.toJsonNode(this.event);
-            node.set("weight", BehaviorPackFactory.toJsonNode(this.weight));
+            ObjectNode node = (ObjectNode) PackHelper.toJsonNode(this.event);
+            node.set("weight", PackHelper.toJsonNode(this.weight));
             return node;
         }
     }

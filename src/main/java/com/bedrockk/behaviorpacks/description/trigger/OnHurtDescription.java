@@ -1,6 +1,7 @@
 package com.bedrockk.behaviorpacks.description.trigger;
 
-import com.bedrockk.behaviorpacks.definition.FilterDefinition;
+import com.bedrockk.behaviorpacks.definition.EntityFilterDefinition;
+import com.bedrockk.behaviorpacks.type.FilterTarget;
 import lombok.Data;
 
 import java.util.List;
@@ -8,6 +9,6 @@ import java.util.List;
 @Data
 public class OnHurtDescription implements TriggerDescription {
     private String event;
-    private List<FilterDefinition> filters;
-    private FilterDefinition.Subject target = FilterDefinition.Subject.SELF;
+    private List<EntityFilterDefinition> filters;
+    private FilterTarget target = FilterTarget.SELF;
 }

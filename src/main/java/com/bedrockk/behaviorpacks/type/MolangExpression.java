@@ -1,6 +1,6 @@
 package com.bedrockk.behaviorpacks.type;
 
-import com.bedrockk.behaviorpacks.BehaviorPackFactory;
+import com.bedrockk.behaviorpacks.PackHelper;
 import com.bedrockk.molang.MoLang;
 import com.bedrockk.molang.parser.Expression;
 import com.bedrockk.molang.runtime.MoLangRuntime;
@@ -61,6 +61,6 @@ public class MolangExpression {
 
     @JsonValue
     public JsonNode toJson() {
-        return BehaviorPackFactory.toJsonNode(this.rawCode);
+        return PackHelper.toJsonNode(this.rawCode);
     }
 }

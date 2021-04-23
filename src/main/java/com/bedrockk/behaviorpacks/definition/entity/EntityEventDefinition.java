@@ -1,7 +1,7 @@
 package com.bedrockk.behaviorpacks.definition.entity;
 
-import com.bedrockk.behaviorpacks.BehaviorPackFactory;
-import com.bedrockk.behaviorpacks.definition.FilterDefinition;
+import com.bedrockk.behaviorpacks.PackHelper;
+import com.bedrockk.behaviorpacks.definition.EntityFilterDefinition;
 import com.bedrockk.behaviorpacks.node.EntityComponentNode;
 import com.bedrockk.behaviorpacks.type.DamageType;
 import com.bedrockk.behaviorpacks.type.EffectType;
@@ -98,19 +98,19 @@ public class EntityEventDefinition {
 
     @Data
     public static class SequenceEntry {
-        private FilterDefinition filters;
+        private EntityFilterDefinition filters;
         private EntityEventDefinition event;
 
         @JsonCreator
         public void fromJson(ObjectNode node) {
-            this.filters = BehaviorPackFactory.MAPPER.convertValue(node.remove("filters"), FilterDefinition.class);
-            this.event = BehaviorPackFactory.MAPPER.convertValue(node, EntityEventDefinition.class);
+            this.filters = PackHelper.MAPPER.convertValue(node.remove("filters"), EntityFilterDefinition.class);
+            this.event = PackHelper.MAPPER.convertValue(node, EntityEventDefinition.class);
         }
 
         @JsonValue
         public ObjectNode toJson() {
-            ObjectNode node = (ObjectNode) BehaviorPackFactory.toJsonNode(this.event);
-            node.set("filters", BehaviorPackFactory.toJsonNode(this.filters));
+            ObjectNode node = (ObjectNode) PackHelper.toJsonNode(this.event);
+            node.set("filters", PackHelper.toJsonNode(this.filters));
             return node;
         }
     }
@@ -123,13 +123,13 @@ public class EntityEventDefinition {
         @JsonCreator
         public void fromJson(ObjectNode node) {
             this.weight = node.remove("weight").asInt();
-            this.event = BehaviorPackFactory.MAPPER.convertValue(node, EntityEventDefinition.class);
+            this.event = PackHelper.MAPPER.convertValue(node, EntityEventDefinition.class);
         }
 
         @JsonValue
         public ObjectNode toJson() {
-            ObjectNode node = (ObjectNode) BehaviorPackFactory.toJsonNode(this.event);
-            node.set("weight", BehaviorPackFactory.toJsonNode(this.weight));
+            ObjectNode node = (ObjectNode) PackHelper.toJsonNode(this.event);
+            node.set("weight", PackHelper.toJsonNode(this.weight));
             return node;
         }
     }

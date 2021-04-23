@@ -1,6 +1,6 @@
 package com.bedrockk.behaviorpacks.type;
 
-import com.bedrockk.behaviorpacks.BehaviorPackFactory;
+import com.bedrockk.behaviorpacks.PackHelper;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
 import com.fasterxml.jackson.databind.JsonNode;
@@ -63,10 +63,10 @@ public class BlockStateMap {
 
     @JsonValue
     public ObjectNode toJson() {
-        ObjectNode node = BehaviorPackFactory.MAPPER.createObjectNode();
-        this.stringMap.forEach((k, v) -> node.set(k, BehaviorPackFactory.toJsonNode(v)));
-        this.numberMap.forEach((k, v) -> node.set(k, BehaviorPackFactory.toJsonNode(v)));
-        this.boolMap.forEach((k, v) -> node.set(k, BehaviorPackFactory.toJsonNode(v)));
+        ObjectNode node = PackHelper.MAPPER.createObjectNode();
+        this.stringMap.forEach((k, v) -> node.set(k, PackHelper.toJsonNode(v)));
+        this.numberMap.forEach((k, v) -> node.set(k, PackHelper.toJsonNode(v)));
+        this.boolMap.forEach((k, v) -> node.set(k, PackHelper.toJsonNode(v)));
         return node;
     }
 }
