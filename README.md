@@ -31,4 +31,4 @@ I'm currently using Github Packages for publishing.
 </repository>
 ```
 
-3. Add the dependency what you want: https://github.com/orgs/bedrockk/packages
+3. Add the dependency what you want: [packages](https://github.com/orgs/bedrockk/packages)
