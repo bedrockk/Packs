@@ -1,5 +1,6 @@
 package com.bedrockk.behaviorpacks.definition.entity;
 
+import com.bedrockk.behaviorpacks.type.SlotType;
 import lombok.Data;
 
 import java.nio.file.Path;
@@ -12,7 +13,7 @@ public class EquipmentDefinition implements EntityComponentDefinition {
 
     @Data
     public static class Entry {
-        private int slot;
+        private SlotType slot;
         private double dropChance;
     }
 }

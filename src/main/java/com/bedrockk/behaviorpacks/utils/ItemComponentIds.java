@@ -65,4 +65,16 @@ public class ItemComponentIds {
     public static final String SKULL = "minecraft:skull";
     public static final String MOB_PLACER = "minecraft:mob_placer";
     public static final String PORTFOLIO = "minecraft:portfolio";
+    public static final String KNOCKBACK_RESISTANCE = "minecraft:knockback_resistance";
+    public static final String DURABILITY = "minecraft:durability";
+    public static final String WEAPON = "minecraft:weapon";
+    public static final String RECORD = "minecraft:record";
+    public static final String REPAIRABLE = "minecraft:repairable";
+    public static final String ON_USE_ON = "minecraft:on_use_on";
+    public static final String ON_USE = "minecraft:on_use";
+    public static final String FUEL = "minecraft:fuel";
+    public static final String USE_ANIMATION = "minecraft:use_animation";
+    public static final String RENDER_OFFSETS = "minecraft:render_offsets";
+    public static final String HOVER_TEXT_COLOR = "minecraft:hover_text_color";
+    public static final String DISPLAY_NAME = "minecraft:display_name";
 }

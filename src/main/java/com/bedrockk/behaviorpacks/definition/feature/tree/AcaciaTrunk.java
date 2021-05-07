@@ -1,7 +1,8 @@
 package com.bedrockk.behaviorpacks.definition.feature.tree;
 
+import com.bedrockk.behaviorpacks.node.PackNode;
 import com.bedrockk.behaviorpacks.type.BlockReference;
-import com.bedrockk.behaviorpacks.type.Chance;
+import com.bedrockk.behaviorpacks.type.ChanceInformation;
 import com.bedrockk.behaviorpacks.type.Range;
 import lombok.Data;
 
@@ -17,14 +18,14 @@ public class AcaciaTrunk {
     private Branches branches;
 
     @Data
-    public static class Height {
+    public static class Height implements PackNode {
         private int base;
         private List<Range> intervals;
         private Integer minHeightForCanopy;
     }
 
     @Data
-    public static class Lean {
+    public static class Lean implements PackNode {
         private boolean allowDiagonalGrowth;
         private int leanHeight;
         private int leanSteps;
@@ -32,10 +33,10 @@ public class AcaciaTrunk {
     }
 
     @Data
-    public static class Branches {
+    public static class Branches implements PackNode {
         private int branchLength;
         private int branchPosition;
-        private Chance branchChance;
+        private ChanceInformation branchChance;
         private BranchCanopy branchCanopy;
     }
 }

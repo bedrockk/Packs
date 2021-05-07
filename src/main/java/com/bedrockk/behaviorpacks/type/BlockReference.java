@@ -6,13 +6,8 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonValue;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.node.ObjectNode;
-import lombok.Value;
 
-@Value
-public class BlockReference {
-    String name;
-    BlockStateMap states;
-
+public record BlockReference(String name, BlockStateMap states) {
     @JsonCreator
     public static BlockReference fromJson(String name) {
         return new BlockReference(name, BlockStateMap.EMPTY);

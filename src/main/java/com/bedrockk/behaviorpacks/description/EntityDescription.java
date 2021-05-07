@@ -1,4 +1,6 @@
 package com.bedrockk.behaviorpacks.description;
 
-public interface EntityDescription extends Description {
+import com.bedrockk.behaviorpacks.node.EntityComponentNode;
+
+public interface EntityDescription extends Description, EntityComponentNode {
 }

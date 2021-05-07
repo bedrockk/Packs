@@ -1,6 +1,7 @@
 package com.bedrockk.behaviorpacks.definition.item;
 
 import com.bedrockk.behaviorpacks.node.ItemComponentNode;
+import com.bedrockk.behaviorpacks.node.PackNode;
 import lombok.Data;
 
 import java.util.ArrayList;
@@ -17,7 +18,7 @@ public class FoodDefinition implements ItemComponentNode {
     private boolean canAlwaysEat = false;
 
     @Data
-    public static class Effect {
+    public static class Effect implements PackNode {
         private String name;
         private double chance;
         private int duration;

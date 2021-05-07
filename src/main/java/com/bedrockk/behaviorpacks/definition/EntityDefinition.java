@@ -4,9 +4,11 @@ import com.bedrockk.behaviorpacks.definition.entity.EntityEventDefinition;
 import com.bedrockk.behaviorpacks.description.DefinitionDescription;
 import com.bedrockk.behaviorpacks.node.EntityComponentNode;
 import lombok.Data;
+import lombok.EqualsAndHashCode;
 
 import java.util.Map;
 
+@EqualsAndHashCode(callSuper = true)
 @Data
 public class EntityDefinition extends VersionedDefinition {
     private Map<String, DefinitionDescription> description;

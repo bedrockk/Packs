@@ -26,10 +26,12 @@ public class JsonList<E> extends ArrayList<E> {
         JsonList<T> list = new JsonList<>();
         if (node.isArray()) {
             for (int i = 0; i < node.size(); i++) {
-                list.add(PackHelper.MAPPER.convertValue(node.get(i), new TypeReference<T>() {}));
+                list.add(PackHelper.MAPPER.convertValue(node.get(i), new TypeReference<>() {
+                }));
             }
         } else {
-            T type = PackHelper.MAPPER.convertValue(node, new TypeReference<T>() {});
+            T type = PackHelper.MAPPER.convertValue(node, new TypeReference<>() {
+            });
             list.add(type);
             list.setMinimized(true);
         }

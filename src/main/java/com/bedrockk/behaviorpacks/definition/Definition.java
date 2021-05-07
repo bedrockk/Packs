@@ -1,4 +1,6 @@
 package com.bedrockk.behaviorpacks.definition;
 
-public interface Definition {
+import com.bedrockk.behaviorpacks.node.PackNode;
+
+public interface Definition extends PackNode {
 }

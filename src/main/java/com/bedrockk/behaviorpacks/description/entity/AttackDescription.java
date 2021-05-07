@@ -6,7 +6,7 @@ import lombok.Data;
 
 @Data
 public class AttackDescription implements EntityDescription {
-    private Range damage;
+    private double damage;
     private double effectDuration = 0.0;
     private String effectName;
 }

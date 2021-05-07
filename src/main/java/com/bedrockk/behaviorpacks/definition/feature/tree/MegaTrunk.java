@@ -1,5 +1,6 @@
 package com.bedrockk.behaviorpacks.definition.feature.tree;
 
+import com.bedrockk.behaviorpacks.node.PackNode;
 import com.bedrockk.behaviorpacks.type.BlockReference;
 import com.bedrockk.behaviorpacks.type.Range;
 import lombok.Data;
@@ -15,7 +16,7 @@ public class MegaTrunk {
     private Branches branches;
 
     @Data
-    public static class Height {
+    public static class Height implements PackNode {
         private int base;
         private List<Range> intervals;
     }

@@ -1,6 +1,6 @@
 package com.bedrockk.behaviorpacks.description;
 
-import com.bedrockk.behaviorpacks.node.BehaviorPackNode;
+import com.bedrockk.behaviorpacks.node.PackNode;
 
-public interface Description extends BehaviorPackNode {
+public interface Description extends PackNode {
 }

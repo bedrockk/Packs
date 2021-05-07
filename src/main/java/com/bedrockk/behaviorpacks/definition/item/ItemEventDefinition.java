@@ -1,10 +1,9 @@
 package com.bedrockk.behaviorpacks.definition.item;
 
 import com.bedrockk.behaviorpacks.PackHelper;
-import com.bedrockk.behaviorpacks.type.DamageType;
-import com.bedrockk.behaviorpacks.type.EffectType;
-import com.bedrockk.behaviorpacks.type.ImmutableVec3;
-import com.bedrockk.behaviorpacks.type.MolangExpression;
+import com.bedrockk.behaviorpacks.definition.Definition;
+import com.bedrockk.behaviorpacks.node.PackNode;
+import com.bedrockk.behaviorpacks.type.*;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
 import com.fasterxml.jackson.databind.node.ObjectNode;
@@ -14,8 +13,8 @@ import java.util.List;
 import java.util.Locale;
 
 @Data
-public class ItemEventDefinition {
-    private Swing swing;
+public class ItemEventDefinition implements Definition {
+    private EmptyObject swing;
     private Shoot shoot;
     private RunCommand runCommand;
     private Damage damage;
@@ -28,37 +27,33 @@ public class ItemEventDefinition {
     private List<ItemEventDefinition> sequence;
     private List<RandomizeEntry> randomize;
 
-    public static class Swing {
-        // NOOP
-    }
-
     @Data
-    public static class Shoot {
+    public static class Shoot implements PackNode {
         private String projectile;
         private double launchPower;
-        private MolangExpression angleOffset;
+        private ExpressionNode angleOffset;
     }
 
     @Data
-    public static class RunCommand {
+    public static class RunCommand implements PackNode {
         private List<String> command;
         private Target target;
     }
 
     @Data
-    public static class Damage {
-        private DamageType type;
+    public static class Damage implements PackNode {
+        private DamageSourceType type;
         private double amount;
         private Target target;
     }
 
     @Data
-    public static class DecrementStack {
+    public static class DecrementStack implements PackNode {
         private boolean ignoreGameMode;
     }
 
     @Data
-    public static class AddMobEffect {
+    public static class AddMobEffect implements PackNode {
         private EffectType effect;
         private Target target;
         private int duration;
@@ -66,13 +61,13 @@ public class ItemEventDefinition {
     }
 
     @Data
-    public static class RemoveMobEffect {
+    public static class RemoveMobEffect implements PackNode {
         private EffectType effect;
         private Target target;
     }
 
     @Data
-    public static class Teleport {
+    public static class Teleport implements PackNode {
         private Target target;
         private boolean avoidWater;
         private boolean landOnBlock;
@@ -81,12 +76,12 @@ public class ItemEventDefinition {
     }
 
     @Data
-    public static class TransformItem {
+    public static class TransformItem implements PackNode {
         private String transform;
     }
 
     @Data
-    public static class RandomizeEntry {
+    public static class RandomizeEntry implements PackNode {
         private int weight;
         private ItemEventDefinition event;
 

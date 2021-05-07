@@ -14,9 +14,11 @@ import com.fasterxml.jackson.databind.jsontype.impl.AsPropertyTypeDeserializer;
 import com.fasterxml.jackson.databind.util.TokenBuffer;
 
 import java.io.IOException;
+import java.io.Serial;
 import java.util.Collection;
 
 public class NamedTypeDeserializer extends AsPropertyTypeDeserializer {
+    @Serial
     private static final long serialVersionUID = 1L;
 
     public NamedTypeDeserializer(JavaType bt, TypeIdResolver idRes, JavaType defaultImpl, DeserializationConfig config, Collection<NamedType> subtypes) {
@@ -41,7 +43,6 @@ public class NamedTypeDeserializer extends AsPropertyTypeDeserializer {
     public Object deserializeTypedFromObject(JsonParser p, DeserializationContext ctxt) throws IOException {
         String name = p.currentName();
         if (name != null) {
-            @SuppressWarnings("resource")
             TokenBuffer tb = new TokenBuffer(p, ctxt);
             tb.copyCurrentStructure(p);
 

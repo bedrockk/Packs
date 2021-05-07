@@ -3,12 +3,15 @@ package com.bedrockk.behaviorpacks.definition.feature;
 import com.bedrockk.behaviorpacks.definition.FeatureDefinition;
 import com.bedrockk.behaviorpacks.definition.feature.tree.*;
 import com.bedrockk.behaviorpacks.description.DefinitionDescription;
+import com.bedrockk.behaviorpacks.node.PackNode;
 import com.bedrockk.behaviorpacks.type.BlockReference;
 import lombok.Data;
+import lombok.EqualsAndHashCode;
 
 import java.util.List;
 import java.util.Map;
 
+@EqualsAndHashCode(callSuper = true)
 @Data
 public class TreeFeatureDefinition extends FeatureDefinition {
     private Map<String, DefinitionDescription> description;
@@ -35,7 +38,7 @@ public class TreeFeatureDefinition extends FeatureDefinition {
     private RandomSpreadCanopy randomSpreadCanopy;
 
     @Data
-    public static class BaseCluster {
+    public static class BaseCluster implements PackNode {
         private List<BlockReference> mayReplace;
         private int numClusters;
         private int clusterRadius;

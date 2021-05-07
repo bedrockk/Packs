@@ -1,10 +1,12 @@
 package com.bedrockk.behaviorpacks.definition.block;
 
 import com.bedrockk.behaviorpacks.PackHelper;
-import com.bedrockk.behaviorpacks.type.DamageType;
+import com.bedrockk.behaviorpacks.definition.Definition;
+import com.bedrockk.behaviorpacks.node.PackNode;
+import com.bedrockk.behaviorpacks.type.DamageSourceType;
 import com.bedrockk.behaviorpacks.type.EffectType;
 import com.bedrockk.behaviorpacks.type.ImmutableVec3;
-import com.bedrockk.behaviorpacks.type.MolangExpression;
+import com.bedrockk.behaviorpacks.type.ExpressionNode;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
 import com.fasterxml.jackson.databind.node.ObjectNode;
@@ -16,8 +18,8 @@ import java.util.Locale;
 import java.util.Map;
 
 @Data
-public class BlockEventDefinition {
-    private Map<String, MolangExpression> setBlockProperty;
+public class BlockEventDefinition implements Definition {
+    private Map<String, ExpressionNode> setBlockProperty;
     private SetBlock setBlock;
     private SetBlockAtPos setBlockAtPos;
     private SpawnLoot spawnLoot;
@@ -36,53 +38,53 @@ public class BlockEventDefinition {
     private List<RandomizeEntry> randomize;
 
     @Data
-    public static class Trigger {
+    public static class Trigger implements PackNode {
         private String event;
         private Target target;
-        private MolangExpression condition;
+        private ExpressionNode condition;
     }
 
     @Data
-    public static class SetBlock {
+    public static class SetBlock implements PackNode {
         private String blockType;
     }
 
     @Data
-    public static class SetBlockAtPos {
+    public static class SetBlockAtPos implements PackNode {
         private String blockType;
         private ImmutableVec3 blockOffset;
     }
 
     @Data
-    public static class SpawnLoot {
+    public static class SpawnLoot implements PackNode {
         private Path table;
     }
 
     @Data
-    public static class Die {
+    public static class Die implements PackNode {
         private Target target;
     }
 
     @Data
-    public static class RunCommand {
+    public static class RunCommand implements PackNode {
         private List<String> command;
         private Target target;
     }
 
     @Data
-    public static class Damage {
-        private DamageType type;
+    public static class Damage implements PackNode {
+        private DamageSourceType type;
         private double amount;
         private Target target;
     }
 
     @Data
-    public static class DecrementStack {
+    public static class DecrementStack implements PackNode {
         private boolean ignoreGameMode;
     }
 
     @Data
-    public static class AddMobEffect {
+    public static class AddMobEffect implements PackNode {
         private EffectType effect;
         private Target target;
         private int duration;
@@ -90,26 +92,26 @@ public class BlockEventDefinition {
     }
 
     @Data
-    public static class RemoveMobEffect {
+    public static class RemoveMobEffect implements PackNode {
         private EffectType effect;
         private Target target;
     }
 
     @Data
-    public static class PlayEffect {
+    public static class PlayEffect implements PackNode {
         private int data;
         private Target target;
         private String effect;
     }
 
     @Data
-    public static class PlaySound {
+    public static class PlaySound implements PackNode {
         private Target target;
         private String sound;
     }
 
     @Data
-    public static class Teleport {
+    public static class Teleport implements PackNode {
         private Target target;
         private boolean avoidWater;
         private boolean landOnBlock;
@@ -118,12 +120,12 @@ public class BlockEventDefinition {
     }
 
     @Data
-    public static class TransformItem {
+    public static class TransformItem implements PackNode {
         private String transform;
     }
 
     @Data
-    public static class RandomizeEntry {
+    public static class RandomizeEntry implements PackNode {
         private int weight;
         private BlockEventDefinition event;
 

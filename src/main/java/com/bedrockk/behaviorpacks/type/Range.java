@@ -8,22 +8,20 @@ import com.fasterxml.jackson.databind.node.ArrayNode;
 import com.fasterxml.jackson.databind.node.ObjectNode;
 import lombok.Value;
 
-@Value
-public class Range {
+public record Range(double min, double max, int type) {
     public static final int TYPE_OBJECT = 0;
     public static final int TYPE_OBJECT_RANGE = 1;
-    public static final int TYPE_ARRAY = 2;
-    public static final int TYPE_PLAIN = 3;
-
-    double min;
-    double max;
-    int type;
+    public static final int TYPE_OBJECT_DISTANCE = 2;
+    public static final int TYPE_ARRAY = 3;
+    public static final int TYPE_PLAIN = 4;
 
     @JsonCreator
     public static Range fromJson(JsonNode node) {
         if (node.isObject()) {
-            if (node.has("range_min")) { // ??
+            if (node.has("range_min")) {
                 return new Range(node.get("range_min").asDouble(), node.get("range_max").asDouble(), TYPE_OBJECT_RANGE);
+            } else if (node.has("min_distance")) {
+                return new Range(node.get("min_distance").asDouble(), node.get("max_distance").asDouble(), TYPE_OBJECT_DISTANCE);
             }
             return new Range(node.get("min").asDouble(), node.get("max").asDouble(), TYPE_OBJECT);
         } else if (node.isArray()) {
@@ -39,9 +37,26 @@ public class Range {
             default:
             case TYPE_OBJECT:
             case TYPE_OBJECT_RANGE:
+            case TYPE_OBJECT_DISTANCE:
                 ObjectNode node = PackHelper.MAPPER.createObjectNode();
-                node.set(this.type == TYPE_OBJECT_RANGE ? "range_min" : "min", this.castToNearest(this.min));
-                node.set(this.type == TYPE_OBJECT_RANGE ? "range_max" : "max", this.castToNearest(this.max));
+                JsonNode castedMin = this.castToNearest(this.min);
+                JsonNode castedMax = this.castToNearest(this.max);
+
+                switch (this.type) {
+                    case TYPE_OBJECT -> {
+                        node.set("min", castedMin);
+                        node.set("max", castedMax);
+                    }
+                    case TYPE_OBJECT_RANGE -> {
+                        node.set("range_min", castedMin);
+                        node.set("range_max", castedMax);
+                    }
+                    case TYPE_OBJECT_DISTANCE -> {
+                        node.set("min_distance", castedMin);
+                        node.set("max_distance", castedMax);
+                    }
+                }
+
                 return node;
             case TYPE_ARRAY:
                 ArrayNode node2 = PackHelper.MAPPER.createArrayNode();

@@ -1,6 +1,7 @@
 package com.bedrockk.behaviorpacks.definition.loot;
 
 import com.bedrockk.behaviorpacks.definition.loot.function.*;
+import com.bedrockk.behaviorpacks.node.PackNode;
 import com.fasterxml.jackson.annotation.JsonSubTypes;
 import com.fasterxml.jackson.annotation.JsonSubTypes.Type;
 import com.fasterxml.jackson.annotation.JsonTypeInfo;
@@ -29,6 +30,6 @@ import java.util.List;
         @Type(name = "set_name", value = SetNameFunction.class),
         @Type(name = "specific_enchants", value = SpecificEnchantsFunction.class)
 })
-public interface LootTableFunction {
+public interface LootTableFunction extends PackNode {
 
 }

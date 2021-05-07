@@ -7,12 +7,7 @@ import lombok.Value;
 import java.util.Arrays;
 import java.util.List;
 
-@Value
-public class ImmutableVec3 {
-    double x;
-    double y;
-    double z;
-
+public record ImmutableVec3(double x, double y, double z) {
     @JsonCreator
     public static ImmutableVec3 fromJson(List<Double> list) {
         return new ImmutableVec3(list.get(0), list.get(1), list.get(2));

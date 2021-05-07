@@ -1,6 +1,7 @@
 package com.bedrockk.behaviorpacks.definition.loot;
 
 import com.bedrockk.behaviorpacks.definition.loot.condition.*;
+import com.bedrockk.behaviorpacks.node.PackNode;
 import com.fasterxml.jackson.annotation.JsonSubTypes;
 import com.fasterxml.jackson.annotation.JsonSubTypes.Type;
 import com.fasterxml.jackson.annotation.JsonTypeInfo;
@@ -14,5 +15,5 @@ import com.fasterxml.jackson.annotation.JsonTypeInfo;
         @Type(name = "random_difficulty_chance", value = RandomDifficultyChanceCondition.class),
         @Type(name = "random_regional_difficulty_chance", value = RandomRegionalDifficultyChanceCondition.class),
 })
-public interface LootTableCondition {
+public interface LootTableCondition extends PackNode {
 }

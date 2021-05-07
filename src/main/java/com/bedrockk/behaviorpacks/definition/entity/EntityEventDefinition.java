@@ -1,9 +1,11 @@
 package com.bedrockk.behaviorpacks.definition.entity;
 
 import com.bedrockk.behaviorpacks.PackHelper;
+import com.bedrockk.behaviorpacks.definition.Definition;
 import com.bedrockk.behaviorpacks.definition.EntityFilterDefinition;
 import com.bedrockk.behaviorpacks.node.EntityComponentNode;
-import com.bedrockk.behaviorpacks.type.DamageType;
+import com.bedrockk.behaviorpacks.node.PackNode;
+import com.bedrockk.behaviorpacks.type.DamageSourceType;
 import com.bedrockk.behaviorpacks.type.EffectType;
 import com.bedrockk.behaviorpacks.type.ImmutableVec3;
 import com.fasterxml.jackson.annotation.JsonCreator;
@@ -15,8 +17,8 @@ import java.util.List;
 import java.util.Locale;
 
 @Data
-public class EntityEventDefinition {
-    private String trigger; // custom event
+public class EntityEventDefinition implements Definition {
+    private String trigger;
     private RunCommand runCommand;
     private RunCommand execute; // legacy
     private Damage damage;
@@ -35,28 +37,28 @@ public class EntityEventDefinition {
     private Remove remove;
 
     @Data
-    public static class RunCommand {
+    public static class RunCommand implements PackNode {
         private List<String> command;
     }
 
     @Data
-    public static class Damage {
-        private DamageType type;
+    public static class Damage implements PackNode {
+        private DamageSourceType type;
         private double amount;
         private Target target;
     }
 
     @Data
-    public static class DecrementStack {
+    public static class DecrementStack implements PackNode {
         private boolean ignoreGameMode;
     }
 
-    public static class Die {
+    public static class Die implements PackNode {
         // NOOP
     }
 
     @Data
-    public static class AddMobEffect {
+    public static class AddMobEffect implements PackNode {
         private EffectType effect;
         private Target target;
         private int duration;
@@ -64,26 +66,26 @@ public class EntityEventDefinition {
     }
 
     @Data
-    public static class RemoveMobEffect {
+    public static class RemoveMobEffect implements PackNode {
         private EffectType effect;
         private Target target;
     }
 
     @Data
-    public static class PlayEffect {
+    public static class PlayEffect implements PackNode {
         private int data;
         private Target target;
         private String effect;
     }
 
     @Data
-    public static class PlaySound {
+    public static class PlaySound implements PackNode {
         private Target target;
         private String sound;
     }
 
     @Data
-    public static class Teleport {
+    public static class Teleport implements PackNode {
         private Target target;
         private boolean avoidWater;
         private boolean landOnBlock;
@@ -92,19 +94,21 @@ public class EntityEventDefinition {
     }
 
     @Data
-    public static class TransformItem {
+    public static class TransformItem implements PackNode {
         private String transform;
     }
 
     @Data
-    public static class SequenceEntry {
+    public static class SequenceEntry implements PackNode {
         private EntityFilterDefinition filters;
         private EntityEventDefinition event;
 
         @JsonCreator
-        public void fromJson(ObjectNode node) {
-            this.filters = PackHelper.MAPPER.convertValue(node.remove("filters"), EntityFilterDefinition.class);
-            this.event = PackHelper.MAPPER.convertValue(node, EntityEventDefinition.class);
+        public static SequenceEntry fromJson(ObjectNode node) {
+            SequenceEntry entry = new SequenceEntry();
+            entry.filters = PackHelper.MAPPER.convertValue(node.remove("filters"), EntityFilterDefinition.class);
+            entry.event = PackHelper.MAPPER.convertValue(node, EntityEventDefinition.class);
+            return entry;
         }
 
         @JsonValue
@@ -116,14 +120,16 @@ public class EntityEventDefinition {
     }
 
     @Data
-    public static class RandomizeEntry {
+    public static class RandomizeEntry implements PackNode {
         private int weight;
         private EntityEventDefinition event;
 
         @JsonCreator
-        public void fromJson(ObjectNode node) {
-            this.weight = node.remove("weight").asInt();
-            this.event = PackHelper.MAPPER.convertValue(node, EntityEventDefinition.class);
+        public static RandomizeEntry fromJson(ObjectNode node) {
+            RandomizeEntry entry = new RandomizeEntry();
+            entry.weight = node.remove("weight").asInt();
+            entry.event = PackHelper.MAPPER.convertValue(node, EntityEventDefinition.class);
+            return entry;
         }
 
         @JsonValue
@@ -135,14 +141,14 @@ public class EntityEventDefinition {
     }
 
     @Data
-    public static class Add {
+    public static class Add implements PackNode {
         private List<String> componentGroups;
         private AddMobEffect spellEffects;
         private List<EntityComponentNode> group;
     }
 
     @Data
-    public static class Remove {
+    public static class Remove implements PackNode {
         private List<String> componentGroups;
         private RemoveMobEffect spellEffects;
     }

@@ -4,16 +4,18 @@ import com.bedrockk.behaviorpacks.definition.FeatureDefinition;
 import com.bedrockk.behaviorpacks.description.DefinitionDescription;
 import com.bedrockk.behaviorpacks.type.*;
 import lombok.Data;
+import lombok.EqualsAndHashCode;
 
 import java.util.Map;
 
+@EqualsAndHashCode(callSuper = true)
 @Data
 public class ScatterFeatureDefinition extends FeatureDefinition {
     private Map<String, DefinitionDescription> description;
-    private BlockReference placesFeature;
+    private String placesFeature;
     private Boolean projectInputToFloor;
-    private MolangExpression iterations;
-    private Chance scatterChance;
+    private ExpressionNode iterations;
+    private ChanceInformation scatterChance;
     private CoordinateEvalOrderType coordinateEvalOrder;
     private FeatureCoordinate x;
     private FeatureCoordinate y;

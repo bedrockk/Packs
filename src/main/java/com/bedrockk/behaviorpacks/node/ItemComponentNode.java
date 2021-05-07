@@ -13,5 +13,5 @@ import com.fasterxml.jackson.databind.annotation.JsonTypeResolver;
         @Type(name = "minecraft:damageable", value = DamageableDefinition.class)
 })
 // TODO
-public interface ItemComponentNode extends BehaviorPackNode {
+public interface ItemComponentNode extends PackNode {
 }

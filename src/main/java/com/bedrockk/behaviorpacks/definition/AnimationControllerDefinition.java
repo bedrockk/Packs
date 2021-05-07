@@ -1,8 +1,9 @@
 package com.bedrockk.behaviorpacks.definition;
 
 import com.bedrockk.behaviorpacks.PackHelper;
+import com.bedrockk.behaviorpacks.node.PackNode;
 import com.bedrockk.behaviorpacks.type.AnimationEvent;
-import com.bedrockk.behaviorpacks.type.MolangExpression;
+import com.bedrockk.behaviorpacks.type.ExpressionNode;
 import com.bedrockk.behaviorpacks.type.SemVersion;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonProperty;
@@ -23,26 +24,22 @@ public class AnimationControllerDefinition implements Definition {
     private Map<String, AnimationController> controllers;
 
     @Data
-    public static class AnimationController {
+    public static class AnimationController implements PackNode {
         private String initialState;
         private Map<String, State> states;
     }
 
     @Data
-    public static class State {
+    public static class State implements PackNode {
         private List<AnimationEntry> animations = Collections.emptyList();
-        private List<Map<String, MolangExpression>> transitions = Collections.emptyList();
+        private List<Map<String, ExpressionNode>> transitions = Collections.emptyList();
         private List<AnimationEvent> onEntry = Collections.emptyList();
         private List<AnimationEvent> onExit = Collections.emptyList();
     }
 
-    @Value
-    public static class AnimationEntry {
-        String animation;
-        MolangExpression condition;
-
+    public record AnimationEntry(String animation, ExpressionNode condition) implements PackNode {
         @JsonCreator
-        public static AnimationEntry fromJson(Map<String, MolangExpression> map) {
+        public static AnimationEntry fromJson(Map<String, ExpressionNode> map) {
             String name = map.keySet().toArray(new String[0])[0];
             return new AnimationEntry(name, map.get(name));
         }

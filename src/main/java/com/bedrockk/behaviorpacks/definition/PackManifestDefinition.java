@@ -1,5 +1,6 @@
 package com.bedrockk.behaviorpacks.definition;
 
+import com.bedrockk.behaviorpacks.node.PackNode;
 import com.bedrockk.behaviorpacks.type.SemVersion;
 import lombok.Data;
 
@@ -7,7 +8,6 @@ import java.util.*;
 
 @Data
 public class PackManifestDefinition implements Definition {
-
     private int formatVersion = 1;
     private Header header;
     private List<Module> modules = Collections.emptyList();
@@ -17,7 +17,7 @@ public class PackManifestDefinition implements Definition {
     private Metadata metadata;
 
     @Data
-    public static class Header {
+    public static class Header implements PackNode {
         private String name;
         private UUID uuid;
         private SemVersion version;
@@ -28,7 +28,7 @@ public class PackManifestDefinition implements Definition {
     }
 
     @Data
-    public static class Module {
+    public static class Module implements PackNode {
         private String description;
         private ModuleType type;
         private SemVersion version;
@@ -36,20 +36,20 @@ public class PackManifestDefinition implements Definition {
     }
 
     @Data
-    public static class Dependency {
+    public static class Dependency implements PackNode {
         private UUID uuid;
         private SemVersion version;
     }
 
     @Data
-    public static class SubPack {
+    public static class SubPack implements PackNode {
         private String folderName;
         private String name;
         private int memoryTier;
     }
 
     @Data
-    public static class Metadata {
+    public static class Metadata implements PackNode {
         private List<String> authors = new ArrayList<>();
         private String license;
         private String url;

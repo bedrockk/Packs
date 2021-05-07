@@ -2,6 +2,7 @@ package com.bedrockk.behaviorpacks.definition.loot.function;
 
 import com.bedrockk.behaviorpacks.PackHelper;
 import com.bedrockk.behaviorpacks.definition.loot.LootTableFunction;
+import com.bedrockk.behaviorpacks.node.PackNode;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import com.fasterxml.jackson.databind.node.ObjectNode;
@@ -10,7 +11,6 @@ import lombok.Data;
 
 import java.util.List;
 
-// TODO: converter for format version < 1.16.100
 @Data
 @JsonDeserialize(converter = SetBannerDetailsFunction.Converter.class)
 public class SetBannerDetailsFunction implements LootTableFunction {
@@ -19,7 +19,7 @@ public class SetBannerDetailsFunction implements LootTableFunction {
     private List<Pattern> patterns;
 
     @Data
-    public static class Pattern {
+    public static class Pattern implements PackNode {
         private String pattern;
         private String color;
     }

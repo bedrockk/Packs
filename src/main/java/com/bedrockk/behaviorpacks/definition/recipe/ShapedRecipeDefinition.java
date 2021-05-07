@@ -2,10 +2,12 @@ package com.bedrockk.behaviorpacks.definition.recipe;
 
 import com.bedrockk.behaviorpacks.type.JsonList;
 import lombok.Data;
+import lombok.EqualsAndHashCode;
 
 import java.util.List;
 import java.util.Map;
 
+@EqualsAndHashCode(callSuper = true)
 @Data
 public class ShapedRecipeDefinition extends RecipeDefinition {
     private String group;

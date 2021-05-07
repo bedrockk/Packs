@@ -3,6 +3,7 @@ package com.bedrockk.behaviorpacks.definition;
 import com.bedrockk.behaviorpacks.type.FilterOperator;
 import com.bedrockk.behaviorpacks.type.FilterTarget;
 import com.fasterxml.jackson.annotation.JsonValue;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import lombok.Data;
 import lombok.RequiredArgsConstructor;
 
@@ -17,8 +18,8 @@ public class EntityFilterDefinition implements Definition {
 
     private String test;
     private String domain;
-    private FilterOperator operator;
-    private FilterTarget subject;
+    private FilterOperator operator = FilterOperator.EQUALS;
+    private FilterTarget subject = FilterTarget.SELF;
     private Object value;
     private String otherWithFamilies;
 }

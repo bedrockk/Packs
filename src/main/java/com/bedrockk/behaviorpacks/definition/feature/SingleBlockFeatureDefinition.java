@@ -2,13 +2,16 @@ package com.bedrockk.behaviorpacks.definition.feature;
 
 import com.bedrockk.behaviorpacks.definition.FeatureDefinition;
 import com.bedrockk.behaviorpacks.description.DefinitionDescription;
+import com.bedrockk.behaviorpacks.node.PackNode;
 import com.bedrockk.behaviorpacks.type.BlockReference;
 import com.bedrockk.behaviorpacks.type.JsonList;
 import lombok.Data;
+import lombok.EqualsAndHashCode;
 
 import java.util.List;
 import java.util.Map;
 
+@EqualsAndHashCode(callSuper = true)
 @Data
 public class SingleBlockFeatureDefinition extends FeatureDefinition {
     private Map<String, DefinitionDescription> description;
@@ -19,7 +22,7 @@ public class SingleBlockFeatureDefinition extends FeatureDefinition {
     private List<BlockReference> mayReplace;
 
     @Data
-    public static class MayAttachTo {
+    public static class MayAttachTo implements PackNode {
         private Integer minSidesMustAttach;
         private Boolean autoRotate;
         private JsonList<BlockReference> top;

@@ -9,5 +9,5 @@ import com.fasterxml.jackson.databind.annotation.JsonTypeResolver;
 @JsonTypeResolver(NamedTypeResolverBuilder.class)
 @JsonSubTypes({})
 // TODO
-public interface BlockComponentNode extends BehaviorPackNode {
+public interface BlockComponentNode extends PackNode {
 }

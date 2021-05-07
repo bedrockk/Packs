@@ -1,10 +1,8 @@
 package com.bedrockk.behaviorpacks.definition.item;
 
-import com.bedrockk.behaviorpacks.type.BlockSelector;
+import com.bedrockk.behaviorpacks.node.PackNode;
+import com.bedrockk.behaviorpacks.type.ItemSelector;
 import com.bedrockk.behaviorpacks.node.ItemComponentNode;
-import com.fasterxml.jackson.databind.JsonNode;
-import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
-import com.fasterxml.jackson.databind.util.StdConverter;
 import lombok.Data;
 
 import java.util.List;
@@ -15,8 +13,8 @@ public class DiggerDefinition implements ItemComponentNode {
     private List<DestroySpeed> destroySpeeds;
 
     @Data
-    public static class DestroySpeed {
-        private BlockSelector block;
+    public static class DestroySpeed implements PackNode {
+        private ItemSelector block;
         private int speed;
     }
 }

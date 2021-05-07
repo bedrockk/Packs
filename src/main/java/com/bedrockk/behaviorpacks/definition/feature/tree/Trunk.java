@@ -1,5 +1,6 @@
 package com.bedrockk.behaviorpacks.definition.feature.tree;
 
+import com.bedrockk.behaviorpacks.node.PackNode;
 import com.bedrockk.behaviorpacks.type.BlockReference;
 import com.bedrockk.behaviorpacks.type.Range;
 import com.fasterxml.jackson.annotation.JsonCreator;
@@ -14,7 +15,7 @@ public class Trunk {
     private Decoration trunkDecoration;
 
     @Data
-    public static class SubmergeAbility {
+    public static class SubmergeAbility implements PackNode {
         private int maxDepth;
 
         @JsonCreator

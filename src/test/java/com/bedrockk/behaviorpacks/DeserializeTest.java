@@ -1,6 +1,7 @@
 package com.bedrockk.behaviorpacks;
 
 import com.bedrockk.behaviorpacks.definition.*;
+import com.bedrockk.behaviorpacks.definition.entity.PushableDefinition;
 import com.bedrockk.behaviorpacks.definition.recipe.RecipeDefinition;
 import com.bedrockk.molang.util.Util;
 import com.fasterxml.jackson.core.JsonProcessingException;
@@ -15,6 +16,17 @@ import java.io.InputStream;
 
 @DisplayName("Item Deserialize Test")
 public class DeserializeTest {
+
+    @Test
+    @DisplayName("Recipe Test")
+    public void testEntity() throws IOException {
+        InputStream file = getClass().getClassLoader().getResourceAsStream("test_entity.json");
+        Assertions.assertNotNull(file);
+
+        String input = Util.readFile(file);
+        EntityDefinition root = PackHelper.deserializeEntity(input);
+        assertResult(input, root);
+    }
 
     @Test
     @DisplayName("Recipe Test")
@@ -106,7 +118,7 @@ public class DeserializeTest {
                 if (actual.has(k)) {
                     assertTree(v, actual.get(k));
                 } else {
-                    throw new AssertionFailedError("Key " + k + " not found in output");
+                    throw new AssertionFailedError("Key " + k + " not found in output at: \n" + actual.toPrettyString());
                 }
             });
         } else if (expected.isArray() && actual.isArray()) {

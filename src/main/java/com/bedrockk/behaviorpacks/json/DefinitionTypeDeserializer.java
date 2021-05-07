@@ -17,9 +17,11 @@ import com.fasterxml.jackson.databind.jsontype.impl.AsPropertyTypeDeserializer;
 import com.fasterxml.jackson.databind.util.TokenBuffer;
 
 import java.io.IOException;
+import java.io.Serial;
 import java.util.Collection;
 
 public class DefinitionTypeDeserializer extends AsPropertyTypeDeserializer {
+    @Serial
     private static final long serialVersionUID = 1L;
 
     public DefinitionTypeDeserializer(JavaType bt, TypeIdResolver idRes, JavaType defaultImpl, DeserializationConfig config, Collection<NamedType> subtypes) {
@@ -55,7 +57,6 @@ public class DefinitionTypeDeserializer extends AsPropertyTypeDeserializer {
                 if (name.equals("format_version")) {
                     formatVersion = p.getValueAsString();
                 } else {
-                    @SuppressWarnings("resource")
                     TokenBuffer tb = new TokenBuffer(p, ctxt);
                     tb.copyCurrentStructure(p);
 
