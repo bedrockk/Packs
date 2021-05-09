@@ -3,10 +3,8 @@ package com.bedrockk.behaviorpacks.definition.entity;
 import com.bedrockk.behaviorpacks.definition.EntityFilterDefinition;
 import lombok.Data;
 
-import java.util.List;
-
 @Data
-public class LookatDefinition implements EntityComponentDefinition{
+public class LookAtDefinition implements EntityComponentDefinition{
 	private boolean allowInvulnerable = false;
 	private EntityFilterDefinition filters;
 	private EntityEventTriggerDefinition lookEvent;

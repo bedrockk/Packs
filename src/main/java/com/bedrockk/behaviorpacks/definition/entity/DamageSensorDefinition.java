@@ -6,8 +6,6 @@ import com.bedrockk.behaviorpacks.type.DamageSourceType;
 import com.bedrockk.behaviorpacks.type.JsonList;
 import lombok.Data;
 
-import java.util.List;
-
 @Data
 public class DamageSensorDefinition implements EntityComponentDefinition{
     private JsonList<Trigger> triggers;

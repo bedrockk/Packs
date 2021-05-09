@@ -47,6 +47,26 @@ public class SemVersion implements Comparable<SemVersion> {
         return getMajor() + "." + getMinor() + "." + getRevision();
     }
 
+    public boolean isHigher(SemVersion other) {
+        return this.compareTo(other) > 0;
+    }
+
+    public boolean isHigherOrEqual(SemVersion other) {
+        return this.compareTo(other) >= 0;
+    }
+
+    public boolean isLower(SemVersion other) {
+        return this.compareTo(other) < 0;
+    }
+
+    public boolean isLowerOrEqual(SemVersion other) {
+        return this.compareTo(other) <= 0;
+    }
+
+    public boolean isSame(SemVersion other) {
+        return this.compareTo(other) == 0;
+    }
+
     @Override
     public int compareTo(SemVersion o) {
         if (o == this) {

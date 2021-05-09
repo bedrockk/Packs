@@ -5,8 +5,6 @@ import com.bedrockk.behaviorpacks.definition.entity.EntityComponentDefinition;
 import com.bedrockk.behaviorpacks.definition.entity.EntityEventTriggerDefinition;
 import com.bedrockk.behaviorpacks.node.PackNode;
 import com.bedrockk.behaviorpacks.type.ExpressionNode;
-import com.fasterxml.jackson.databind.node.ObjectNode;
-import com.fasterxml.jackson.databind.util.StdConverter;
 import lombok.Data;
 
 import java.util.List;

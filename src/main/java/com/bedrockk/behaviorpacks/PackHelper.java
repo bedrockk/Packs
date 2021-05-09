@@ -2,6 +2,8 @@ package com.bedrockk.behaviorpacks;
 
 import com.bedrockk.behaviorpacks.definition.*;
 import com.bedrockk.behaviorpacks.definition.recipe.RecipeDefinition;
+import com.bedrockk.behaviorpacks.json.PackAnnotationIntrospector;
+import com.bedrockk.behaviorpacks.json.PackModule;
 import com.bedrockk.behaviorpacks.type.SemVersion;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonInclude;
@@ -12,6 +14,9 @@ import com.fasterxml.jackson.databind.json.JsonMapper;
 import com.fasterxml.jackson.datatype.jdk8.Jdk8Module;
 import com.fasterxml.jackson.module.paramnames.ParameterNamesModule;
 
+import java.io.IOException;
+import java.util.concurrent.locks.ReentrantLock;
+
 public class PackHelper {
     public static final SemVersion FORMAT_VERSION = SemVersion.of("1.16.220");
     public static final JsonMapper MAPPER = JsonMapper.builder()
@@ -21,47 +26,54 @@ public class PackHelper {
             .disable(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES)
             .serializationInclusion(JsonInclude.Include.NON_EMPTY)
             .propertyNamingStrategy(new PropertyNamingStrategies.SnakeCaseStrategy())
-            .addModule(new Jdk8Module())
+            .annotationIntrospector(new PackAnnotationIntrospector())
+            .addModule(new PackModule())
             .build();
+    public static SemVersion CURRENT_DEFINITION_VERSION;
 
-    public static EntityDefinition deserializeEntity(String json) throws JsonProcessingException {
-        return MAPPER.readValue(json, EntityDefinition.class);
+    public static synchronized <T extends Definition> T deserialize(String json, Class<T> type) throws IOException {
+        CURRENT_DEFINITION_VERSION = null;
+        return MAPPER.readValue(json, type);
     }
 
-    public static BlockDefinition deserializeBlock(String json) throws JsonProcessingException {
-        return MAPPER.readValue(json, BlockDefinition.class);
+    public static EntityDefinition deserializeEntity(String json) throws IOException {
+        return deserialize(json, EntityDefinition.class);
     }
 
-    public static ItemDefinition deserializeItem(String json) throws JsonProcessingException {
-        return MAPPER.readValue(json, ItemDefinition.class);
+    public static BlockDefinition deserializeBlock(String json) throws IOException {
+        return deserialize(json, BlockDefinition.class);
     }
 
-    public static AnimationDefinition deserializeAnimation(String json) throws JsonProcessingException {
-        return MAPPER.readValue(json, AnimationDefinition.class);
+    public static ItemDefinition deserializeItem(String json) throws IOException {
+        return deserialize(json, ItemDefinition.class);
     }
 
-    public static AnimationControllerDefinition deserializeAnimationController(String json) throws JsonProcessingException {
-        return MAPPER.readValue(json, AnimationControllerDefinition.class);
+    public static AnimationDefinition deserializeAnimation(String json) throws IOException {
+        return deserialize(json, AnimationDefinition.class);
     }
 
-    public static RecipeDefinition deserializeRecipe(String json) throws JsonProcessingException {
-        return MAPPER.readValue(json, RecipeDefinition.class);
+    public static AnimationControllerDefinition deserializeAnimationController(String json) throws IOException {
+        return deserialize(json, AnimationControllerDefinition.class);
     }
 
-    public static FeatureRuleDefinition deserializeFeatureRule(String json) throws JsonProcessingException {
-        return MAPPER.readValue(json, FeatureRuleDefinition.class);
+    public static RecipeDefinition deserializeRecipe(String json) throws IOException {
+        return deserialize(json, RecipeDefinition.class);
     }
 
-    public static FeatureDefinition deserializeFeature(String json) throws JsonProcessingException {
-        return MAPPER.readValue(json, FeatureDefinition.class);
+    public static FeatureRuleDefinition deserializeFeatureRule(String json) throws IOException {
+        return deserialize(json, FeatureRuleDefinition.class);
     }
 
-    public static LootTableDefinition deserializeLootTable(String json) throws JsonProcessingException {
-        return MAPPER.readValue(json, LootTableDefinition.class);
+    public static FeatureDefinition deserializeFeature(String json) throws IOException {
+        return deserialize(json, FeatureDefinition.class);
     }
 
-    public static TradeTableDefinition deserializeTradeTable(String json) throws JsonProcessingException {
-        return MAPPER.readValue(json, TradeTableDefinition.class);
+    public static LootTableDefinition deserializeLootTable(String json) throws IOException {
+        return deserialize(json, LootTableDefinition.class);
+    }
+
+    public static TradeTableDefinition deserializeTradeTable(String json) throws IOException {
+        return deserialize(json, TradeTableDefinition.class);
     }
 
     public static String serialize(Object object) throws JsonProcessingException {

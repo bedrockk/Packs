@@ -2,10 +2,7 @@ package com.bedrockk.behaviorpacks.definition.entity.goal;
 
 import com.bedrockk.behaviorpacks.definition.entity.EntityComponentDefinition;
 import com.bedrockk.behaviorpacks.definition.entity.EntityEventTriggerDefinition;
-import com.bedrockk.behaviorpacks.definition.entity.EntityType;
 import lombok.Data;
-
-import java.util.List;
 
 @Data
 public class DefendTrustedTargetGoalDefinition implements EntityComponentDefinition{

@@ -18,7 +18,7 @@ import java.io.InputStream;
 public class DeserializeTest {
 
     @Test
-    @DisplayName("Recipe Test")
+    @DisplayName("Entity Test")
     public void testEntity() throws IOException {
         InputStream file = getClass().getClassLoader().getResourceAsStream("test_entity.json");
         Assertions.assertNotNull(file);

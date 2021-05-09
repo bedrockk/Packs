@@ -18,7 +18,7 @@ import java.util.Locale;
 import java.util.Map;
 
 @Data
-public class BlockEventDefinition implements Definition {
+public class BlockEventResponseDefinition implements Definition {
     private Map<String, ExpressionNode> setBlockProperty;
     private SetBlock setBlock;
     private SetBlockAtPos setBlockAtPos;
@@ -33,8 +33,9 @@ public class BlockEventDefinition implements Definition {
     private PlaySound playSound;
     private Teleport teleport;
     private TransformItem transformItem;
+    private Trigger trigger;
 
-    private List<BlockEventDefinition> sequence;
+    private List<BlockEventResponseDefinition> sequence;
     private List<RandomizeEntry> randomize;
 
     @Data
@@ -127,12 +128,12 @@ public class BlockEventDefinition implements Definition {
     @Data
     public static class RandomizeEntry implements PackNode {
         private int weight;
-        private BlockEventDefinition event;
+        private BlockEventResponseDefinition event;
 
         @JsonCreator
         public void fromJson(ObjectNode node) {
             this.weight = node.remove("weight").asInt();
-            this.event = PackHelper.MAPPER.convertValue(node, BlockEventDefinition.class);
+            this.event = PackHelper.MAPPER.convertValue(node, BlockEventResponseDefinition.class);
         }
 
         @JsonValue

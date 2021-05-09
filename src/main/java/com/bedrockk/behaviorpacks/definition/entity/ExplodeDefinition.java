@@ -1,5 +1,6 @@
 package com.bedrockk.behaviorpacks.definition.entity;
 
+import com.bedrockk.behaviorpacks.annotation.JsonSince;
 import com.bedrockk.behaviorpacks.type.Range;
 import lombok.Data;
 

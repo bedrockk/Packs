@@ -10,6 +10,6 @@ import java.util.List;
 @Data
 public class OnHurtByPlayerDescription implements EntityDescription {
     private String event;
-    private List<EntityFilterDefinition> filters;
+    private EntityFilterDefinition filters;
     private FilterTarget target = FilterTarget.SELF;
 }

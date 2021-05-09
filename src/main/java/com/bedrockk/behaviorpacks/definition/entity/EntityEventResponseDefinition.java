@@ -17,7 +17,7 @@ import java.util.List;
 import java.util.Locale;
 
 @Data
-public class EntityEventDefinition implements Definition {
+public class EntityEventResponseDefinition implements Definition {
     private String trigger;
     private RunCommand runCommand;
     private RunCommand execute; // legacy
@@ -101,13 +101,13 @@ public class EntityEventDefinition implements Definition {
     @Data
     public static class SequenceEntry implements PackNode {
         private EntityFilterDefinition filters;
-        private EntityEventDefinition event;
+        private EntityEventResponseDefinition event;
 
         @JsonCreator
         public static SequenceEntry fromJson(ObjectNode node) {
             SequenceEntry entry = new SequenceEntry();
             entry.filters = PackHelper.MAPPER.convertValue(node.remove("filters"), EntityFilterDefinition.class);
-            entry.event = PackHelper.MAPPER.convertValue(node, EntityEventDefinition.class);
+            entry.event = PackHelper.MAPPER.convertValue(node, EntityEventResponseDefinition.class);
             return entry;
         }
 
@@ -122,13 +122,13 @@ public class EntityEventDefinition implements Definition {
     @Data
     public static class RandomizeEntry implements PackNode {
         private int weight;
-        private EntityEventDefinition event;
+        private EntityEventResponseDefinition event;
 
         @JsonCreator
         public static RandomizeEntry fromJson(ObjectNode node) {
             RandomizeEntry entry = new RandomizeEntry();
             entry.weight = node.remove("weight").asInt();
-            entry.event = PackHelper.MAPPER.convertValue(node, EntityEventDefinition.class);
+            entry.event = PackHelper.MAPPER.convertValue(node, EntityEventResponseDefinition.class);
             return entry;
         }
 

@@ -4,7 +4,6 @@ import com.bedrockk.behaviorpacks.node.PackNode;
 import lombok.Data;
 
 import java.util.List;
-import java.util.Map;
 
 @Data
 public class InteractDefinition implements EntityComponentDefinition{

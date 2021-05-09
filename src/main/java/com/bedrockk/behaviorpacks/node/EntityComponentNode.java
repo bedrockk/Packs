@@ -302,7 +302,7 @@ import com.fasterxml.jackson.databind.annotation.JsonTypeResolver;
         @Type(name = EntityComponentIds.KNOCKBACK_RESISTANCE, value = KnockbackResistanceDefinition.class),
         @Type(name = EntityComponentIds.LAVA_MOVEMENT, value = LavaMovementDefinition.class),
         @Type(name = EntityComponentIds.LEASHABLE, value = LeashableDefinition.class),
-        @Type(name = EntityComponentIds.LOOKAT, value = LookatDefinition.class),
+        @Type(name = EntityComponentIds.LOOKAT, value = LookAtDefinition.class),
         @Type(name = EntityComponentIds.LOOT, value = LootDefinition.class),
         @Type(name = EntityComponentIds.MANAGED_WANDERING_TRADER, value = ManagedWanderingTraderDefinition.class),
         @Type(name = EntityComponentIds.MARK_VARIANT, value = MarkVariantDefinition.class),

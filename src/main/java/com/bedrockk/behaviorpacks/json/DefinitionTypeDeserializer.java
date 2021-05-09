@@ -1,5 +1,7 @@
 package com.bedrockk.behaviorpacks.json;
 
+import com.bedrockk.behaviorpacks.PackHelper;
+import com.bedrockk.behaviorpacks.definition.EntityDefinition;
 import com.bedrockk.behaviorpacks.definition.VersionedDefinition;
 import com.bedrockk.behaviorpacks.type.SemVersion;
 import com.fasterxml.jackson.annotation.JsonTypeInfo;
@@ -44,7 +46,7 @@ public class DefinitionTypeDeserializer extends AsPropertyTypeDeserializer {
 
     @Override
     public Object deserializeTypedFromObject(JsonParser p, DeserializationContext ctxt) throws IOException {
-        String formatVersion = null;
+        SemVersion formatVersion = null;
         Object definition = null;
 
         JsonToken t = p.currentToken();
@@ -55,7 +57,8 @@ public class DefinitionTypeDeserializer extends AsPropertyTypeDeserializer {
                 p.nextToken();
 
                 if (name.equals("format_version")) {
-                    formatVersion = p.getValueAsString();
+                    formatVersion = SemVersion.of(p.getValueAsString());
+                    PackHelper.CURRENT_DEFINITION_VERSION = formatVersion;
                 } else {
                     TokenBuffer tb = new TokenBuffer(p, ctxt);
                     tb.copyCurrentStructure(p);
@@ -68,7 +71,7 @@ public class DefinitionTypeDeserializer extends AsPropertyTypeDeserializer {
         }
 
         if (formatVersion != null && definition instanceof VersionedDefinition) {
-            ((VersionedDefinition) definition).setFormatVersion(SemVersion.of(formatVersion));
+            ((VersionedDefinition) definition).setFormatVersion(formatVersion);
         }
 
         return definition;

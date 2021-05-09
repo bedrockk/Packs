@@ -1,4 +1,6 @@
 package com.bedrockk.behaviorpacks.description;
 
-public interface BlockDescription extends Description {
+import com.bedrockk.behaviorpacks.node.BlockComponentNode;
+
+public interface BlockDescription extends Description, BlockComponentNode {
 }

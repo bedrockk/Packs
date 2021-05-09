@@ -2,12 +2,21 @@ package com.bedrockk.behaviorpacks.type;
 
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.RequiredArgsConstructor;
 import lombok.Value;
 
 import java.util.Arrays;
 import java.util.List;
 
-public record ImmutableVec3(double x, double y, double z) {
+@Getter
+@AllArgsConstructor
+public class ImmutableVec3 {
+    private final double x;
+    private final double y;
+    private final double z;
+
     @JsonCreator
     public static ImmutableVec3 fromJson(List<Double> list) {
         return new ImmutableVec3(list.get(0), list.get(1), list.get(2));

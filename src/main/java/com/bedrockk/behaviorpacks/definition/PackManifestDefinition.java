@@ -13,7 +13,7 @@ public class PackManifestDefinition implements Definition {
     private List<Module> modules = Collections.emptyList();
     private List<Dependency> dependencies = Collections.emptyList();
     private List<Capability> capabilities = Collections.emptyList();
-    private List<SubPack> subPacks = Collections.emptyList();
+    private List<SubPack> subpacks = Collections.emptyList();
     private Metadata metadata;
 
     @Data
