@@ -1,7 +1,10 @@
 package com.bedrockk.behaviorpacks.type;
 
+import com.bedrockk.behaviorpacks.PackHelper;
 import com.bedrockk.behaviorpacks.node.PackNode;
 import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.core.type.TypeReference;
+import com.fasterxml.jackson.databind.JsonNode;
 import lombok.Data;
 
 @Data
@@ -12,8 +15,25 @@ public class FeatureCoordinate implements PackNode {
 	private Integer gridOffset;
 
 	@JsonCreator
-	public void fromJson(ExpressionNode expression) {
-		this.extent = new Pair<>(new ExpressionNode(0), expression);
-		this.distribution = FeatureDistribution.GAUSSIAN;
+	public static FeatureCoordinate fromJson(JsonNode node) {
+		var coord = new FeatureCoordinate();
+		if (!node.isObject() && !node.isArray()) {
+			coord.extent = new Pair<>(new ExpressionNode(0), new ExpressionNode(node.asText()));
+			coord.distribution = FeatureDistribution.GAUSSIAN;
+		} else {
+			if (node.has("extent")) {
+				coord.extent = PackHelper.MAPPER.convertValue(node.get("extent"), new TypeReference<>() {});
+			}
+			if (node.has("distribution")) {
+				coord.distribution = PackHelper.MAPPER.convertValue(node.get("distribution"), new TypeReference<>() {});
+			}
+			if (node.has("step_size")) {
+				coord.stepSize = PackHelper.MAPPER.convertValue(node.get("step_size"), new TypeReference<>() {});
+			}
+			if (node.has("grid_offset")) {
+				coord.gridOffset = PackHelper.MAPPER.convertValue(node.get("grid_offset"), new TypeReference<>() {});
+			}
+		}
+		return coord;
 	}
 }

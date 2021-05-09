@@ -1,5 +1,6 @@
 package com.bedrockk.behaviorpacks.definition.item;
 
+import com.bedrockk.behaviorpacks.annotation.JsonSince;
 import com.bedrockk.behaviorpacks.node.ItemComponentNode;
 import com.bedrockk.behaviorpacks.node.PackNode;
 import lombok.Data;
@@ -8,6 +9,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Data
+@JsonSince("1.16.100")
 public class ShooterDefinition implements ItemComponentNode {
 	private List<Ammo> ammunition = new ArrayList<>();
 	private int maxDrawDuration;

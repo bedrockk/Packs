@@ -23,6 +23,6 @@ public class PackAnnotationIntrospector extends JacksonAnnotationIntrospector {
 		if (since != null) {
 			return SemVersion.of(since.value());
 		}
-		return PackHelper.FORMAT_VERSION;
+		return FormatVersions.V1_17_0;
 	}
 }

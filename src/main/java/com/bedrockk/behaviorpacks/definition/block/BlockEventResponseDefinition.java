@@ -2,6 +2,7 @@ package com.bedrockk.behaviorpacks.definition.block;
 
 import com.bedrockk.behaviorpacks.PackHelper;
 import com.bedrockk.behaviorpacks.definition.Definition;
+import com.bedrockk.behaviorpacks.definition.item.ItemEventResponseDefinition;
 import com.bedrockk.behaviorpacks.node.PackNode;
 import com.bedrockk.behaviorpacks.type.DamageSourceType;
 import com.bedrockk.behaviorpacks.type.EffectType;
@@ -131,9 +132,11 @@ public class BlockEventResponseDefinition implements Definition {
 		private BlockEventResponseDefinition event;
 
 		@JsonCreator
-		public void fromJson(ObjectNode node) {
-			this.weight = node.remove("weight").asInt();
-			this.event = PackHelper.MAPPER.convertValue(node, BlockEventResponseDefinition.class);
+		public static RandomizeEntry fromJson(ObjectNode node) {
+			var entry = new RandomizeEntry();
+			entry.weight = node.remove("weight").asInt();
+			entry.event = PackHelper.MAPPER.convertValue(node, BlockEventResponseDefinition.class);
+			return entry;
 		}
 
 		@JsonValue

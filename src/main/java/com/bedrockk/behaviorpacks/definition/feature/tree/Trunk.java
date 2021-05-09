@@ -19,8 +19,10 @@ public class Trunk {
 		private int maxDepth;
 
 		@JsonCreator
-		public void fromJson(boolean value) {
-			this.maxDepth = 1;
+		public static SubmergeAbility fromJson(boolean value) {
+			var ab = new SubmergeAbility();
+			ab.maxDepth = value ? 1 : 0;
+			return ab;
 		}
 	}
 }

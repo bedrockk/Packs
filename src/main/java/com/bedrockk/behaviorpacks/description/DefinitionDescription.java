@@ -20,6 +20,7 @@ import com.fasterxml.jackson.databind.annotation.JsonTypeResolver;
 		@Type(name = DefinitionDescriptionIds.SCRIPTS, value = AnimationScriptsDescription.class),
 		@Type(name = DefinitionDescriptionIds.PLACES_FEATURE, value = PlacesFeatureDescription.class),
 		@Type(name = DefinitionDescriptionIds.PROPERTIES, value = PropertiesDescription.class),
+		@Type(name = DefinitionDescriptionIds.CATEGORY, value = CategoryDescription.class),
 })
 public interface DefinitionDescription extends Description {
 }

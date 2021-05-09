@@ -15,4 +15,5 @@ public class DefinitionDescriptionIds {
 	public static final String SCRIPTS = "scripts";
 	public static final String PLACES_FEATURE = "places_feature";
 	public static final String PROPERTIES = "properties";
+	public static final String CATEGORY = "category";
 }

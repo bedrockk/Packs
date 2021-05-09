@@ -6,6 +6,7 @@ import com.bedrockk.behaviorpacks.node.PackNode;
 import com.bedrockk.behaviorpacks.type.*;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
+import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.node.ObjectNode;
 import lombok.Data;
 
@@ -13,7 +14,7 @@ import java.util.List;
 import java.util.Locale;
 
 @Data
-public class ItemEventDefinition implements Definition {
+public class ItemEventResponseDefinition implements Definition {
 	private EmptyObject swing;
 	private Shoot shoot;
 	private RunCommand runCommand;
@@ -24,7 +25,7 @@ public class ItemEventDefinition implements Definition {
 	private Teleport teleport;
 	private TransformItem transformItem;
 
-	private List<ItemEventDefinition> sequence;
+	private List<ItemEventResponseDefinition> sequence;
 	private List<RandomizeEntry> randomize;
 
 	@Data
@@ -83,12 +84,14 @@ public class ItemEventDefinition implements Definition {
 	@Data
 	public static class RandomizeEntry implements PackNode {
 		private int weight;
-		private ItemEventDefinition event;
+		private ItemEventResponseDefinition event;
 
 		@JsonCreator
-		public void fromJson(ObjectNode node) {
-			this.weight = node.remove("weight").asInt();
-			this.event = PackHelper.MAPPER.convertValue(node, ItemEventDefinition.class);
+		public static RandomizeEntry fromJson(ObjectNode node) {
+			var entry = new RandomizeEntry();
+			entry.weight = node.remove("weight").asInt();
+			entry.event = PackHelper.MAPPER.convertValue(node, ItemEventResponseDefinition.class);
+			return entry;
 		}
 
 		@JsonValue
