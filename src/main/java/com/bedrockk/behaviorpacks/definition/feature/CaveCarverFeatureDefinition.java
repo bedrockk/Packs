@@ -12,7 +12,7 @@ import java.util.Map;
 @EqualsAndHashCode(callSuper = true)
 @Data
 public class CaveCarverFeatureDefinition extends FeatureDefinition {
-    private Map<String, DefinitionDescription> description;
-    private BlockReference fillWith;
-    private ExpressionNode widthModifier;
+	private Map<String, DefinitionDescription> description;
+	private BlockReference fillWith;
+	private ExpressionNode widthModifier;
 }

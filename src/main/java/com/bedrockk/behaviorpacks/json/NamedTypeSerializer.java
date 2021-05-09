@@ -12,44 +12,44 @@ import java.io.IOException;
 
 public class NamedTypeSerializer extends AsPropertyTypeSerializer {
 
-    public NamedTypeSerializer(TypeIdResolver idRes, BeanProperty property, String propName) {
-        super(idRes, property, propName);
-    }
+	public NamedTypeSerializer(TypeIdResolver idRes, BeanProperty property, String propName) {
+		super(idRes, property, propName);
+	}
 
-    @Override
-    public JsonTypeInfo.As getTypeInclusion() {
-        return JsonTypeInfo.As.EXISTING_PROPERTY;
-    }
+	@Override
+	public JsonTypeInfo.As getTypeInclusion() {
+		return JsonTypeInfo.As.EXISTING_PROPERTY;
+	}
 
-    @Override
-    public NamedTypeSerializer forProperty(BeanProperty prop) {
-        return (prop == _property) ? this : new NamedTypeSerializer(this._idResolver, prop, this._typePropertyName);
-    }
-    
-    @Override
-    public WritableTypeId writeTypePrefix(JsonGenerator g, WritableTypeId idMetadata) throws IOException {
-        _generateTypeId(idMetadata);
+	@Override
+	public NamedTypeSerializer forProperty(BeanProperty prop) {
+		return (prop == _property) ? this : new NamedTypeSerializer(this._idResolver, prop, this._typePropertyName);
+	}
 
-        final JsonToken valueShape = idMetadata.valueShape;
-        if (valueShape == JsonToken.START_OBJECT) {
-            g.writeStartObject(idMetadata.forValue);
-        } else if (valueShape == JsonToken.START_ARRAY) {
-            g.writeStartArray();
-        }
+	@Override
+	public WritableTypeId writeTypePrefix(JsonGenerator g, WritableTypeId idMetadata) throws IOException {
+		_generateTypeId(idMetadata);
 
-        return idMetadata;
-    }
+		final JsonToken valueShape = idMetadata.valueShape;
+		if (valueShape == JsonToken.START_OBJECT) {
+			g.writeStartObject(idMetadata.forValue);
+		} else if (valueShape == JsonToken.START_ARRAY) {
+			g.writeStartArray();
+		}
 
-    @Override
-    public WritableTypeId writeTypeSuffix(JsonGenerator g, WritableTypeId idMetadata) throws IOException {
-        final JsonToken valueShape = idMetadata.valueShape;
+		return idMetadata;
+	}
 
-        if (valueShape == JsonToken.START_OBJECT) {
-            g.writeEndObject();
-        } else if (valueShape == JsonToken.START_ARRAY) {
-            g.writeEndArray();
-        }
+	@Override
+	public WritableTypeId writeTypeSuffix(JsonGenerator g, WritableTypeId idMetadata) throws IOException {
+		final JsonToken valueShape = idMetadata.valueShape;
 
-        return idMetadata;
-    }
+		if (valueShape == JsonToken.START_OBJECT) {
+			g.writeEndObject();
+		} else if (valueShape == JsonToken.START_ARRAY) {
+			g.writeEndArray();
+		}
+
+		return idMetadata;
+	}
 }

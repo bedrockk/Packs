@@ -7,7 +7,7 @@ import lombok.Data;
 import java.util.List;
 
 @Data
-public class OwnerHurtTargetGoalDefinition implements EntityComponentDefinition{
+public class OwnerHurtTargetGoalDefinition implements EntityComponentDefinition {
 	private int priority;
 	private List<EntityType> entityTypes;
 }

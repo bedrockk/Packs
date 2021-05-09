@@ -5,5 +5,5 @@ import lombok.Data;
 
 @Data
 public class EnchantRandomlyFunction implements LootTableFunction {
-    private boolean treasure;
+	private boolean treasure;
 }

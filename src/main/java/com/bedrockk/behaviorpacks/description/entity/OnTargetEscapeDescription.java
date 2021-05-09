@@ -5,11 +5,9 @@ import com.bedrockk.behaviorpacks.description.EntityDescription;
 import com.bedrockk.behaviorpacks.type.FilterTarget;
 import lombok.Data;
 
-import java.util.List;
-
 @Data
 public class OnTargetEscapeDescription implements EntityDescription {
-    private String event;
-    private EntityFilterDefinition filters;
-    private FilterTarget target = FilterTarget.SELF;
+	private String event;
+	private EntityFilterDefinition filters;
+	private FilterTarget target = FilterTarget.SELF;
 }

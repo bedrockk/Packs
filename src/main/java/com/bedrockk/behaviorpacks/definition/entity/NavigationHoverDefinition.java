@@ -3,7 +3,7 @@ package com.bedrockk.behaviorpacks.definition.entity;
 import lombok.Data;
 
 @Data
-public class NavigationHoverDefinition implements EntityComponentDefinition{
+public class NavigationHoverDefinition implements EntityComponentDefinition {
 	private boolean avoidDamageBlocks = false;
 	private boolean avoidPortals = false;
 	private boolean avoidSun = false;

@@ -5,7 +5,7 @@ import com.bedrockk.behaviorpacks.type.POIType;
 import lombok.Data;
 
 @Data
-public class MoveToPoiGoalDefinition implements EntityComponentDefinition{
+public class MoveToPoiGoalDefinition implements EntityComponentDefinition {
 	private int priority;
 	private double speedMultiplier;
 	private POIType poiType;

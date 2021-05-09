@@ -4,6 +4,6 @@ import com.bedrockk.behaviorpacks.definition.entity.EntityComponentDefinition;
 import lombok.Data;
 
 @Data
-public class TradeWithPlayerGoalDefinition implements EntityComponentDefinition{
+public class TradeWithPlayerGoalDefinition implements EntityComponentDefinition {
 	private int priority;
 }

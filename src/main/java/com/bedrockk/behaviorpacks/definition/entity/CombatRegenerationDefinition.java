@@ -6,5 +6,5 @@ import lombok.Data;
 @Data
 @JsonSince("1.16.220")
 public class CombatRegenerationDefinition implements EntityComponentDefinition {
-    private double regenerationDuration;
+	private double regenerationDuration;
 }

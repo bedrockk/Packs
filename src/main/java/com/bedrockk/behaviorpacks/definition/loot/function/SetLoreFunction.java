@@ -7,5 +7,5 @@ import java.util.List;
 
 @Data
 public class SetLoreFunction implements LootTableFunction {
-    private List<String> lore;
+	private List<String> lore;
 }

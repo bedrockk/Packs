@@ -4,7 +4,7 @@ import com.bedrockk.behaviorpacks.definition.entity.EntityComponentDefinition;
 import lombok.Data;
 
 @Data
-public class TradeInterestGoalDefinition implements EntityComponentDefinition{
+public class TradeInterestGoalDefinition implements EntityComponentDefinition {
 	private int priority;
 	private double carriedItemSwitchTime = 2.0;
 	private double cooldown = 2.0;

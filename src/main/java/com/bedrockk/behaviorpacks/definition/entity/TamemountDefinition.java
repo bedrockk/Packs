@@ -7,8 +7,8 @@ import lombok.Data;
 import java.util.List;
 
 @Data
-public class TamemountDefinition implements EntityComponentDefinition{
-	
+public class TamemountDefinition implements EntityComponentDefinition {
+
 	private int attemptTemperMod = 5;
 	private List<ItemEntry> autoRejectItems;
 	private List<FeedItemEntry> feedItems;

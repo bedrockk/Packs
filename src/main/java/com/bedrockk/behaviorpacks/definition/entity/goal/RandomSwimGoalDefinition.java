@@ -4,7 +4,7 @@ import com.bedrockk.behaviorpacks.definition.entity.EntityComponentDefinition;
 import lombok.Data;
 
 @Data
-public class RandomSwimGoalDefinition implements EntityComponentDefinition{
+public class RandomSwimGoalDefinition implements EntityComponentDefinition {
 	private int priority;
 	private boolean avoidSurface = true;
 	private int interval = 120;

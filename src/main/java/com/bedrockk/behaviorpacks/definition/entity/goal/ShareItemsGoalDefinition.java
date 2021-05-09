@@ -7,7 +7,7 @@ import lombok.Data;
 import java.util.List;
 
 @Data
-public class ShareItemsGoalDefinition implements EntityComponentDefinition{
+public class ShareItemsGoalDefinition implements EntityComponentDefinition {
 	private int priority;
 	private List<EntityType> entityTypes;
 	private double goalRadius = 0.5;

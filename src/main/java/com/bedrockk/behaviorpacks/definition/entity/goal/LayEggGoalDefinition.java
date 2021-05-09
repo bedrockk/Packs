@@ -5,7 +5,7 @@ import com.bedrockk.behaviorpacks.definition.entity.EntityEventTriggerDefinition
 import lombok.Data;
 
 @Data
-public class LayEggGoalDefinition implements EntityComponentDefinition{
+public class LayEggGoalDefinition implements EntityComponentDefinition {
 	private int priority;
 	private double goalRadius = 0.5;
 	private EntityEventTriggerDefinition onLay;

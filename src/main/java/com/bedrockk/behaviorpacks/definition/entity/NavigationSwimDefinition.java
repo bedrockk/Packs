@@ -3,7 +3,7 @@ package com.bedrockk.behaviorpacks.definition.entity;
 import lombok.Data;
 
 @Data
-public class NavigationSwimDefinition implements EntityComponentDefinition{
+public class NavigationSwimDefinition implements EntityComponentDefinition {
 	private boolean avoidDamageBlocks = false;
 	private boolean avoidPortals = false;
 	private boolean avoidSun = false;

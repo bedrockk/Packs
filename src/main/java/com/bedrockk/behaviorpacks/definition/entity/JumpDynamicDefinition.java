@@ -1,5 +1,5 @@
 package com.bedrockk.behaviorpacks.definition.entity;
 
-public class JumpDynamicDefinition implements EntityComponentDefinition{
+public class JumpDynamicDefinition implements EntityComponentDefinition {
 	// NOOP
 }

@@ -5,7 +5,7 @@ import com.bedrockk.behaviorpacks.type.*;
 import lombok.Data;
 
 @Data
-public class ProjectileDefinition implements EntityComponentDefinition{
+public class ProjectileDefinition implements EntityComponentDefinition {
 	private OnHit onHit;
 
 	private String shootSound;

@@ -4,7 +4,7 @@ import com.bedrockk.behaviorpacks.definition.entity.EntityComponentDefinition;
 import lombok.Data;
 
 @Data
-public class RandomBreachGoalDefinition implements EntityComponentDefinition{
+public class RandomBreachGoalDefinition implements EntityComponentDefinition {
 	private int priority;
 	private double cooldownTime = 0.0;
 	private int interval = 120;

@@ -6,6 +6,6 @@ import lombok.Data;
 
 @Data
 public class RandomBlockStateFunction implements LootTableFunction {
-    private String blockState;
-    private Range values;
+	private String blockState;
+	private Range values;
 }

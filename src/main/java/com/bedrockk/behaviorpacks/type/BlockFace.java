@@ -3,17 +3,17 @@ package com.bedrockk.behaviorpacks.type;
 import java.util.Locale;
 
 public enum BlockFace {
-    UP,
-    DOWN,
-    NORTH,
-    SOUTH,
-    EAST,
-    WEST,
-    SIDE,
-    ALL;
+	UP,
+	DOWN,
+	NORTH,
+	SOUTH,
+	EAST,
+	WEST,
+	SIDE,
+	ALL;
 
-    @Override
-    public String toString() {
-        return name().toLowerCase(Locale.ENGLISH);
-    }
+	@Override
+	public String toString() {
+		return name().toLowerCase(Locale.ENGLISH);
+	}
 }

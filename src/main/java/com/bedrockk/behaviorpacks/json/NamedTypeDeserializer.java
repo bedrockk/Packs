@@ -18,37 +18,37 @@ import java.io.Serial;
 import java.util.Collection;
 
 public class NamedTypeDeserializer extends AsPropertyTypeDeserializer {
-    @Serial
-    private static final long serialVersionUID = 1L;
+	@Serial
+	private static final long serialVersionUID = 1L;
 
-    public NamedTypeDeserializer(JavaType bt, TypeIdResolver idRes, JavaType defaultImpl, DeserializationConfig config, Collection<NamedType> subtypes) {
-        super(bt, idRes, null, false, defaultImpl);
-    }
+	public NamedTypeDeserializer(JavaType bt, TypeIdResolver idRes, JavaType defaultImpl, DeserializationConfig config, Collection<NamedType> subtypes) {
+		super(bt, idRes, null, false, defaultImpl);
+	}
 
-    public NamedTypeDeserializer(NamedTypeDeserializer src, BeanProperty property) {
-        super(src, property);
-    }
+	public NamedTypeDeserializer(NamedTypeDeserializer src, BeanProperty property) {
+		super(src, property);
+	}
 
-    @Override
-    public JsonTypeInfo.As getTypeInclusion() {
-        return null;
-    }
+	@Override
+	public JsonTypeInfo.As getTypeInclusion() {
+		return null;
+	}
 
-    @Override
-    public TypeDeserializer forProperty(BeanProperty prop) {
-        return (prop == _property) ? this : new NamedTypeDeserializer(this, prop);
-    }
+	@Override
+	public TypeDeserializer forProperty(BeanProperty prop) {
+		return (prop == _property) ? this : new NamedTypeDeserializer(this, prop);
+	}
 
-    @Override
-    public Object deserializeTypedFromObject(JsonParser p, DeserializationContext ctxt) throws IOException {
-        String name = p.currentName();
-        if (name != null) {
-            TokenBuffer tb = new TokenBuffer(p, ctxt);
-            tb.copyCurrentStructure(p);
+	@Override
+	public Object deserializeTypedFromObject(JsonParser p, DeserializationContext ctxt) throws IOException {
+		String name = p.currentName();
+		if (name != null) {
+			TokenBuffer tb = new TokenBuffer(p, ctxt);
+			tb.copyCurrentStructure(p);
 
-            return _deserializeTypedForId(p, ctxt, tb, name);
-        } else {
-            throw new InvalidTypeIdException(p, "Could not found root for definition", _baseType, "NAMED");
-        }
-    }
+			return _deserializeTypedForId(p, ctxt, tb, name);
+		} else {
+			throw new InvalidTypeIdException(p, "Could not found root for definition", _baseType, "NAMED");
+		}
+	}
 }

@@ -5,7 +5,7 @@ import com.bedrockk.behaviorpacks.definition.entity.EntityEventTriggerDefinition
 import lombok.Data;
 
 @Data
-public class DefendTrustedTargetGoalDefinition implements EntityComponentDefinition{
+public class DefendTrustedTargetGoalDefinition implements EntityComponentDefinition {
 	private int priority;
 	private String aggroSound;
 	private double attackChance;

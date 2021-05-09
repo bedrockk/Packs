@@ -5,6 +5,6 @@ import lombok.Data;
 
 @Data
 public class BlockPlacerDefinition implements ItemComponentNode {
-    private String block;
-    private boolean useBlockDescription = false;
+	private String block;
+	private boolean useBlockDescription = false;
 }

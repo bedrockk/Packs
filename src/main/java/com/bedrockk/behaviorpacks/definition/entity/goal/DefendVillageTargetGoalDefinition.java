@@ -7,7 +7,7 @@ import lombok.Data;
 import java.util.List;
 
 @Data
-public class DefendVillageTargetGoalDefinition implements EntityComponentDefinition{
+public class DefendVillageTargetGoalDefinition implements EntityComponentDefinition {
 	private int priority;
 	private List<EntityType> entityTypes;
 }

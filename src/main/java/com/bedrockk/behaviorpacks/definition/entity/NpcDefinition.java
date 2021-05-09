@@ -3,8 +3,8 @@ package com.bedrockk.behaviorpacks.definition.entity;
 import com.bedrockk.behaviorpacks.annotation.JsonSince;
 import com.bedrockk.behaviorpacks.node.PackNode;
 import com.bedrockk.behaviorpacks.type.ImmutableVec3;
-
 import lombok.Data;
+
 import java.util.List;
 
 @Data

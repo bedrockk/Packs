@@ -6,5 +6,5 @@ import lombok.Data;
 
 @Data
 public class SetDataFunction implements LootTableFunction {
-    private Range data;
+	private Range data;
 }

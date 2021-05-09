@@ -4,7 +4,7 @@ import com.bedrockk.behaviorpacks.definition.entity.EntityComponentDefinition;
 import lombok.Data;
 
 @Data
-public class StompTurtleEggGoalDefinition implements EntityComponentDefinition{
+public class StompTurtleEggGoalDefinition implements EntityComponentDefinition {
 	private int priority;
 	private double goalRadius = 0.5;
 	private int interval = 120;

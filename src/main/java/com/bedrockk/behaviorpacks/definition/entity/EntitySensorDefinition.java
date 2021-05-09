@@ -4,7 +4,7 @@ import com.bedrockk.behaviorpacks.definition.EntityFilterDefinition;
 import lombok.Data;
 
 @Data
-public class EntitySensorDefinition implements EntityComponentDefinition{
+public class EntitySensorDefinition implements EntityComponentDefinition {
 	private int maximumCount;
 	private int minimumCount = 1;
 	private boolean relativeRange = true;

@@ -7,7 +7,7 @@ import lombok.Data;
 import java.util.List;
 
 @Data
-public class NearestAttackableTargetGoalDefinition implements EntityComponentDefinition{
+public class NearestAttackableTargetGoalDefinition implements EntityComponentDefinition {
 	private int priority;
 	private int attackInterval = 0;
 	private int attackIntervalMin = 0;

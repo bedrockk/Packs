@@ -6,7 +6,7 @@ import lombok.Data;
 import java.util.List;
 
 @Data
-public class RavagerBlockedDefinition implements EntityComponentDefinition{
+public class RavagerBlockedDefinition implements EntityComponentDefinition {
 	private double knockbackStrength = 3.0;
 	private List<ReactionChoice> reactionChoices;
 

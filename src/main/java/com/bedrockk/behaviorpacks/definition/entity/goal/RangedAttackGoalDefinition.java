@@ -4,7 +4,7 @@ import com.bedrockk.behaviorpacks.definition.entity.EntityComponentDefinition;
 import lombok.Data;
 
 @Data
-public class RangedAttackGoalDefinition implements EntityComponentDefinition{
+public class RangedAttackGoalDefinition implements EntityComponentDefinition {
 	private int priority;
 	private int attackIntervalMax;
 	private int attackIntervalMin;

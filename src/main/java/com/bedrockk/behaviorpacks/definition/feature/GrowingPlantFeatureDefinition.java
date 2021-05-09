@@ -14,10 +14,10 @@ import java.util.Map;
 @EqualsAndHashCode(callSuper = true)
 @Data
 public class GrowingPlantFeatureDefinition extends FeatureDefinition {
-    private Map<String, DefinitionDescription> description;
-    private List<Pair<ExpressionNode, Double>> heightDistribution;
-    private String growthDirection; // up or down
-    private ExpressionNode age;
-    private List<Pair<BlockReference, Double>> bodyBlocks;
-    private List<Pair<BlockReference, Double>> headBlocks;
+	private Map<String, DefinitionDescription> description;
+	private List<Pair<ExpressionNode, Double>> heightDistribution;
+	private String growthDirection; // up or down
+	private ExpressionNode age;
+	private List<Pair<BlockReference, Double>> bodyBlocks;
+	private List<Pair<BlockReference, Double>> headBlocks;
 }

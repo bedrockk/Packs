@@ -5,5 +5,5 @@ import lombok.Data;
 
 @Data
 public class HasMarkVariantCondition implements LootTableCondition {
-    private int value;
+	private int value;
 }

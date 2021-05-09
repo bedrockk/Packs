@@ -9,6 +9,6 @@ import java.nio.file.Path;
 @EqualsAndHashCode(callSuper = true)
 @Data
 public class TableEntry extends LootPoolEntry {
-    private Path name;
-    private int weight;
+	private Path name;
+	private int weight;
 }

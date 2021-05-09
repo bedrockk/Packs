@@ -4,5 +4,5 @@ import lombok.Data;
 
 @Data
 public class IsDyeableDefinition implements EntityComponentDefinition {
-    private String interactText;
+	private String interactText;
 }

@@ -5,9 +5,9 @@ import lombok.Data;
 
 @Data
 public class CameraDefinition implements ItemComponentNode {
-    private double blackBarsDuration;
-    private double blackBarsScreenRatio;
-    private double shutterDuration;
-    private int pictureDuration;
-    private double slideAwayDuration;
+	private double blackBarsDuration;
+	private double blackBarsScreenRatio;
+	private double shutterDuration;
+	private int pictureDuration;
+	private double slideAwayDuration;
 }

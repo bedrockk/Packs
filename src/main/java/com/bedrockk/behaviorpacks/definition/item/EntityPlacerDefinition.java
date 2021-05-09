@@ -8,6 +8,6 @@ import java.util.List;
 
 @Data
 public class EntityPlacerDefinition implements ItemComponentNode {
-    private String entity;
-    private List<String> allowedBlocks = new ArrayList<>();
+	private String entity;
+	private List<String> allowedBlocks = new ArrayList<>();
 }

@@ -5,7 +5,7 @@ import lombok.Data;
 
 @Data
 public class ThrowableDefinition implements ItemComponentNode {
-    private boolean doSwingAnimation;
-    private int maxDrawDuration;
-    private boolean scalePowerByDrawDuration;
+	private boolean doSwingAnimation;
+	private int maxDrawDuration;
+	private boolean scalePowerByDrawDuration;
 }

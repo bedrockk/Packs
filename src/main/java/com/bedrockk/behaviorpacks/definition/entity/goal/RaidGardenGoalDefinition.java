@@ -6,7 +6,7 @@ import lombok.Data;
 import java.util.List;
 
 @Data
-public class RaidGardenGoalDefinition implements EntityComponentDefinition{
+public class RaidGardenGoalDefinition implements EntityComponentDefinition {
 	private int priority;
 	private List<String> blocks;
 	private int eatDelay = 2;

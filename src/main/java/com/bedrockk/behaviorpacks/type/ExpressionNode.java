@@ -16,51 +16,51 @@ import java.util.Map;
 
 @Data
 public class ExpressionNode {
-    private final Object rawCode;
-    private final List<Expression> expressions;
+	private final Object rawCode;
+	private final List<Expression> expressions;
 
-    @JsonCreator
-    public ExpressionNode(int code) {
-        this.rawCode = code;
-        this.expressions = MoLang.newParser(String.valueOf(code)).parse();
-    }
+	@JsonCreator
+	public ExpressionNode(int code) {
+		this.rawCode = code;
+		this.expressions = MoLang.newParser(String.valueOf(code)).parse();
+	}
 
-    @JsonCreator
-    public ExpressionNode(double code) {
-        this.rawCode = code;
-        this.expressions = MoLang.newParser(String.valueOf(code)).parse();
-    }
+	@JsonCreator
+	public ExpressionNode(double code) {
+		this.rawCode = code;
+		this.expressions = MoLang.newParser(String.valueOf(code)).parse();
+	}
 
-    @JsonCreator
-    public ExpressionNode(float code) {
-        this.rawCode = code;
-        this.expressions = MoLang.newParser(String.valueOf(code)).parse();
-    }
+	@JsonCreator
+	public ExpressionNode(float code) {
+		this.rawCode = code;
+		this.expressions = MoLang.newParser(String.valueOf(code)).parse();
+	}
 
-    @JsonCreator
-    public ExpressionNode(String code) {
-        this.rawCode = code;
-        this.expressions = MoLang.newParser(code).parse();
-    }
+	@JsonCreator
+	public ExpressionNode(String code) {
+		this.rawCode = code;
+		this.expressions = MoLang.newParser(code).parse();
+	}
 
-    public Object getRawCode() {
-        return this.rawCode;
-    }
+	public Object getRawCode() {
+		return this.rawCode;
+	}
 
-    public String getRawCodeString() {
-        return String.valueOf(this.rawCode);
-    }
+	public String getRawCodeString() {
+		return String.valueOf(this.rawCode);
+	}
 
-    public MoValue evaluate(MoLangRuntime runtime) {
-        return this.evaluate(runtime, new HashMap<>());
-    }
+	public MoValue evaluate(MoLangRuntime runtime) {
+		return this.evaluate(runtime, new HashMap<>());
+	}
 
-    public MoValue evaluate(MoLangRuntime runtime, Map<String, MoValue> context) {
-        return runtime.execute(this.expressions, context);
-    }
+	public MoValue evaluate(MoLangRuntime runtime, Map<String, MoValue> context) {
+		return runtime.execute(this.expressions, context);
+	}
 
-    @JsonValue
-    public JsonNode toJson() {
-        return PackHelper.toJsonNode(this.rawCode);
-    }
+	@JsonValue
+	public JsonNode toJson() {
+		return PackHelper.toJsonNode(this.rawCode);
+	}
 }

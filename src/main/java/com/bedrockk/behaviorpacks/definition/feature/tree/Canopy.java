@@ -9,16 +9,16 @@ import lombok.Data;
 
 @Data
 public class Canopy {
-    private Range canopyOffset;
-    private Integer minWidth;
-    private Slope canopySlope;
-    private JsonList<ChanceInformation> variationChance;
-    private BlockReference leafBlock;
-    private Decoration canopyDecoration;
+	private Range canopyOffset;
+	private Integer minWidth;
+	private Slope canopySlope;
+	private JsonList<ChanceInformation> variationChance;
+	private BlockReference leafBlock;
+	private Decoration canopyDecoration;
 
-    @Data
-    public static class Slope implements PackNode {
-        private int rise;
-        private int run;
-    }
+	@Data
+	public static class Slope implements PackNode {
+		private int rise;
+		private int run;
+	}
 }

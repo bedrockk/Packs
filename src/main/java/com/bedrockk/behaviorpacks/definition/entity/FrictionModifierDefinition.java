@@ -4,5 +4,5 @@ import lombok.Data;
 
 @Data
 public class FrictionModifierDefinition implements EntityComponentDefinition {
-    private double value = 1.0;
+	private double value = 1.0;
 }

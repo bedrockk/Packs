@@ -6,8 +6,8 @@ import lombok.Data;
 import java.util.List;
 
 @Data
-public class SpawnEntityDefinition implements EntityComponentDefinition{
-	
+public class SpawnEntityDefinition implements EntityComponentDefinition {
+
 	private List<EntityFilterDefinition> filters;
 	private int maxWaitTime = 600;
 	private int minWaitTime = 300;

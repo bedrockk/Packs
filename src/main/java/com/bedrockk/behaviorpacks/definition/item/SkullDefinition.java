@@ -5,5 +5,5 @@ import lombok.Data;
 
 @Data
 public class SkullDefinition implements ItemComponentNode {
-    // noop
+	// noop
 }

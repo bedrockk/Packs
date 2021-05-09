@@ -5,7 +5,7 @@ import com.bedrockk.behaviorpacks.definition.entity.EntityComponentDefinition;
 import lombok.Data;
 
 @Data
-public class StalkAndPounceOnTargetGoalDefinition implements EntityComponentDefinition{
+public class StalkAndPounceOnTargetGoalDefinition implements EntityComponentDefinition {
 	private int priority;
 	private double interestTime = 2.0;
 	private double leapDist = 0.8;

@@ -4,6 +4,6 @@ import com.bedrockk.behaviorpacks.definition.entity.EntityComponentDefinition;
 import lombok.Data;
 
 @Data
-public class SquidIdleGoalDefinition implements EntityComponentDefinition{
+public class SquidIdleGoalDefinition implements EntityComponentDefinition {
 	private int priority;
 }

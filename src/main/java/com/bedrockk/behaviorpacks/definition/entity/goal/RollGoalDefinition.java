@@ -4,7 +4,7 @@ import com.bedrockk.behaviorpacks.definition.entity.EntityComponentDefinition;
 import lombok.Data;
 
 @Data
-public class RollGoalDefinition implements EntityComponentDefinition{
+public class RollGoalDefinition implements EntityComponentDefinition {
 	private int priority;
 	private double probability = 1.0;
 }

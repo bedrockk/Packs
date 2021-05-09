@@ -11,8 +11,8 @@ import java.util.Map;
 @EqualsAndHashCode(callSuper = true)
 @Data
 public class SnapToSurfaceFeatureDefinition extends FeatureDefinition {
-    private Map<String, DefinitionDescription> description;
-    private String featureToSnap;
-    private int verticalSearchRange;
-    private BlockReference surface;
+	private Map<String, DefinitionDescription> description;
+	private String featureToSnap;
+	private int verticalSearchRange;
+	private BlockReference surface;
 }

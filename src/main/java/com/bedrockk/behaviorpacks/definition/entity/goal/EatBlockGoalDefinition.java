@@ -11,7 +11,7 @@ import java.util.List;
 
 @Data
 @JsonSince("1.16.0")
-public class EatBlockGoalDefinition implements EntityComponentDefinition{
+public class EatBlockGoalDefinition implements EntityComponentDefinition {
 	private int priority;
 	private ExpressionNode successChance;
 	private int timeUntilEat;

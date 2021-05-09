@@ -5,7 +5,7 @@ import com.bedrockk.behaviorpacks.type.Range;
 import lombok.Data;
 
 @Data
-public class CircleAroundAnchorGoalDefinition implements EntityComponentDefinition{
+public class CircleAroundAnchorGoalDefinition implements EntityComponentDefinition {
 	private int priority;
 	private Range radiusRange;
 	private double radiusChange;

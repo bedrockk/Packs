@@ -5,7 +5,7 @@ import lombok.Data;
 
 @Data
 public class AcaciaCanopy {
-    private int canopySize;
-    private Boolean simplifyCanopy;
-    private BlockReference leafBlock;
+	private int canopySize;
+	private Boolean simplifyCanopy;
+	private BlockReference leafBlock;
 }

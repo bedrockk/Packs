@@ -8,7 +8,7 @@ import lombok.Data;
 import java.util.List;
 
 @Data
-public class LookAtEntityGoalDefinition implements EntityComponentDefinition{
+public class LookAtEntityGoalDefinition implements EntityComponentDefinition {
 	private int priority;
 	private int angleOfViewHorizontal = 360;
 	private int angleOfViewVertical = 360;

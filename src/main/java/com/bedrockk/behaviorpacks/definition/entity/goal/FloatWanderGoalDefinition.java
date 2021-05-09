@@ -5,7 +5,7 @@ import com.bedrockk.behaviorpacks.type.Range;
 import lombok.Data;
 
 @Data
-public class FloatWanderGoalDefinition implements EntityComponentDefinition{
+public class FloatWanderGoalDefinition implements EntityComponentDefinition {
 	private int priority;
 	private Range floatDuration;
 	private boolean mustReach = false;

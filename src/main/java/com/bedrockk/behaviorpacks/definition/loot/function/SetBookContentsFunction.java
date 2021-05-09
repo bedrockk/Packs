@@ -7,7 +7,7 @@ import java.util.List;
 
 @Data
 public class SetBookContentsFunction implements LootTableFunction {
-    private String author;
-    private String title;
-    private List<String> pages;
+	private String author;
+	private String title;
+	private List<String> pages;
 }

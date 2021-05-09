@@ -7,7 +7,7 @@ import lombok.Data;
 import java.util.List;
 
 @Data
-public class GiveableDefinition implements EntityComponentDefinition{
+public class GiveableDefinition implements EntityComponentDefinition {
 	private List<Trigger> triggers;
 
 	@Data

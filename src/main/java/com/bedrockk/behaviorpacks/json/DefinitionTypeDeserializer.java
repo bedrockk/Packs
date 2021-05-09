@@ -1,7 +1,6 @@
 package com.bedrockk.behaviorpacks.json;
 
 import com.bedrockk.behaviorpacks.PackHelper;
-import com.bedrockk.behaviorpacks.definition.EntityDefinition;
 import com.bedrockk.behaviorpacks.definition.VersionedDefinition;
 import com.bedrockk.behaviorpacks.type.SemVersion;
 import com.fasterxml.jackson.annotation.JsonTypeInfo;
@@ -23,57 +22,57 @@ import java.io.Serial;
 import java.util.Collection;
 
 public class DefinitionTypeDeserializer extends AsPropertyTypeDeserializer {
-    @Serial
-    private static final long serialVersionUID = 1L;
+	@Serial
+	private static final long serialVersionUID = 1L;
 
-    public DefinitionTypeDeserializer(JavaType bt, TypeIdResolver idRes, JavaType defaultImpl, DeserializationConfig config, Collection<NamedType> subtypes) {
-        super(bt, idRes, null, false, defaultImpl);
-    }
+	public DefinitionTypeDeserializer(JavaType bt, TypeIdResolver idRes, JavaType defaultImpl, DeserializationConfig config, Collection<NamedType> subtypes) {
+		super(bt, idRes, null, false, defaultImpl);
+	}
 
-    public DefinitionTypeDeserializer(DefinitionTypeDeserializer src, BeanProperty property) {
-        super(src, property);
-    }
+	public DefinitionTypeDeserializer(DefinitionTypeDeserializer src, BeanProperty property) {
+		super(src, property);
+	}
 
-    @Override
-    public JsonTypeInfo.As getTypeInclusion() {
-        return null;
-    }
+	@Override
+	public JsonTypeInfo.As getTypeInclusion() {
+		return null;
+	}
 
-    @Override
-    public TypeDeserializer forProperty(BeanProperty prop) {
-        return (prop == _property) ? this : new DefinitionTypeDeserializer(this, prop);
-    }
+	@Override
+	public TypeDeserializer forProperty(BeanProperty prop) {
+		return (prop == _property) ? this : new DefinitionTypeDeserializer(this, prop);
+	}
 
-    @Override
-    public Object deserializeTypedFromObject(JsonParser p, DeserializationContext ctxt) throws IOException {
-        SemVersion formatVersion = null;
-        Object definition = null;
+	@Override
+	public Object deserializeTypedFromObject(JsonParser p, DeserializationContext ctxt) throws IOException {
+		SemVersion formatVersion = null;
+		Object definition = null;
 
-        JsonToken t = p.currentToken();
-        if (t == JsonToken.START_OBJECT) {
-            t = p.nextToken();
-            for (; t == JsonToken.FIELD_NAME; t = p.nextToken()) {
-                String name = p.currentName();
-                p.nextToken();
+		JsonToken t = p.currentToken();
+		if (t == JsonToken.START_OBJECT) {
+			t = p.nextToken();
+			for (; t == JsonToken.FIELD_NAME; t = p.nextToken()) {
+				String name = p.currentName();
+				p.nextToken();
 
-                if (name.equals("format_version")) {
-                    formatVersion = SemVersion.of(p.getValueAsString());
-                    PackHelper.CURRENT_DEFINITION_VERSION = formatVersion;
-                } else {
-                    TokenBuffer tb = new TokenBuffer(p, ctxt);
-                    tb.copyCurrentStructure(p);
+				if (name.equals("format_version")) {
+					formatVersion = SemVersion.of(p.getValueAsString());
+					PackHelper.CURRENT_DEFINITION_VERSION = formatVersion;
+				} else {
+					TokenBuffer tb = new TokenBuffer(p, ctxt);
+					tb.copyCurrentStructure(p);
 
-                    definition = _deserializeTypedForId(p, ctxt, tb, name);
-                }
-            }
-        } else {
-            throw new InvalidTypeIdException(p, "Could not found root object for definition", _baseType, "NAMED");
-        }
+					definition = _deserializeTypedForId(p, ctxt, tb, name);
+				}
+			}
+		} else {
+			throw new InvalidTypeIdException(p, "Could not found root object for definition", _baseType, "NAMED");
+		}
 
-        if (formatVersion != null && definition instanceof VersionedDefinition) {
-            ((VersionedDefinition) definition).setFormatVersion(formatVersion);
-        }
+		if (formatVersion != null && definition instanceof VersionedDefinition) {
+			((VersionedDefinition) definition).setFormatVersion(formatVersion);
+		}
 
-        return definition;
-    }
+		return definition;
+	}
 }

@@ -10,7 +10,7 @@ import com.fasterxml.jackson.databind.annotation.JsonTypeResolver;
 @JsonTypeInfo(use = JsonTypeInfo.Id.CUSTOM)
 @JsonTypeResolver(NamedTypeResolverBuilder.class)
 @JsonSubTypes({
-        @Type(name = "minecraft:damageable", value = DamageableDefinition.class)
+		@Type(name = "minecraft:damageable", value = DamageableDefinition.class)
 })
 // TODO
 public interface ItemComponentNode extends PackNode {

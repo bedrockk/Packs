@@ -12,18 +12,18 @@ import java.util.Map;
 @EqualsAndHashCode(callSuper = true)
 @Data
 public class AggregateFeatureDefinition extends FeatureDefinition {
-    private Map<String, DefinitionDescription> description;
-    private List<String> features;
-    private EarlyOutType earlyOut;
+	private Map<String, DefinitionDescription> description;
+	private List<String> features;
+	private EarlyOutType earlyOut;
 
-    public enum EarlyOutType {
-        NONE,
-        FIRST_FAILURE,
-        FIRST_SUCCESS;
+	public enum EarlyOutType {
+		NONE,
+		FIRST_FAILURE,
+		FIRST_SUCCESS;
 
-        @Override
-        public String toString() {
-            return name().toLowerCase(Locale.ENGLISH);
-        }
-    }
+		@Override
+		public String toString() {
+			return name().toLowerCase(Locale.ENGLISH);
+		}
+	}
 }

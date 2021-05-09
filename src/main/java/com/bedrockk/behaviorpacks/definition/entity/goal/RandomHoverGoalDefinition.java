@@ -5,7 +5,7 @@ import com.bedrockk.behaviorpacks.type.Range;
 import lombok.Data;
 
 @Data
-public class RandomHoverGoalDefinition implements EntityComponentDefinition{
+public class RandomHoverGoalDefinition implements EntityComponentDefinition {
 	private int priority;
 	private int interval = 120;
 	private double speedMultiplier = 1.0;

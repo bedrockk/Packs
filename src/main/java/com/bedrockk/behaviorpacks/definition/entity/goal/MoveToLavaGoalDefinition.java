@@ -4,7 +4,7 @@ import com.bedrockk.behaviorpacks.definition.entity.EntityComponentDefinition;
 import lombok.Data;
 
 @Data
-public class MoveToLavaGoalDefinition implements EntityComponentDefinition{
+public class MoveToLavaGoalDefinition implements EntityComponentDefinition {
 	private int priority;
 	private double goalRadius = 0.5;
 	private int searchCount = 10;

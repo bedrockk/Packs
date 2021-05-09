@@ -6,7 +6,7 @@ import com.bedrockk.behaviorpacks.node.SingleValueNode;
 
 @JsonSince("1.16.100")
 public class BlockPreventsJumpingDescription extends SingleValueNode<Boolean> implements BlockDescription {
-    public BlockPreventsJumpingDescription(Boolean value) {
-        super(value);
-    }
+	public BlockPreventsJumpingDescription(Boolean value) {
+		super(value);
+	}
 }

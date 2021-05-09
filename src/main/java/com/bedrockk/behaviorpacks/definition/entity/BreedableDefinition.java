@@ -9,7 +9,7 @@ import lombok.Data;
 import java.util.List;
 
 @Data
-public class BreedableDefinition implements EntityComponentDefinition{
+public class BreedableDefinition implements EntityComponentDefinition {
 	private List<ItemSelector> breedItems;
 	private boolean allowSitting = false;
 	private boolean blendAttributes = true;
@@ -20,7 +20,8 @@ public class BreedableDefinition implements EntityComponentDefinition{
 	private List<EntityFilterDefinition> loveFilters;
 	private boolean requireFullHealth = false;
 	private boolean requireTame = true;
-	private @JsonSince("1.16.220") String transformToItem;
+	private @JsonSince("1.16.220")
+	String transformToItem;
 	private BreedsWith breedsWith;
 	private List<EnvRequirement> environmentRequirements;
 	private MutationFactor mutationFactor;

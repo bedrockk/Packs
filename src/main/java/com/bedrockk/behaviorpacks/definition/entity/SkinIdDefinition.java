@@ -4,5 +4,5 @@ import lombok.Data;
 
 @Data
 public class SkinIdDefinition implements EntityComponentDefinition {
-    private int value = 0;
+	private int value = 0;
 }

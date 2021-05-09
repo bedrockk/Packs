@@ -6,7 +6,7 @@ import lombok.Data;
 import java.util.List;
 
 @Data
-public class GeneticsDefinition implements EntityComponentDefinition{
+public class GeneticsDefinition implements EntityComponentDefinition {
 	private List<Gene> genes;
 	private double mutationRate = 0.03125;
 

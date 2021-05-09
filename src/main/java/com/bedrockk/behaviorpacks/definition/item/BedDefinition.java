@@ -5,5 +5,5 @@ import lombok.Data;
 
 @Data
 public class BedDefinition implements ItemComponentNode {
-    // noop
+	// noop
 }

@@ -7,5 +7,5 @@ import java.nio.file.Path;
 
 @Data
 public class FillContainerFunction implements LootTableFunction {
-    private Path lootTable;
+	private Path lootTable;
 }

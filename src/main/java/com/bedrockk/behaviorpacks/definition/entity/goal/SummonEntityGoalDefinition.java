@@ -11,7 +11,7 @@ import java.util.List;
 import java.util.Locale;
 
 @Data
-public class SummonEntityGoalDefinition implements EntityComponentDefinition{
+public class SummonEntityGoalDefinition implements EntityComponentDefinition {
 	private int priority;
 	private List<SummonChoice> summonChoices;
 

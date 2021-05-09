@@ -5,7 +5,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.Data;
 
 @Data
-public class SlimeAttackGoalDefinition implements EntityComponentDefinition{
+public class SlimeAttackGoalDefinition implements EntityComponentDefinition {
 	private int priority;
 	@JsonProperty("set_persistent")
 	private boolean persistent;

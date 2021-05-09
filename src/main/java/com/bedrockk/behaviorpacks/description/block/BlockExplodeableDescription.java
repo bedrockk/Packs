@@ -9,17 +9,17 @@ import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 
 @JsonDeserialize(converter = BlockExplodeableDescription.Converter.class)
 public class BlockExplodeableDescription extends SingleValueNode<Double> implements BlockDescription {
-    public BlockExplodeableDescription(Double value) {
-        super(value);
-    }
+	public BlockExplodeableDescription(Double value) {
+		super(value);
+	}
 
-    public static class Converter extends VersionedConverter<JsonNode> {
-        @Override
-        public JsonNode convert(JsonNode node) {
-            if (node.isObject() && this.getVersion().isLower(FormatVersions.V1_16_0)) {
-                return node.get("value");
-            }
-            return node;
-        }
-    }
+	public static class Converter extends VersionedConverter<JsonNode> {
+		@Override
+		public JsonNode convert(JsonNode node) {
+			if (node.isObject() && this.getVersion().isLower(FormatVersions.V1_16_0)) {
+				return node.get("value");
+			}
+			return node;
+		}
+	}
 }

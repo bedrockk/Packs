@@ -6,10 +6,10 @@ import lombok.Data;
 
 @Data
 public class FallenTrunk {
-    private Range logLength;
-    private Integer stumpHeight;
-    private Integer heightModifier;
-    private BlockReference trunkBlock;
-    private String logDecorationFeature;
-    private Decoration trunkDecoration;
+	private Range logLength;
+	private Integer stumpHeight;
+	private Integer heightModifier;
+	private BlockReference trunkBlock;
+	private String logDecorationFeature;
+	private Decoration trunkDecoration;
 }

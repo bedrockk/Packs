@@ -15,13 +15,13 @@ import java.util.Map;
 @Getter
 public abstract class RecipeDefinition extends VersionedDefinition {
 
-    private Map<String, DefinitionDescription> description;
-    private List<String> tags;
+	private Map<String, DefinitionDescription> description;
+	private List<String> tags;
 
-    @Data
-    public static class ItemEntry implements PackNode {
-        private String item;
-        private int data = 0;
-        private int count = 1;
-    }
+	@Data
+	public static class ItemEntry implements PackNode {
+		private String item;
+		private int data = 0;
+		private int count = 1;
+	}
 }

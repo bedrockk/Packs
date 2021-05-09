@@ -8,48 +8,48 @@ import java.util.LinkedList;
 
 @Data
 public class McFunctionFile {
-    private boolean hidden = false;
-    private LinkedList<String> lines = new LinkedList<>();
+	private boolean hidden = false;
+	private LinkedList<String> lines = new LinkedList<>();
 
-    public McFunctionFile(InputStream stream) throws IOException {
-        this.load(stream);
-    }
+	public McFunctionFile(InputStream stream) throws IOException {
+		this.load(stream);
+	}
 
-    public String[] getCommands() {
-        return lines.stream().filter(line -> !line.startsWith("#")).toArray(String[]::new);
-    }
+	public String[] getCommands() {
+		return lines.stream().filter(line -> !line.startsWith("#")).toArray(String[]::new);
+	}
 
-    public String[] getComments() {
-        return lines.stream().filter(line -> line.startsWith("#")).toArray(String[]::new);
-    }
+	public String[] getComments() {
+		return lines.stream().filter(line -> line.startsWith("#")).toArray(String[]::new);
+	}
 
-    public void load(InputStream stream) throws IOException {
-        this.hidden = false;
-        this.lines.clear();
+	public void load(InputStream stream) throws IOException {
+		this.hidden = false;
+		this.lines.clear();
 
-        try (BufferedReader br = new BufferedReader(new InputStreamReader(stream, StandardCharsets.UTF_8))) {
-            String line = br.readLine();
-            if (line.equals("HIDE")) {
-                this.hidden = true;
-                line = br.readLine();
-            }
+		try (BufferedReader br = new BufferedReader(new InputStreamReader(stream, StandardCharsets.UTF_8))) {
+			String line = br.readLine();
+			if (line.equals("HIDE")) {
+				this.hidden = true;
+				line = br.readLine();
+			}
 
-            while (line != null) {
-                this.lines.add(line);
-                line = br.readLine();
-            }
-        }
-    }
+			while (line != null) {
+				this.lines.add(line);
+				line = br.readLine();
+			}
+		}
+	}
 
-    public void save(File file) throws IOException {
-        try(BufferedWriter writer = new BufferedWriter(new FileWriter(file))) {
-            if (this.hidden) {
-                writer.append("HIDE");
-            }
+	public void save(File file) throws IOException {
+		try (BufferedWriter writer = new BufferedWriter(new FileWriter(file))) {
+			if (this.hidden) {
+				writer.append("HIDE");
+			}
 
-            for (String line : lines) {
-                writer.append(line);
-            }
-        }
-    }
+			for (String line : lines) {
+				writer.append(line);
+			}
+		}
+	}
 }

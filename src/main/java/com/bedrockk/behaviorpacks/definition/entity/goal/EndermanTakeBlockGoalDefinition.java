@@ -4,6 +4,6 @@ import com.bedrockk.behaviorpacks.definition.entity.EntityComponentDefinition;
 import lombok.Data;
 
 @Data
-public class EndermanTakeBlockGoalDefinition implements EntityComponentDefinition{
+public class EndermanTakeBlockGoalDefinition implements EntityComponentDefinition {
 	private int priority;
 }

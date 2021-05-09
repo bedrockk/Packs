@@ -4,5 +4,5 @@ import com.bedrockk.behaviorpacks.annotation.JsonSince;
 
 @JsonSince("1.16.100")
 public class OnPlayerPlacingTriggerDescription extends BlockEventTriggerDescription {
-    // NOOP
+	// NOOP
 }

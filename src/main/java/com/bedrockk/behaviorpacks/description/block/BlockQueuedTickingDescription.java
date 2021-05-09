@@ -8,7 +8,7 @@ import lombok.Data;
 @Data
 @JsonSince("1.16.100")
 public class BlockQueuedTickingDescription implements BlockDescription {
-    private boolean looping;
-    private Range range;
-    private BlockEventTriggerDescription onTick;
+	private boolean looping;
+	private Range range;
+	private BlockEventTriggerDescription onTick;
 }

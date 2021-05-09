@@ -5,5 +5,5 @@ import lombok.Data;
 
 @Data
 public class RandomRegionalDifficultyChanceCondition implements LootTableCondition {
-    private double maxChance;
+	private double maxChance;
 }

@@ -3,13 +3,12 @@ package com.bedrockk.behaviorpacks.definition.entity.goal;
 import com.bedrockk.behaviorpacks.definition.EntityFilterDefinition;
 import com.bedrockk.behaviorpacks.definition.entity.EntityComponentDefinition;
 import com.bedrockk.behaviorpacks.node.PackNode;
-import com.bedrockk.behaviorpacks.type.FilterTarget;
 import lombok.Data;
 
 import java.util.List;
 
 @Data
-public class SendEventGoalDefinition implements EntityComponentDefinition{
+public class SendEventGoalDefinition implements EntityComponentDefinition {
 	private int priority;
 	private List<EventChoice> eventChoices;
 

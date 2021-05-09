@@ -6,7 +6,7 @@ import com.bedrockk.behaviorpacks.node.SingleValueNode;
 
 @JsonSince("1.16.100")
 public class BlockGeometryDescription extends SingleValueNode<String> implements BlockDescription {
-    public BlockGeometryDescription(String value) {
-        super(value);
-    }
+	public BlockGeometryDescription(String value) {
+		super(value);
+	}
 }

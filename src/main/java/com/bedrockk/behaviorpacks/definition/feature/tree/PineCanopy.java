@@ -5,7 +5,7 @@ import lombok.Data;
 
 @Data
 public class PineCanopy {
-    private int canopyHeight;
-    private int baseRadius;
-    private BlockReference leafBlock;
+	private int canopyHeight;
+	private int baseRadius;
+	private BlockReference leafBlock;
 }

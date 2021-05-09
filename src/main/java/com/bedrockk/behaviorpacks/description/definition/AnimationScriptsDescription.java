@@ -7,5 +7,5 @@ import java.util.List;
 
 @Data
 public class AnimationScriptsDescription implements DefinitionDescription {
-    private List<String> animate;
+	private List<String> animate;
 }

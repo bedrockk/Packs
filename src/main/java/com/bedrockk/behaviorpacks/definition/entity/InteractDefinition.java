@@ -6,7 +6,7 @@ import lombok.Data;
 import java.util.List;
 
 @Data
-public class InteractDefinition implements EntityComponentDefinition{
+public class InteractDefinition implements EntityComponentDefinition {
 	private Interactions interactions;
 
 	@Data

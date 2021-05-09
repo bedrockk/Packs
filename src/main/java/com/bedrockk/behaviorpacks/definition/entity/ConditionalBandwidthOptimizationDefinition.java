@@ -10,7 +10,7 @@ import java.util.List;
 
 @Data
 @JsonSince("1.16.100")
-public class ConditionalBandwidthOptimizationDefinition implements EntityComponentDefinition{
+public class ConditionalBandwidthOptimizationDefinition implements EntityComponentDefinition {
 	private List<CondValue> conditionalValues;
 	private Value defaultValues;
 

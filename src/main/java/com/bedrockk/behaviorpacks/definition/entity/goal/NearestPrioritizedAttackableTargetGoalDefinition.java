@@ -1,14 +1,13 @@
 package com.bedrockk.behaviorpacks.definition.entity.goal;
 
 import com.bedrockk.behaviorpacks.definition.entity.EntityComponentDefinition;
-import com.bedrockk.behaviorpacks.definition.entity.EntityType;
 import com.bedrockk.behaviorpacks.definition.entity.PrioritizedEntityType;
 import lombok.Data;
 
 import java.util.List;
 
 @Data
-public class NearestPrioritizedAttackableTargetGoalDefinition implements EntityComponentDefinition{
+public class NearestPrioritizedAttackableTargetGoalDefinition implements EntityComponentDefinition {
 	private int priority;
 	private int attackInterval = 0;
 	private List<PrioritizedEntityType> entityTypes;

@@ -4,7 +4,7 @@ import com.bedrockk.behaviorpacks.definition.entity.EntityComponentDefinition;
 import lombok.Data;
 
 @Data
-public class FindMountGoalDefinition implements EntityComponentDefinition{
+public class FindMountGoalDefinition implements EntityComponentDefinition {
 	private int priority;
 	private boolean avoidWater = false;
 	private double mountDistance;

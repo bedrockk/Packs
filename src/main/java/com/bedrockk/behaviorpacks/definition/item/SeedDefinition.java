@@ -5,6 +5,6 @@ import lombok.Data;
 
 @Data
 public class SeedDefinition implements ItemComponentNode {
-    private String cropResult;
-    private String plantAt; // block
+	private String cropResult;
+	private String plantAt; // block
 }

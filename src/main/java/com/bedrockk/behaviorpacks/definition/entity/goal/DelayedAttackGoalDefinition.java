@@ -4,7 +4,7 @@ import com.bedrockk.behaviorpacks.definition.entity.EntityComponentDefinition;
 import lombok.Data;
 
 @Data
-public class DelayedAttackGoalDefinition implements EntityComponentDefinition{
+public class DelayedAttackGoalDefinition implements EntityComponentDefinition {
 	private int priority;
 	private double speedMultiplier;
 	private boolean attackOnce;

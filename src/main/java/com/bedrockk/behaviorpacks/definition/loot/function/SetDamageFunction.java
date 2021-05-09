@@ -6,5 +6,5 @@ import lombok.Data;
 
 @Data
 public class SetDamageFunction implements LootTableFunction {
-    private Range damage;
+	private Range damage;
 }

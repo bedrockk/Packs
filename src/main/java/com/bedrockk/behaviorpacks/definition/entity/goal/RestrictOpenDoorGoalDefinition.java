@@ -4,6 +4,6 @@ import com.bedrockk.behaviorpacks.definition.entity.EntityComponentDefinition;
 import lombok.Data;
 
 @Data
-public class RestrictOpenDoorGoalDefinition implements EntityComponentDefinition{
+public class RestrictOpenDoorGoalDefinition implements EntityComponentDefinition {
 	private int priority;
 }

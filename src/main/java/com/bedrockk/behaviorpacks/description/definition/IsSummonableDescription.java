@@ -5,8 +5,8 @@ import com.bedrockk.behaviorpacks.node.SingleValueNode;
 import com.fasterxml.jackson.annotation.JsonCreator;
 
 public class IsSummonableDescription extends SingleValueNode<Boolean> implements DefinitionDescription {
-    @JsonCreator
-    public IsSummonableDescription(Boolean value) {
-        super(value);
-    }
+	@JsonCreator
+	public IsSummonableDescription(Boolean value) {
+		super(value);
+	}
 }

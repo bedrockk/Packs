@@ -5,5 +5,5 @@ import lombok.Data;
 
 @Data
 public class ExplorationMapFunction implements LootTableFunction {
-    private String destination; // structure name
+	private String destination; // structure name
 }

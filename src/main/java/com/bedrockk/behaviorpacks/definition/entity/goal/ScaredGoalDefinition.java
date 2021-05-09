@@ -4,7 +4,7 @@ import com.bedrockk.behaviorpacks.definition.entity.EntityComponentDefinition;
 import lombok.Data;
 
 @Data
-public class ScaredGoalDefinition implements EntityComponentDefinition{
+public class ScaredGoalDefinition implements EntityComponentDefinition {
 	private int priority;
 	private int soundInterval;
 }

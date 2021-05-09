@@ -6,5 +6,5 @@ import java.util.List;
 
 @Data
 public class ItemControllableDefinition implements EntityComponentDefinition {
-    private List<String> controlItems;
+	private List<String> controlItems;
 }

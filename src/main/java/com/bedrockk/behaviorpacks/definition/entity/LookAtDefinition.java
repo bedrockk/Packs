@@ -4,7 +4,7 @@ import com.bedrockk.behaviorpacks.definition.EntityFilterDefinition;
 import lombok.Data;
 
 @Data
-public class LookAtDefinition implements EntityComponentDefinition{
+public class LookAtDefinition implements EntityComponentDefinition {
 	private boolean allowInvulnerable = false;
 	private EntityFilterDefinition filters;
 	private EntityEventTriggerDefinition lookEvent;

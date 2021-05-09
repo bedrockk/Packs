@@ -14,26 +14,26 @@ import java.util.List;
 @Data
 @JsonDeserialize(converter = SetBannerDetailsFunction.Converter.class)
 public class SetBannerDetailsFunction implements LootTableFunction {
-    private String type; // default or illager_captain
-    private String baseColor;
-    private List<Pattern> patterns;
+	private String type; // default or illager_captain
+	private String baseColor;
+	private List<Pattern> patterns;
 
-    @Data
-    public static class Pattern implements PackNode {
-        private String pattern;
-        private String color;
-    }
+	@Data
+	public static class Pattern implements PackNode {
+		private String pattern;
+		private String color;
+	}
 
-    public static class Converter extends StdConverter<ObjectNode, ObjectNode> {
-        @Override
-        public ObjectNode convert(ObjectNode value) {
-            if (value.has("type")) {
-                JsonNode type = value.get("type");
-                if (type.isObject() && type.has("min") && type.has("max")) {
-                    value.set("type", PackHelper.toJsonNode("default"));
-                }
-            }
-            return value;
-        }
-    }
+	public static class Converter extends StdConverter<ObjectNode, ObjectNode> {
+		@Override
+		public ObjectNode convert(ObjectNode value) {
+			if (value.has("type")) {
+				JsonNode type = value.get("type");
+				if (type.isObject() && type.has("min") && type.has("max")) {
+					value.set("type", PackHelper.toJsonNode("default"));
+				}
+			}
+			return value;
+		}
+	}
 }

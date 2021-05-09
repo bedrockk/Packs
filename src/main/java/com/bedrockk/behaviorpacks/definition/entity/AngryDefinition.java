@@ -7,7 +7,7 @@ import lombok.Data;
 import java.util.List;
 
 @Data
-public class AngryDefinition implements EntityComponentDefinition{
+public class AngryDefinition implements EntityComponentDefinition {
 	private String angrySound;
 	private boolean broadcastAnger = false;
 	private boolean broadcastAngerOnAttack = false;

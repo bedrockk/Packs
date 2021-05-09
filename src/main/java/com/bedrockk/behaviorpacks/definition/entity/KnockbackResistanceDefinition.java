@@ -4,6 +4,6 @@ import lombok.Data;
 
 @Data
 public class KnockbackResistanceDefinition implements EntityComponentDefinition {
-    private double value;
-    private double max;
+	private double value;
+	private double max;
 }

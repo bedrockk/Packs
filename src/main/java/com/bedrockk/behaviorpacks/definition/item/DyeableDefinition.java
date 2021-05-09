@@ -5,5 +5,5 @@ import lombok.Data;
 
 @Data
 public class DyeableDefinition implements ItemComponentNode {
-    private String defaultColor;
+	private String defaultColor;
 }

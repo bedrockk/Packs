@@ -11,8 +11,8 @@ import java.util.List;
 @EqualsAndHashCode(callSuper = true)
 @Data
 public class ItemEntry extends LootPoolEntry {
-    private String name;
-    private int weight;
-    private List<LootTableFunction> functions;
-    private List<LootTablePool> pools;
+	private String name;
+	private int weight;
+	private List<LootTableFunction> functions;
+	private List<LootTablePool> pools;
 }

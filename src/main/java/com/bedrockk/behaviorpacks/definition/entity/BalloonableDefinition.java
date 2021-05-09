@@ -4,5 +4,5 @@ import lombok.Data;
 
 @Data
 public class BalloonableDefinition implements EntityComponentDefinition {
-    private double mass;
+	private double mass;
 }

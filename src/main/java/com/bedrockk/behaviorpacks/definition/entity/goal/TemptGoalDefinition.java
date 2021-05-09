@@ -7,7 +7,7 @@ import lombok.Data;
 import java.util.List;
 
 @Data
-public class TemptGoalDefinition implements EntityComponentDefinition{
+public class TemptGoalDefinition implements EntityComponentDefinition {
 	private int priority;
 	private boolean canGetScared = false;
 	private boolean canTemptVertically = false;

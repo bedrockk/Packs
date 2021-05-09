@@ -6,8 +6,8 @@ import lombok.Data;
 import java.util.List;
 
 @Data
-public class GroupSizeDefinition implements EntityComponentDefinition{
-	
+public class GroupSizeDefinition implements EntityComponentDefinition {
+
 	private List<EntityFilterDefinition> filters;
 	private double radius = 16.0;
 }

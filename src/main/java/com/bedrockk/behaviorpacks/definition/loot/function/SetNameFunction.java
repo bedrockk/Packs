@@ -5,5 +5,5 @@ import lombok.Data;
 
 @Data
 public class SetNameFunction implements LootTableFunction {
-    private String name;
+	private String name;
 }

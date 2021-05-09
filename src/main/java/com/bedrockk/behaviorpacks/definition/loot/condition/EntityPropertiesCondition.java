@@ -6,11 +6,11 @@ import lombok.Data;
 
 @Data
 public class EntityPropertiesCondition implements LootTableCondition {
-    private String entity; // always "this"
-    private Properties properties;
+	private String entity; // always "this"
+	private Properties properties;
 
-    public static class Properties implements PackNode {
-        private boolean onFire;
-        // stands for future
-    }
+	public static class Properties implements PackNode {
+		private boolean onFire;
+		// stands for future
+	}
 }

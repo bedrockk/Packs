@@ -9,7 +9,7 @@ import java.util.List;
 
 @Data
 public class DamageableDefinition implements ItemComponentNode {
-    private int maxDamage;
-    private List<String> repairItems = new ArrayList<>();
-    private Range damageChance;
+	private int maxDamage;
+	private List<String> repairItems = new ArrayList<>();
+	private Range damageChance;
 }

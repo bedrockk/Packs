@@ -5,8 +5,8 @@ import lombok.Data;
 import java.util.List;
 
 @Data
-public class TransformationDefinition implements EntityComponentDefinition{
-	
+public class TransformationDefinition implements EntityComponentDefinition {
+
 	private List<EntityType> add;
 	private String beginTransformSound;
 	private List<EntityType> delay;

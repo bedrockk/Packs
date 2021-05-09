@@ -5,5 +5,5 @@ import lombok.Data;
 
 @Data
 public class EnchantRandomGearFunction implements LootTableFunction {
-    private double chance;
+	private double chance;
 }

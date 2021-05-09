@@ -5,7 +5,7 @@ import lombok.Data;
 
 @Data
 public class ParticleReference implements PackNode {
-    private String particleType;
-    private double particleYOffset;
-    private boolean particleOffsetTowardsInteractor;
+	private String particleType;
+	private double particleYOffset;
+	private boolean particleOffsetTowardsInteractor;
 }

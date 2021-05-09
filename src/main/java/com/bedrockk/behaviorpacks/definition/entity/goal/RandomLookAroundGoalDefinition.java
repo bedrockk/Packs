@@ -5,7 +5,7 @@ import com.bedrockk.behaviorpacks.type.Range;
 import lombok.Data;
 
 @Data
-public class RandomLookAroundGoalDefinition implements EntityComponentDefinition{
+public class RandomLookAroundGoalDefinition implements EntityComponentDefinition {
 	private int priority;
 	private Range lookTime;
 }

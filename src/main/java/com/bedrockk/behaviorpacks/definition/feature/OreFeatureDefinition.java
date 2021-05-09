@@ -12,8 +12,8 @@ import java.util.Map;
 @EqualsAndHashCode(callSuper = true)
 @Data
 public class OreFeatureDefinition extends FeatureDefinition {
-    private Map<String, DefinitionDescription> description;
-    private int count;
-    private BlockReference placesBlock;
-    private List<BlockReference> mayReplace;
+	private Map<String, DefinitionDescription> description;
+	private int count;
+	private BlockReference placesBlock;
+	private List<BlockReference> mayReplace;
 }

@@ -5,5 +5,5 @@ import lombok.Data;
 
 @Data
 public class IconDefinition implements ItemComponentNode {
-    private String texture;
+	private String texture;
 }

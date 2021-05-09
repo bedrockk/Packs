@@ -6,7 +6,7 @@ import lombok.Data;
 import java.util.List;
 
 @Data
-public class NameableDefinition implements EntityComponentDefinition{
+public class NameableDefinition implements EntityComponentDefinition {
 	private boolean allowNameTagRenaming = true;
 	private boolean alwaysShow = false;
 	private EntityEventTriggerDefinition defaultTrigger;

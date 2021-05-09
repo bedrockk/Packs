@@ -1,11 +1,10 @@
 package com.bedrockk.behaviorpacks.definition.entity;
 
-import com.bedrockk.behaviorpacks.annotation.JsonSince;
 import com.bedrockk.behaviorpacks.type.Range;
 import lombok.Data;
 
 @Data
-public class ExplodeDefinition implements EntityComponentDefinition{
+public class ExplodeDefinition implements EntityComponentDefinition {
 	private Range fuseLength;
 	private boolean breaksBlocks = true;
 	private boolean causesFire = false;

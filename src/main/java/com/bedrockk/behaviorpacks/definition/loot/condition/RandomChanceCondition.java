@@ -5,5 +5,5 @@ import lombok.Data;
 
 @Data
 public class RandomChanceCondition implements LootTableCondition {
-    private double chance;
+	private double chance;
 }

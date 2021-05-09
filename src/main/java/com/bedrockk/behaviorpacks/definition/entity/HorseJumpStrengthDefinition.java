@@ -4,5 +4,5 @@ import lombok.Data;
 
 @Data
 public class HorseJumpStrengthDefinition implements EntityComponentDefinition {
-    private double value;
+	private double value;
 }

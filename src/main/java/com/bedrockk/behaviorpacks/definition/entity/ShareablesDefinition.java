@@ -6,7 +6,7 @@ import lombok.Data;
 import java.util.List;
 
 @Data
-public class ShareablesDefinition implements EntityComponentDefinition{
+public class ShareablesDefinition implements EntityComponentDefinition {
 	private boolean allItems = false;
 	private int allItemsMaxAmount;
 	private int allItemsSurplusAmount;

@@ -6,7 +6,7 @@ import lombok.Data;
 import java.util.List;
 
 @Data
-public class PreferredPathDefinition implements EntityComponentDefinition{
+public class PreferredPathDefinition implements EntityComponentDefinition {
 	private double defaultBlockCost = 0.0;
 	private int jumpCost = 0;
 	private int maxFallBlocks = 3;

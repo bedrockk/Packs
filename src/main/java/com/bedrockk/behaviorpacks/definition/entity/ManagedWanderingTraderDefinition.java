@@ -1,5 +1,5 @@
 package com.bedrockk.behaviorpacks.definition.entity;
 
-public class ManagedWanderingTraderDefinition implements EntityComponentDefinition{
+public class ManagedWanderingTraderDefinition implements EntityComponentDefinition {
 	// NOOP
 }

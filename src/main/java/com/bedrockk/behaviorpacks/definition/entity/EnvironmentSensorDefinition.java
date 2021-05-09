@@ -5,6 +5,6 @@ import lombok.Data;
 import java.util.List;
 
 @Data
-public class EnvironmentSensorDefinition implements EntityComponentDefinition{
+public class EnvironmentSensorDefinition implements EntityComponentDefinition {
 	private List<EntityEventTriggerDefinition> triggers;
 }

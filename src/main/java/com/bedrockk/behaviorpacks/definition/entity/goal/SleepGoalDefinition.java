@@ -4,7 +4,7 @@ import com.bedrockk.behaviorpacks.definition.entity.EntityComponentDefinition;
 import lombok.Data;
 
 @Data
-public class SleepGoalDefinition implements EntityComponentDefinition{
+public class SleepGoalDefinition implements EntityComponentDefinition {
 	private int priority;
 	private double cooldownTime = 0.0;
 	private double sleepColliderHeight = 1.0;

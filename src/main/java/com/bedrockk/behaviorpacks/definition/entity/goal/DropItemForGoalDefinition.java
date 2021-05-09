@@ -11,7 +11,7 @@ import java.nio.file.Path;
 import java.util.List;
 
 @Data
-public class DropItemForGoalDefinition implements EntityComponentDefinition{
+public class DropItemForGoalDefinition implements EntityComponentDefinition {
 	private int priority;
 	private int cooldown;
 	private double dropItemChance;

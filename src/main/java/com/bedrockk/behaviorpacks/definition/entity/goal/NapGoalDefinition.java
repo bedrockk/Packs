@@ -4,7 +4,7 @@ import com.bedrockk.behaviorpacks.definition.entity.EntityComponentDefinition;
 import lombok.Data;
 
 @Data
-public class NapGoalDefinition implements EntityComponentDefinition{
+public class NapGoalDefinition implements EntityComponentDefinition {
 	private int priority;
 	private double cooldownMax = 0.0;
 	private double cooldownMin = 0.0;

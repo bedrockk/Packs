@@ -3,8 +3,8 @@ package com.bedrockk.behaviorpacks.definition.entity;
 import lombok.Data;
 
 @Data
-public class FlockingDefinition implements EntityComponentDefinition{
-	
+public class FlockingDefinition implements EntityComponentDefinition {
+
 	private double blockDistance = 0.0;
 	private double blockWeight = 0.0;
 	private double breachInfluence = 0.0;

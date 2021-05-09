@@ -6,7 +6,7 @@ import com.bedrockk.behaviorpacks.node.SingleValueNode;
 
 @JsonSince("1.16.100")
 public class BlockUnwalkableDescription extends SingleValueNode<Boolean> implements BlockDescription {
-    public BlockUnwalkableDescription(Boolean value) {
-        super(value);
-    }
+	public BlockUnwalkableDescription(Boolean value) {
+		super(value);
+	}
 }

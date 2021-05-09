@@ -8,7 +8,7 @@ import lombok.Data;
 import java.util.List;
 
 @Data
-public class RideableDefinition implements EntityComponentDefinition{
+public class RideableDefinition implements EntityComponentDefinition {
 	private int controllingSeat = 0;
 	private boolean crouchingSkipInteract = true;
 	private List<String> familyTypes;

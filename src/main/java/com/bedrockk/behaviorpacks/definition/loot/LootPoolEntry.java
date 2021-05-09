@@ -13,11 +13,11 @@ import java.util.List;
 
 @JsonTypeInfo(use = JsonTypeInfo.Id.NAME, property = "type", visible = true)
 @JsonSubTypes({
-        @Type(name = "item", value = ItemEntry.class),
-        @Type(name = "table", value = TableEntry.class),
-        @Type(name = "empty", value = EmptyEntry.class)
+		@Type(name = "item", value = ItemEntry.class),
+		@Type(name = "table", value = TableEntry.class),
+		@Type(name = "empty", value = EmptyEntry.class)
 })
 @Data
 public abstract class LootPoolEntry implements PackNode {
-    private List<LootTableCondition> conditions;
+	private List<LootTableCondition> conditions;
 }

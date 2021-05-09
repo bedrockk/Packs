@@ -13,15 +13,15 @@ import java.util.Map;
 
 @Data
 public class BlockDefinition extends VersionedDefinition {
-    private Map<String, DefinitionDescription> description;
-    private List<Permutation> permutations;
-    private Map<String, BlockComponentNode> components;
-    private Map<String, BlockEventResponseDefinition> events;
+	private Map<String, DefinitionDescription> description;
+	private List<Permutation> permutations;
+	private Map<String, BlockComponentNode> components;
+	private Map<String, BlockEventResponseDefinition> events;
 
-    @Data
-    @JsonSince("1.16.100")
-    public static class Permutation implements PackNode {
-        private ExpressionNode condition;
-        private Map<String, BlockComponentNode> components;
-    }
+	@Data
+	@JsonSince("1.16.100")
+	public static class Permutation implements PackNode {
+		private ExpressionNode condition;
+		private Map<String, BlockComponentNode> components;
+	}
 }

@@ -5,8 +5,8 @@ import lombok.Data;
 
 @Data
 public class EnchantBookForTradingFunction implements LootTableFunction {
-    private int baseCost;
-    private int baseRandomCost;
-    private int perLevelCost;
-    private int perLevelRandomCost;
+	private int baseCost;
+	private int baseRandomCost;
+	private int perLevelCost;
+	private int perLevelRandomCost;
 }

@@ -3,15 +3,15 @@ package com.bedrockk.behaviorpacks.type;
 import java.util.Locale;
 
 public enum ItemCategoryType {
-    NATURE,
-    CONSTRUCTION,
-    ITEMS,
-    EQUIPMENT,
-    NONE,
-    COMMANDS;
+	NATURE,
+	CONSTRUCTION,
+	ITEMS,
+	EQUIPMENT,
+	NONE,
+	COMMANDS;
 
-    @Override
-    public String toString() {
-        return name().toLowerCase(Locale.ENGLISH);
-    }
+	@Override
+	public String toString() {
+		return name().toLowerCase(Locale.ENGLISH);
+	}
 }

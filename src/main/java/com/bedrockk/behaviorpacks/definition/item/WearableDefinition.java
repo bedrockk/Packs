@@ -6,5 +6,5 @@ import lombok.Data;
 
 @Data
 public class WearableDefinition implements ItemComponentNode {
-    private SlotType slot;
+	private SlotType slot;
 }

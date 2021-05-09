@@ -7,7 +7,7 @@ import lombok.Data;
 import java.util.List;
 
 @Data
-public class AgeableDefinition implements EntityComponentDefinition{
+public class AgeableDefinition implements EntityComponentDefinition {
 	private double duration = 1200.0;
 	private List<FeedItem> feedItems;
 	private List<String> dropItems;

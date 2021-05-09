@@ -6,7 +6,7 @@ import lombok.Data;
 import java.util.List;
 
 @Data
-public class EconomyTradeTableDefinition implements EntityComponentDefinition{
+public class EconomyTradeTableDefinition implements EntityComponentDefinition {
 	private boolean convertTradesEconomy = false;
 	private String displayName;
 	private int heroDemandDiscount;

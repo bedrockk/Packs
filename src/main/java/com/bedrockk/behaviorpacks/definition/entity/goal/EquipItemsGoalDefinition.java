@@ -6,6 +6,6 @@ import lombok.Data;
 
 @Data
 @JsonSince("1.16.0")
-public class EquipItemsGoalDefinition implements EntityComponentDefinition{
+public class EquipItemsGoalDefinition implements EntityComponentDefinition {
 	private int priority;
 }

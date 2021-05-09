@@ -5,5 +5,5 @@ import lombok.Data;
 
 @Data
 public class ArmorDefinition implements ItemComponentNode {
-    private int protection;
+	private int protection;
 }

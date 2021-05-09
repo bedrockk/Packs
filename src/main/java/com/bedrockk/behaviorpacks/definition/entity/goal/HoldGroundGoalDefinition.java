@@ -4,7 +4,7 @@ import com.bedrockk.behaviorpacks.definition.entity.EntityComponentDefinition;
 import lombok.Data;
 
 @Data
-public class HoldGroundGoalDefinition implements EntityComponentDefinition{
+public class HoldGroundGoalDefinition implements EntityComponentDefinition {
 	private int priority;
 	private boolean broadcast = false;
 	private double broadcastRange = 0.0;

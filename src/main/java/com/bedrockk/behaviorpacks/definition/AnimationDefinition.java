@@ -10,13 +10,13 @@ import java.util.Map;
 
 @Data
 public class AnimationDefinition implements Definition {
-    private SemVersion formatVersion;
-    private Map<String, Animation> animations;
+	private SemVersion formatVersion;
+	private Map<String, Animation> animations;
 
-    @Data
-    public static class Animation implements PackNode {
-        private int animationLength;
-        private boolean loop;
-        private Map<String, List<AnimationEvent>> timeline;
-    }
+	@Data
+	public static class Animation implements PackNode {
+		private int animationLength;
+		private boolean loop;
+		private Map<String, List<AnimationEvent>> timeline;
+	}
 }

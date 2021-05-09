@@ -6,7 +6,7 @@ import com.bedrockk.behaviorpacks.node.SingleValueNode;
 
 @JsonSince("1.16.100")
 public class BlockBreakOnPushDescription extends SingleValueNode<Boolean> implements BlockDescription {
-    public BlockBreakOnPushDescription(Boolean value) {
-        super(value);
-    }
+	public BlockBreakOnPushDescription(Boolean value) {
+		super(value);
+	}
 }

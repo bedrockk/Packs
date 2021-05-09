@@ -4,6 +4,6 @@ import com.bedrockk.behaviorpacks.definition.entity.EntityComponentDefinition;
 import lombok.Data;
 
 @Data
-public class DoorInteractGoalDefinition implements EntityComponentDefinition{
+public class DoorInteractGoalDefinition implements EntityComponentDefinition {
 	private int priority;
 }

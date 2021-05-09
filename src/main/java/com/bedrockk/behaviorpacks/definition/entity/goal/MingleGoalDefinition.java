@@ -4,7 +4,7 @@ import com.bedrockk.behaviorpacks.definition.entity.EntityComponentDefinition;
 import lombok.Data;
 
 @Data
-public class MingleGoalDefinition implements EntityComponentDefinition{
+public class MingleGoalDefinition implements EntityComponentDefinition {
 	private int priority;
 	private double cooldownTime = 0.0;
 	private double duration = 1.0;

@@ -5,8 +5,8 @@ import com.bedrockk.behaviorpacks.node.SingleValueNode;
 import com.fasterxml.jackson.annotation.JsonCreator;
 
 public class IsSpawnableDescription extends SingleValueNode<Boolean> implements DefinitionDescription {
-    @JsonCreator
-    public IsSpawnableDescription(Boolean value) {
-        super(value);
-    }
+	@JsonCreator
+	public IsSpawnableDescription(Boolean value) {
+		super(value);
+	}
 }

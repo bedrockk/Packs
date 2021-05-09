@@ -7,5 +7,5 @@ import lombok.EqualsAndHashCode;
 @EqualsAndHashCode(callSuper = true)
 @Data
 public class EmptyEntry extends LootPoolEntry {
-    private int weight;
+	private int weight;
 }

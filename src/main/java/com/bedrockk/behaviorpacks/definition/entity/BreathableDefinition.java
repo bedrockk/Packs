@@ -5,7 +5,7 @@ import lombok.Data;
 import java.util.List;
 
 @Data
-public class BreathableDefinition implements EntityComponentDefinition{
+public class BreathableDefinition implements EntityComponentDefinition {
 	private List<String> breatheBlocks;
 	private boolean breathesAir = true;
 	private boolean breathesLava = true;

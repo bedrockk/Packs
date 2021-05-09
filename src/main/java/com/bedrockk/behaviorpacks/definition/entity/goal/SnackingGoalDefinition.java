@@ -6,7 +6,7 @@ import lombok.Data;
 import java.util.List;
 
 @Data
-public class SnackingGoalDefinition implements EntityComponentDefinition{
+public class SnackingGoalDefinition implements EntityComponentDefinition {
 	private int priority;
 	private double snackingCooldown = 7.5;
 	private double snackingCooldownMin = 0.5;

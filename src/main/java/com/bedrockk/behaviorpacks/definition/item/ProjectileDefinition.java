@@ -5,6 +5,6 @@ import lombok.Data;
 
 @Data
 public class ProjectileDefinition implements ItemComponentNode {
-    private String projectileEntity;
-    private int minimumCriticalPower = 1;
+	private String projectileEntity;
+	private int minimumCriticalPower = 1;
 }

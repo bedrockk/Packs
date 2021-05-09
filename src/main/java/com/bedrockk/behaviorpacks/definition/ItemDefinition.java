@@ -11,7 +11,7 @@ import java.util.Map;
 @EqualsAndHashCode(callSuper = true)
 @Data
 public class ItemDefinition extends VersionedDefinition {
-    private Map<String, DefinitionDescription> description;
-    private Map<String, ItemComponentNode> components;
-    private Map<String, ItemEventDefinition> events;
+	private Map<String, DefinitionDescription> description;
+	private Map<String, ItemComponentNode> components;
+	private Map<String, ItemEventDefinition> events;
 }

@@ -9,17 +9,17 @@ import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 
 @JsonDeserialize(converter = BlockMapColorDescription.Converter.class)
 public class BlockMapColorDescription extends SingleValueNode<Integer> implements BlockDescription {
-    public BlockMapColorDescription(Integer value) {
-        super(value);
-    }
+	public BlockMapColorDescription(Integer value) {
+		super(value);
+	}
 
-    public static class Converter extends VersionedConverter<JsonNode> {
-        @Override
-        public JsonNode convert(JsonNode node) {
-            if (node.isObject() && this.getVersion().isLower(FormatVersions.V1_16_0)) {
-                return node.get("color");
-            }
-            return node;
-        }
-    }
+	public static class Converter extends VersionedConverter<JsonNode> {
+		@Override
+		public JsonNode convert(JsonNode node) {
+			if (node.isObject() && this.getVersion().isLower(FormatVersions.V1_16_0)) {
+				return node.get("color");
+			}
+			return node;
+		}
+	}
 }

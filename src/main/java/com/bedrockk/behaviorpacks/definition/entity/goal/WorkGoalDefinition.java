@@ -5,7 +5,7 @@ import com.bedrockk.behaviorpacks.definition.entity.EntityEventTriggerDefinition
 import lombok.Data;
 
 @Data
-public class WorkGoalDefinition implements EntityComponentDefinition{
+public class WorkGoalDefinition implements EntityComponentDefinition {
 	private int priority;
 	private double speedMultiplier;
 	private int goalCooldown;

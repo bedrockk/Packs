@@ -7,7 +7,7 @@ import lombok.Data;
 import java.util.List;
 
 @Data
-public class VexCopyOwnerTargetGoalDefinition implements EntityComponentDefinition{
+public class VexCopyOwnerTargetGoalDefinition implements EntityComponentDefinition {
 	private int priority;
 	private List<EntityType> entityTypes;
 }

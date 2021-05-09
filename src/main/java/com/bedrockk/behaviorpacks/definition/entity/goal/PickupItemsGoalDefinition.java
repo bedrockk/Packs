@@ -4,7 +4,7 @@ import com.bedrockk.behaviorpacks.definition.entity.EntityComponentDefinition;
 import lombok.Data;
 
 @Data
-public class PickupItemsGoalDefinition implements EntityComponentDefinition{
+public class PickupItemsGoalDefinition implements EntityComponentDefinition {
 	private int priority;
 	private boolean canPickupAnyItem = false;
 	private boolean canPickupToHandOrEquipment = true;

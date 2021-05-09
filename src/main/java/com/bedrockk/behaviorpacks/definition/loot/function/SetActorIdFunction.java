@@ -5,5 +5,5 @@ import lombok.Data;
 
 @Data
 public class SetActorIdFunction implements LootTableFunction {
-    private String id;
+	private String id;
 }

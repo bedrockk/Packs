@@ -4,8 +4,8 @@ import com.bedrockk.behaviorpacks.type.ImmutableVec3;
 import lombok.Data;
 
 @Data
-public class TeleportDefinition implements EntityComponentDefinition{
-	
+public class TeleportDefinition implements EntityComponentDefinition {
+
 	private double darkTeleportChance = 0.01;
 	private double lightTeleportChance = 0.01;
 	private double maxRandomTeleportTime = 20.0;

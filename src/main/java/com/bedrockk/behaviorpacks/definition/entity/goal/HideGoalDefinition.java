@@ -5,7 +5,7 @@ import com.bedrockk.behaviorpacks.type.POIType;
 import lombok.Data;
 
 @Data
-public class HideGoalDefinition implements EntityComponentDefinition{
+public class HideGoalDefinition implements EntityComponentDefinition {
 	private int priority;
 	private double speedMultiplier;
 	private POIType poiType;

@@ -8,12 +8,12 @@ import java.util.List;
 
 @Data
 public class EquipmentDefinition implements EntityComponentDefinition {
-    private List<Entry> slotDropChance;
-    private Path table;
+	private List<Entry> slotDropChance;
+	private Path table;
 
-    @Data
-    public static class Entry {
-        private SlotType slot;
-        private double dropChance;
-    }
+	@Data
+	public static class Entry {
+		private SlotType slot;
+		private double dropChance;
+	}
 }

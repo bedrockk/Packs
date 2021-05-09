@@ -6,7 +6,7 @@ import lombok.Data;
 
 @Data
 @JsonSince("1.16.100")
-public class MoveTowardsDwellingRestrictionGoalDefinition implements EntityComponentDefinition{
+public class MoveTowardsDwellingRestrictionGoalDefinition implements EntityComponentDefinition {
 	private int priority;
 	private double speedMultiplier;
 	private String controlFlags; // "move" or "look"

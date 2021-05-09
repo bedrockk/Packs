@@ -7,19 +7,19 @@ import java.util.Locale;
 
 @Data
 public class SignDefinition implements ItemComponentNode {
-    private SignType type;
+	private SignType type;
 
-    public enum SignType {
-        ACACIA,
-        BIRCH,
-        DARK_OAK,
-        JUNGLE,
-        OAK,
-        SPRUCE;
+	public enum SignType {
+		ACACIA,
+		BIRCH,
+		DARK_OAK,
+		JUNGLE,
+		OAK,
+		SPRUCE;
 
-        @Override
-        public String toString() {
-            return name().toLowerCase(Locale.ENGLISH);
-        }
-    }
+		@Override
+		public String toString() {
+			return name().toLowerCase(Locale.ENGLISH);
+		}
+	}
 }

@@ -9,23 +9,34 @@
       "placement_pass": "surface_pass",
       "minecraft:biome_filter": [
         {
-          "test": "has_biome_tag", "operator": "==", "value": "basalt_deltas"
+          "test": "has_biome_tag",
+          "operator": "==",
+          "value": "basalt_deltas"
         }
       ]
-    },    
+    },
     "distribution": {
       "iterations": 5,
       "x": {
         "distribution": "uniform",
-        "extent": [ 0, 16 ]
+        "extent": [
+          0,
+          16
+        ]
       },
       "y": {
         "distribution": "uniform",
-        "extent": [ 0, 124 ]
+        "extent": [
+          0,
+          124
+        ]
       },
       "z": {
         "distribution": "uniform",
-        "extent": [ 0, 16 ]
+        "extent": [
+          0,
+          16
+        ]
       }
     }
   }

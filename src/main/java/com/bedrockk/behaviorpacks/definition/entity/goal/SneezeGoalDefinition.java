@@ -7,7 +7,7 @@ import lombok.Data;
 import java.util.List;
 
 @Data
-public class SneezeGoalDefinition implements EntityComponentDefinition{
+public class SneezeGoalDefinition implements EntityComponentDefinition {
 	private int priority;
 	private double cooldownTime = 0.0;
 	private double dropItemChance = 1.0;

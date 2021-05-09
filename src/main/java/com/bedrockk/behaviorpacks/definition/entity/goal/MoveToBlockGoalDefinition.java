@@ -10,7 +10,7 @@ import java.util.List;
 import java.util.Locale;
 
 @Data
-public class MoveToBlockGoalDefinition implements EntityComponentDefinition{
+public class MoveToBlockGoalDefinition implements EntityComponentDefinition {
 	private int priority;
 	private double speedMultiplier;
 	private int tickInterval;

@@ -8,7 +8,7 @@ import lombok.Data;
 import java.util.List;
 
 @Data
-public class MeleeAttackGoalDefinition implements EntityComponentDefinition{
+public class MeleeAttackGoalDefinition implements EntityComponentDefinition {
 	private int priority;
 	private boolean attackOnce;
 	private double maxDist;

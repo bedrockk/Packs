@@ -4,5 +4,5 @@ import lombok.Data;
 
 @Data
 public class GroundOffsetDefinition implements EntityComponentDefinition {
-    private double value = 0.0;
+	private double value = 0.0;
 }

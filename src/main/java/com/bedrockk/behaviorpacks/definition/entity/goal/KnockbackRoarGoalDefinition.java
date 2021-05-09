@@ -6,7 +6,7 @@ import com.bedrockk.behaviorpacks.definition.entity.EntityEventTriggerDefinition
 import lombok.Data;
 
 @Data
-public class KnockbackRoarGoalDefinition implements EntityComponentDefinition{
+public class KnockbackRoarGoalDefinition implements EntityComponentDefinition {
 	private int priority;
 	private double attackTime = 0.5;
 	private double cooldownTime = 0.0;

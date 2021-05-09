@@ -9,11 +9,11 @@ import java.util.List;
 
 @Data
 public class SpecificEnchantsFunction implements LootTableFunction {
-    private List<Enchant> enchants;
+	private List<Enchant> enchants;
 
-    @Data
-    public static class Enchant implements PackNode {
-        private String id;
-        private List<Pair<Integer, Integer>> level;
-    }
+	@Data
+	public static class Enchant implements PackNode {
+		private String id;
+		private List<Pair<Integer, Integer>> level;
+	}
 }

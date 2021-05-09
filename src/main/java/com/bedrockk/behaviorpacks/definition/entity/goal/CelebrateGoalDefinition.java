@@ -6,7 +6,7 @@ import com.bedrockk.behaviorpacks.type.Range;
 import lombok.Data;
 
 @Data
-public class CelebrateGoalDefinition implements EntityComponentDefinition{
+public class CelebrateGoalDefinition implements EntityComponentDefinition {
 	private int priority;
 	private String celebrationSound;
 	private Range soundInterval;

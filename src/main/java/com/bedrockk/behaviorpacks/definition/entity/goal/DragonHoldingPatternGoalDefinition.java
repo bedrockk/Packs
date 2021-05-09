@@ -4,6 +4,6 @@ import com.bedrockk.behaviorpacks.definition.entity.EntityComponentDefinition;
 import lombok.Data;
 
 @Data
-public class DragonHoldingPatternGoalDefinition implements EntityComponentDefinition{
+public class DragonHoldingPatternGoalDefinition implements EntityComponentDefinition {
 	private int priority;
 }

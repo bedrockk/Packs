@@ -6,7 +6,7 @@ import com.fasterxml.jackson.databind.util.StdConverter;
 
 public abstract class VersionedConverter<T> extends StdConverter<T, T> {
 
-    public SemVersion getVersion() {
-        return PackHelper.CURRENT_DEFINITION_VERSION;
-    }
+	public SemVersion getVersion() {
+		return PackHelper.CURRENT_DEFINITION_VERSION;
+	}
 }

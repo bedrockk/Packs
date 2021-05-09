@@ -6,7 +6,7 @@ import lombok.Data;
 
 @Data
 public class EnchantWithLevelsFunction implements LootTableFunction {
-    private Double chance;
-    private Range levels;
-    private boolean treasure;
+	private Double chance;
+	private Range levels;
+	private boolean treasure;
 }

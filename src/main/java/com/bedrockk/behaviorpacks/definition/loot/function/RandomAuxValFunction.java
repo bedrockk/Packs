@@ -6,5 +6,5 @@ import lombok.Data;
 
 @Data
 public class RandomAuxValFunction implements LootTableFunction {
-    private Range values;
+	private Range values;
 }

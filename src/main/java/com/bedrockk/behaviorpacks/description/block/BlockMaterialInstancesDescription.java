@@ -12,24 +12,24 @@ import java.util.Locale;
 @JsonSince("1.16.100")
 public class BlockMaterialInstancesDescription extends HashMap<String, BlockMaterialInstancesDescription.MaterialInstance> implements BlockDescription {
 
-    @Data
-    public static class MaterialInstance implements PackNode {
-        private String texture;
-        private RenderType renderMethod;
-        private boolean ambientOcclusion;
-        private boolean faceDimming;
-    }
+	@Data
+	public static class MaterialInstance implements PackNode {
+		private String texture;
+		private RenderType renderMethod;
+		private boolean ambientOcclusion;
+		private boolean faceDimming;
+	}
 
-    public enum RenderType {
-        OPAQUE,
-        BLEND,
-        ALPHA_TEST,
-        DOUBLE_SIDED;
+	public enum RenderType {
+		OPAQUE,
+		BLEND,
+		ALPHA_TEST,
+		DOUBLE_SIDED;
 
-        @Override
-        @JsonValue
-        public String toString() {
-            return name().toLowerCase(Locale.ENGLISH);
-        }
-    }
+		@Override
+		@JsonValue
+		public String toString() {
+			return name().toLowerCase(Locale.ENGLISH);
+		}
+	}
 }

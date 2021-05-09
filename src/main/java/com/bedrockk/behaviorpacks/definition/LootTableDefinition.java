@@ -7,5 +7,5 @@ import java.util.List;
 
 @Data
 public class LootTableDefinition implements Definition {
-    private List<LootTablePool> pools;
+	private List<LootTablePool> pools;
 }

@@ -12,8 +12,8 @@ import java.util.Map;
 @EqualsAndHashCode(callSuper = true)
 @Data
 public class UnderwaterCaveCarverFeatureDefinition extends FeatureDefinition {
-    private Map<String, DefinitionDescription> description;
-    private BlockReference fillWith;
-    private ExpressionNode widthModifier;
-    private BlockReference replaceAirWith;
+	private Map<String, DefinitionDescription> description;
+	private BlockReference fillWith;
+	private ExpressionNode widthModifier;
+	private BlockReference replaceAirWith;
 }

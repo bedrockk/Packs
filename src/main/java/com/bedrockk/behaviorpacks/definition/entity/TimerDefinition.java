@@ -8,7 +8,7 @@ import lombok.Data;
 import java.util.List;
 
 @Data
-public class TimerDefinition implements EntityComponentDefinition{
+public class TimerDefinition implements EntityComponentDefinition {
 	private boolean looping = true;
 	@JsonProperty("randomInterval")
 	private boolean randomInterval = true;

@@ -6,7 +6,7 @@ import lombok.Data;
 import java.util.List;
 
 @Data
-public class MovementJumpDefinition implements EntityComponentDefinition{
+public class MovementJumpDefinition implements EntityComponentDefinition {
 	private double value;
 	private double maxTurn = 30.0;
 	private List<Pair<Double, Double>> jumpDelay;

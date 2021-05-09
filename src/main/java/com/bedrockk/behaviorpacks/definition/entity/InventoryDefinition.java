@@ -4,8 +4,8 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.Data;
 
 @Data
-public class InventoryDefinition implements EntityComponentDefinition{
-	
+public class InventoryDefinition implements EntityComponentDefinition {
+
 	private int additionalSlotsPerStrength = 0;
 	private boolean canBeSiphonedFrom = false;
 	private String containerType = "none";

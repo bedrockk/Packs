@@ -8,5 +8,5 @@ import java.util.List;
 
 @Data
 public class UseOnDefinition implements ItemComponentNode {
-    private List<String> blocks = new ArrayList<>();
+	private List<String> blocks = new ArrayList<>();
 }

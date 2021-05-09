@@ -5,6 +5,6 @@ import lombok.Data;
 
 @Data
 public class BlockFlammableDescription implements BlockDescription {
-    private double burnOdds;
-    private double flameOdds;
+	private double burnOdds;
+	private double flameOdds;
 }

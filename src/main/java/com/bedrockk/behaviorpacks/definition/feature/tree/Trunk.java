@@ -8,19 +8,19 @@ import lombok.Data;
 
 @Data
 public class Trunk {
-    private Range trunkHeight;
-    private Integer heightModifier;
-    private SubmergeAbility canBeSubmerged;
-    private BlockReference trunkBlock;
-    private Decoration trunkDecoration;
+	private Range trunkHeight;
+	private Integer heightModifier;
+	private SubmergeAbility canBeSubmerged;
+	private BlockReference trunkBlock;
+	private Decoration trunkDecoration;
 
-    @Data
-    public static class SubmergeAbility implements PackNode {
-        private int maxDepth;
+	@Data
+	public static class SubmergeAbility implements PackNode {
+		private int maxDepth;
 
-        @JsonCreator
-        public void fromJson(boolean value) {
-            this.maxDepth = 1;
-        }
-    }
+		@JsonCreator
+		public void fromJson(boolean value) {
+			this.maxDepth = 1;
+		}
+	}
 }

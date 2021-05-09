@@ -4,7 +4,7 @@ import com.bedrockk.behaviorpacks.definition.entity.EntityComponentDefinition;
 import lombok.Data;
 
 @Data
-public class OcelotAttackGoalDefinition implements EntityComponentDefinition{
+public class OcelotAttackGoalDefinition implements EntityComponentDefinition {
 	private int priority;
 	private double sneakSpeedMultiplier;
 	private double sprintSpeedMultiplier;

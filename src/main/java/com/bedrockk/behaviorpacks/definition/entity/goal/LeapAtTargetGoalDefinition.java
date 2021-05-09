@@ -4,7 +4,7 @@ import com.bedrockk.behaviorpacks.definition.entity.EntityComponentDefinition;
 import lombok.Data;
 
 @Data
-public class LeapAtTargetGoalDefinition implements EntityComponentDefinition{
+public class LeapAtTargetGoalDefinition implements EntityComponentDefinition {
 	private int priority;
 	private boolean mustBeOnGround = true;
 	private boolean setPersistent = false;

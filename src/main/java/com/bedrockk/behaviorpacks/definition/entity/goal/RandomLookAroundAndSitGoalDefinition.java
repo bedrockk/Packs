@@ -4,7 +4,7 @@ import com.bedrockk.behaviorpacks.definition.entity.EntityComponentDefinition;
 import lombok.Data;
 
 @Data
-public class RandomLookAroundAndSitGoalDefinition implements EntityComponentDefinition{
+public class RandomLookAroundAndSitGoalDefinition implements EntityComponentDefinition {
 	private int priority;
 	private int maxLookCount = 2;
 	private int maxLookTime = 40;

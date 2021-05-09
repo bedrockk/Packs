@@ -5,5 +5,5 @@ import lombok.Data;
 
 @Data
 public class CreativeCategoryDefinition implements ItemComponentNode {
-    private String parent;
+	private String parent;
 }

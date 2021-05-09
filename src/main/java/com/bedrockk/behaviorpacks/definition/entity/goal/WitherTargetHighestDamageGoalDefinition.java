@@ -7,7 +7,7 @@ import lombok.Data;
 import java.util.List;
 
 @Data
-public class WitherTargetHighestDamageGoalDefinition implements EntityComponentDefinition{
+public class WitherTargetHighestDamageGoalDefinition implements EntityComponentDefinition {
 	private int priority;
 	private List<EntityType> entityTypes;
 }

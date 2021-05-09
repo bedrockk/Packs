@@ -8,7 +8,7 @@ import lombok.Data;
 import java.util.List;
 
 @Data
-public class DrinkPotionGoalDefinition implements EntityComponentDefinition{
+public class DrinkPotionGoalDefinition implements EntityComponentDefinition {
 	private int priority;
 	private double speedMultiplier;
 	private List<Potion> potions;

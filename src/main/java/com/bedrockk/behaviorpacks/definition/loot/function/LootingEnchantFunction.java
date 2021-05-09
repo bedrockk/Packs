@@ -6,5 +6,5 @@ import lombok.Data;
 
 @Data
 public class LootingEnchantFunction implements LootTableFunction {
-    private Range count;
+	private Range count;
 }

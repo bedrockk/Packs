@@ -6,5 +6,5 @@ import java.util.List;
 
 @Data
 public class FamilyTypeDefinition implements EntityComponentDefinition {
-    private List<String> family;
+	private List<String> family;
 }

@@ -5,5 +5,5 @@ import lombok.Data;
 
 @Data
 public class MapDefinition implements ItemComponentNode {
-    private boolean empty;
+	private boolean empty;
 }
