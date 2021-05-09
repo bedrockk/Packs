@@ -17,9 +17,9 @@ public class PackSerializers extends Serializers.Base {
 
 		if (current != null && inst.findSerializationConverter(beanDesc.getClassInfo()) == null) { // ignore if has converter
 			if (current.isLower(since)) {
-				throw JsonMappingException.from(PackHelper.MAPPER.getDeserializationContext(), "The version " + since.toString() + " is deprecated for this definition");
+				throw JsonMappingException.from(PackHelper.MAPPER.getDeserializationContext(), "The version " + current + " is deprecated for this definition");
 			} else if (current.isHigher(until)) {
-				throw JsonMappingException.from(PackHelper.MAPPER.getDeserializationContext(), "The version " + until.toString() + " is not supported for this definition");
+				throw JsonMappingException.from(PackHelper.MAPPER.getDeserializationContext(), "The version " + current + " is not supported for this definition");
 			}
 		}
 
