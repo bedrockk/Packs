@@ -1,6 +1,5 @@
 package com.bedrockk.behaviorpacks.json;
 
-import com.bedrockk.behaviorpacks.PackHelper;
 import com.bedrockk.behaviorpacks.annotation.JsonSince;
 import com.bedrockk.behaviorpacks.annotation.JsonUntil;
 import com.bedrockk.behaviorpacks.type.SemVersion;

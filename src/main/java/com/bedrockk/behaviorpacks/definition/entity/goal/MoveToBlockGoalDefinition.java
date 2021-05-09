@@ -3,7 +3,6 @@ package com.bedrockk.behaviorpacks.definition.entity.goal;
 import com.bedrockk.behaviorpacks.definition.entity.EntityComponentDefinition;
 import com.bedrockk.behaviorpacks.definition.entity.EntityEventTriggerDefinition;
 import com.bedrockk.behaviorpacks.type.ImmutableVec3;
-import com.fasterxml.jackson.annotation.JsonValue;
 import lombok.Data;
 
 import java.util.List;
@@ -30,7 +29,6 @@ public class MoveToBlockGoalDefinition implements EntityComponentDefinition {
 		RANDOM;
 
 		@Override
-		@JsonValue
 		public String toString() {
 			return this.name().toLowerCase(Locale.ROOT);
 		}

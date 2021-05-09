@@ -2,7 +2,6 @@ package com.bedrockk.behaviorpacks.definition.block;
 
 import com.bedrockk.behaviorpacks.PackHelper;
 import com.bedrockk.behaviorpacks.definition.Definition;
-import com.bedrockk.behaviorpacks.definition.item.ItemEventResponseDefinition;
 import com.bedrockk.behaviorpacks.node.PackNode;
 import com.bedrockk.behaviorpacks.type.DamageSourceType;
 import com.bedrockk.behaviorpacks.type.EffectType;

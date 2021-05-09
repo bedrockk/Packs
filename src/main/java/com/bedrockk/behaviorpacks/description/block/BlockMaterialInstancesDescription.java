@@ -3,7 +3,6 @@ package com.bedrockk.behaviorpacks.description.block;
 import com.bedrockk.behaviorpacks.annotation.JsonSince;
 import com.bedrockk.behaviorpacks.description.BlockDescription;
 import com.bedrockk.behaviorpacks.node.PackNode;
-import com.fasterxml.jackson.annotation.JsonValue;
 import lombok.Data;
 
 import java.util.HashMap;
@@ -27,7 +26,6 @@ public class BlockMaterialInstancesDescription extends HashMap<String, BlockMate
 		DOUBLE_SIDED;
 
 		@Override
-		@JsonValue
 		public String toString() {
 			return name().toLowerCase(Locale.ENGLISH);
 		}

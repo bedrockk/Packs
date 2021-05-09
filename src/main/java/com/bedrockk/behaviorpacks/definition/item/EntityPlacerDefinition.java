@@ -4,12 +4,10 @@ import com.bedrockk.behaviorpacks.annotation.JsonSince;
 import com.bedrockk.behaviorpacks.json.VersionedConverter;
 import com.bedrockk.behaviorpacks.node.ItemComponentNode;
 import com.bedrockk.behaviorpacks.utils.FormatVersions;
-import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import com.fasterxml.jackson.databind.node.ObjectNode;
 import lombok.Data;
 
-import java.util.ArrayList;
 import java.util.List;
 
 @Data

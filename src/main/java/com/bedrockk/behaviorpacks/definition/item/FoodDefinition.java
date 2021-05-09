@@ -2,11 +2,8 @@ package com.bedrockk.behaviorpacks.definition.item;
 
 import com.bedrockk.behaviorpacks.annotation.JsonSince;
 import com.bedrockk.behaviorpacks.node.ItemComponentNode;
-import com.bedrockk.behaviorpacks.node.PackNode;
 import lombok.Data;
 
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Locale;
 
 @Data

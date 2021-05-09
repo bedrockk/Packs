@@ -4,7 +4,6 @@ import com.bedrockk.behaviorpacks.annotation.JsonSince;
 import com.bedrockk.behaviorpacks.node.ItemComponentNode;
 import com.bedrockk.behaviorpacks.node.PackNode;
 import com.bedrockk.behaviorpacks.type.ExpressionNode;
-import com.bedrockk.behaviorpacks.type.SlotType;
 import lombok.Data;
 
 import java.util.List;

@@ -4,7 +4,6 @@ import com.bedrockk.behaviorpacks.definition.EntityFilterDefinition;
 import com.bedrockk.behaviorpacks.definition.entity.EntityComponentDefinition;
 import com.bedrockk.behaviorpacks.node.PackNode;
 import com.bedrockk.behaviorpacks.type.FilterTarget;
-import com.fasterxml.jackson.annotation.JsonValue;
 import lombok.Data;
 
 import java.util.List;
@@ -49,7 +48,6 @@ public class SummonEntityGoalDefinition implements EntityComponentDefinition {
 		LINE;
 
 		@Override
-		@JsonValue
 		public String toString() {
 			return name().toLowerCase(Locale.ENGLISH);
 		}

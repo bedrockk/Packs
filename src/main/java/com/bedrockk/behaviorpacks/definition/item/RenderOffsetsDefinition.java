@@ -6,9 +6,7 @@ import com.bedrockk.behaviorpacks.json.VersionedConverter;
 import com.bedrockk.behaviorpacks.node.ItemComponentNode;
 import com.bedrockk.behaviorpacks.node.PackNode;
 import com.bedrockk.behaviorpacks.type.ImmutableVec3;
-import com.bedrockk.behaviorpacks.type.SlotType;
 import com.bedrockk.behaviorpacks.utils.FormatVersions;
-import com.fasterxml.jackson.annotation.JsonValue;
 import com.fasterxml.jackson.databind.JsonNode;
 import lombok.Data;
 
@@ -43,7 +41,6 @@ public class RenderOffsetsDefinition extends HashMap<HandType, Map<CameraType, R
 		OFF_HAND;
 
 		@Override
-		@JsonValue
 		public String toString() {
 			return name().toLowerCase(Locale.ENGLISH);
 		}
@@ -54,7 +51,6 @@ public class RenderOffsetsDefinition extends HashMap<HandType, Map<CameraType, R
 		THIRD_PERSON;
 
 		@Override
-		@JsonValue
 		public String toString() {
 			return name().toLowerCase(Locale.ENGLISH);
 		}

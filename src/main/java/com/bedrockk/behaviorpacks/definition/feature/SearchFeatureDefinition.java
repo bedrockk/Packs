@@ -4,7 +4,6 @@ import com.bedrockk.behaviorpacks.definition.FeatureDefinition;
 import com.bedrockk.behaviorpacks.description.DefinitionDescription;
 import com.bedrockk.behaviorpacks.node.PackNode;
 import com.bedrockk.behaviorpacks.type.ImmutableVec3;
-import com.fasterxml.jackson.annotation.JsonValue;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.RequiredArgsConstructor;
@@ -38,7 +37,6 @@ public class SearchFeatureDefinition extends FeatureDefinition {
 		private final String value;
 
 		@Override
-		@JsonValue
 		public String toString() {
 			return this.value;
 		}

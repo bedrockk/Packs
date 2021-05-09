@@ -1,6 +1,5 @@
 package com.bedrockk.behaviorpacks.definition.entity;
 
-import com.fasterxml.jackson.annotation.JsonValue;
 import lombok.Data;
 
 import java.util.Locale;
@@ -22,7 +21,6 @@ public class DwellerDefinition implements EntityComponentDefinition {
 		DEFENDER;
 
 		@Override
-		@JsonValue
 		public String toString() {
 			return this.name().toLowerCase(Locale.ENGLISH);
 		}
