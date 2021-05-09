@@ -1,10 +1,13 @@
-<div style="text-align: center">
-    <h1>BehaviorPacks</h1>
+# BehaviorPacks
+<div>
     <img src="https://github.com/bedrockk/BehaviorPacks/workflows/Java CI/badge.svg" alt="CI" />
     <a href="https://hits.seeyoufarm.com"><img src="https://hits.seeyoufarm.com/api/count/incr/badge.svg?url=https%3A%2F%2Fgithub.com%2Fbedrockk%2FBehaviorPacks&count_bg=%2339F10A&title_bg=%232F2F2F&icon=&icon_color=%23E7E7E7&title=hits&edge_flat=false"/></a>
-    <p>A library for de/serialization of definitions on Minecraft: BE BehaviorPacks</p>
-    <p style="font-weight: bold; font-style: italic">Still is under heavy development</p>
 </div>
+
+A library for de/serialization of definitions on Minecraft: BE BehaviorPacks
+
+
+**_Still is under heavy development_**
 
 ### How to get Java Package
 
