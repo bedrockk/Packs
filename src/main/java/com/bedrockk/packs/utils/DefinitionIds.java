@@ -8,6 +8,13 @@ public class DefinitionIds {
 	public static final String BLOCK = "minecraft:block";
 	public static final String ITEM = "minecraft:item";
 	public static final String ENTITY = "minecraft:entity";
+	public static final String CLIENT_ENTITY = "minecraft:client_entity";
+	public static final String FOG_SETTINGS = "minecraft:fog_settings";
+	public static final String ATTACHABLE = "minecraft:attachable";
+	public static final String BIOME = "minecraft:biome";
+	public static final String SPAWN_GROUP = "minecraft:spawn_group";
+	public static final String SPAWN_RULE = "minecraft:spawn_rule";
+	public static final String TEXTURE_SET = "minecraft:texture_set";
 	public static final String RECIPE_FURNACE = "minecraft:recipe_furnace";
 	public static final String RECIPE_SHAPED = "minecraft:recipe_shaped";
 	public static final String RECIPE_SHAPELESS = "minecraft:recipe_shapeless";
@@ -28,9 +35,10 @@ public class DefinitionIds {
 	public static final String FEATURE_TREE = "minecraft:tree_feature";
 	public static final String FEATURE_UNDERWATER_CAVE_CARVER = "minecraft:underwater_cave_carver_feature";
 	public static final String FEATURE_WEIGHTED_RANDOM = "minecraft:weighted_random_feature";
-	public static final String FOG_SETTINGS = "minecraft:fog_settings";
-	public static final String ATTACHABLE = "minecraft:attachable";
-	public static final String BIOME = "minecraft:biome";
-	public static final String SPAWN_GROUP = "minecraft:spawn_group";
-	public static final String SPAWN_RULE = "minecraft:spawn_rule";
+	public static final String FEATURE_VEGETATION_PATCH = "minecraft:vegetation_patch_feature";
+	public static final String FEATURE_GEODE = "minecraft:geode_feature";
+	public static final String FEATURE_MULTIFACE = "minecraft:multiface_feature";
+	public static final String FEATURE_BEARDS_AND_SHAVERS = "minecraft:beards_and_shavers_feature";
+	public static final String FEATURE_RECT_LAYOUT = "minecraft:rect_layout_feature";
+	public static final String FEATURE_CONDITIONAL_LIST = "minecraft:conditional_list_feature";
 }

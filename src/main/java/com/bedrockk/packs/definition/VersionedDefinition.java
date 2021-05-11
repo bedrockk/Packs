@@ -17,6 +17,7 @@ import com.fasterxml.jackson.databind.annotation.JsonTypeResolver;
 		@Type(name = DefinitionIds.BLOCK, value = BlockDefinition.class),
 		@Type(name = DefinitionIds.ITEM, value = ItemDefinition.class),
 		@Type(name = DefinitionIds.ENTITY, value = EntityDefinition.class),
+		@Type(name = DefinitionIds.TEXTURE_SET, value = TextureSetDefinition.class),
 		@Type(name = DefinitionIds.RECIPE_FURNACE, value = FurnaceRecipeDefinition.class),
 		@Type(name = DefinitionIds.RECIPE_SHAPED, value = ShapedRecipeDefinition.class),
 		@Type(name = DefinitionIds.RECIPE_SHAPELESS, value = ShapelessRecipeDefinition.class),
@@ -36,7 +37,13 @@ import com.fasterxml.jackson.databind.annotation.JsonTypeResolver;
 		@Type(name = DefinitionIds.FEATURE_STRUCTURE_TEMPLATE, value = StructureTemplateFeatureDefinition.class),
 		@Type(name = DefinitionIds.FEATURE_TREE, value = TreeFeatureDefinition.class),
 		@Type(name = DefinitionIds.FEATURE_UNDERWATER_CAVE_CARVER, value = UnderwaterCaveCarverFeatureDefinition.class),
-		@Type(name = DefinitionIds.FEATURE_WEIGHTED_RANDOM, value = WeightedRandomFeatureDefinition.class)
+		@Type(name = DefinitionIds.FEATURE_WEIGHTED_RANDOM, value = WeightedRandomFeatureDefinition.class),
+		@Type(name = DefinitionIds.FEATURE_BEARDS_AND_SHAVERS, value = BeardsAndShaversFeatureDefinition.class),
+		@Type(name = DefinitionIds.FEATURE_CONDITIONAL_LIST, value = ConditionalListFeatureDefinition.class),
+		@Type(name = DefinitionIds.FEATURE_GEODE, value = GeodeFeatureDefinition.class),
+		@Type(name = DefinitionIds.FEATURE_MULTIFACE, value = MultiFaceFeatureDefinition.class),
+		@Type(name = DefinitionIds.FEATURE_RECT_LAYOUT, value = RectLayoutFeatureDefinition.class),
+		@Type(name = DefinitionIds.FEATURE_VEGETATION_PATCH, value = VegetationPatchFeatureDefinition.class),
 })
 public abstract class VersionedDefinition implements Definition {
 	@JsonIgnore
