@@ -3,6 +3,7 @@ package com.bedrockk.behaviorpacks.definition;
 import com.bedrockk.behaviorpacks.annotation.JsonSince;
 import com.bedrockk.behaviorpacks.definition.block.BlockEventResponseDefinition;
 import com.bedrockk.behaviorpacks.description.DefinitionDescription;
+import com.bedrockk.behaviorpacks.description.definition.BlockDefinitionDescription;
 import com.bedrockk.behaviorpacks.node.BlockComponentNode;
 import com.bedrockk.behaviorpacks.node.PackNode;
 import com.bedrockk.behaviorpacks.type.ExpressionNode;
@@ -13,7 +14,7 @@ import java.util.Map;
 
 @Data
 public class BlockDefinition extends VersionedDefinition {
-	private Map<String, DefinitionDescription> description;
+	private BlockDefinitionDescription description;
 	private List<Permutation> permutations;
 	private Map<String, BlockComponentNode> components;
 	private Map<String, BlockEventResponseDefinition> events;

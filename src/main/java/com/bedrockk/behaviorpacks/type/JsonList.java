@@ -41,12 +41,14 @@ public class JsonList<E> extends ArrayList<E> {
 	@JsonValue
 	public JsonNode toJson() {
 		if (this.isMinimized() && this.size() == 1) {
-			return PackHelper.toJsonNode(this.get(0));
-		} else {
-			ArrayNode node = PackHelper.MAPPER.createArrayNode();
-			node.addAll(this.stream().map(PackHelper::toJsonNode).collect(Collectors.toList()));
-
-			return node;
+			var node1 = PackHelper.toJsonNode(this.get(0));
+			if (!node1.isArray()) {
+				return node1;
+			}
 		}
+		ArrayNode node = PackHelper.MAPPER.createArrayNode();
+		node.addAll(this.stream().map(PackHelper::toJsonNode).collect(Collectors.toList()));
+
+		return node;
 	}
 }

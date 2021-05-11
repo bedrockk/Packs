@@ -13,9 +13,15 @@ import java.util.Map;
 @EqualsAndHashCode(callSuper = true)
 @Data
 public class FeatureRuleDefinition extends VersionedDefinition {
-	private Map<String, DefinitionDescription> description;
+	private Description description;
 	private Conditions conditions;
 	private Distribution distribution;
+
+	@Data
+	public static class Description implements PackNode{
+		private String identifier;
+		private String placesFeature;
+	}
 
 	@Data
 	public static class Conditions implements PackNode {

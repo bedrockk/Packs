@@ -5,7 +5,6 @@ import lombok.experimental.UtilityClass;
 @UtilityClass
 @SuppressWarnings("unused")
 public class ItemComponentIds {
-
 	public static final String USE_DURATION = "minecraft:use_duration";
 	public static final String FOOD = "minecraft:food";
 	public static final String HAND_EQUIPPED = "minecraft:hand_equipped";

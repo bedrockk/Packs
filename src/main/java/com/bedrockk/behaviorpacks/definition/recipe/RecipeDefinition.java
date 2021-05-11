@@ -2,6 +2,7 @@ package com.bedrockk.behaviorpacks.definition.recipe;
 
 import com.bedrockk.behaviorpacks.definition.VersionedDefinition;
 import com.bedrockk.behaviorpacks.description.DefinitionDescription;
+import com.bedrockk.behaviorpacks.description.definition.SimpleDefinitionDescription;
 import com.bedrockk.behaviorpacks.node.PackNode;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
@@ -14,8 +15,7 @@ import java.util.Map;
 @EqualsAndHashCode(callSuper = true)
 @Getter
 public abstract class RecipeDefinition extends VersionedDefinition {
-
-	private Map<String, DefinitionDescription> description;
+	private SimpleDefinitionDescription description;
 	private List<String> tags;
 
 	@Data

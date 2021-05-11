@@ -1,18 +1,17 @@
 package com.bedrockk.behaviorpacks.definition.feature;
 
 import com.bedrockk.behaviorpacks.definition.FeatureDefinition;
-import com.bedrockk.behaviorpacks.description.DefinitionDescription;
+import com.bedrockk.behaviorpacks.description.definition.SimpleDefinitionDescription;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 
 import java.util.List;
 import java.util.Locale;
-import java.util.Map;
 
 @EqualsAndHashCode(callSuper = true)
 @Data
 public class AggregateFeatureDefinition extends FeatureDefinition {
-	private Map<String, DefinitionDescription> description;
+	private SimpleDefinitionDescription description;
 	private List<String> features;
 	private EarlyOutType earlyOut;
 

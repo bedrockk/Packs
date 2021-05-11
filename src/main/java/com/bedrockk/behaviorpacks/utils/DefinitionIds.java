@@ -5,7 +5,6 @@ import lombok.experimental.UtilityClass;
 @UtilityClass
 @SuppressWarnings("unused")
 public class DefinitionIds {
-
 	public static final String BLOCK = "minecraft:block";
 	public static final String ITEM = "minecraft:item";
 	public static final String ENTITY = "minecraft:entity";
@@ -29,4 +28,9 @@ public class DefinitionIds {
 	public static final String FEATURE_TREE = "minecraft:tree_feature";
 	public static final String FEATURE_UNDERWATER_CAVE_CARVER = "minecraft:underwater_cave_carver_feature";
 	public static final String FEATURE_WEIGHTED_RANDOM = "minecraft:weighted_random_feature";
+	public static final String FOG_SETTINGS = "minecraft:fog_settings";
+	public static final String ATTACHABLE = "minecraft:attachable";
+	public static final String BIOME = "minecraft:biome";
+	public static final String SPAWN_GROUP = "minecraft:spawn_group";
+	public static final String SPAWN_RULE = "minecraft:spawn_rule";
 }

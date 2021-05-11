@@ -1,7 +1,7 @@
 package com.bedrockk.behaviorpacks.definition.feature;
 
 import com.bedrockk.behaviorpacks.definition.FeatureDefinition;
-import com.bedrockk.behaviorpacks.description.DefinitionDescription;
+import com.bedrockk.behaviorpacks.description.definition.SimpleDefinitionDescription;
 import com.bedrockk.behaviorpacks.node.PackNode;
 import com.bedrockk.behaviorpacks.type.BlockReference;
 import com.bedrockk.behaviorpacks.type.EmptyObject;
@@ -10,12 +10,11 @@ import lombok.EqualsAndHashCode;
 
 import java.util.List;
 import java.util.Locale;
-import java.util.Map;
 
 @EqualsAndHashCode(callSuper = true)
 @Data
 public class StructureTemplateFeatureDefinition extends FeatureDefinition {
-	private Map<String, DefinitionDescription> description;
+	private SimpleDefinitionDescription description;
 	private String structureName;
 	private Integer adjustmentRadius;
 	private FacingDirection facingDirection;

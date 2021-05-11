@@ -2,6 +2,7 @@ package com.bedrockk.behaviorpacks.definition;
 
 import com.bedrockk.behaviorpacks.node.PackNode;
 import com.bedrockk.behaviorpacks.type.AnimationEvent;
+import com.bedrockk.behaviorpacks.type.AnimationLoopType;
 import com.bedrockk.behaviorpacks.type.SemVersion;
 import lombok.Data;
 
@@ -15,8 +16,8 @@ public class AnimationDefinition implements Definition {
 
 	@Data
 	public static class Animation implements PackNode {
-		private int animationLength;
-		private boolean loop;
+		private double animationLength;
+		private AnimationLoopType loop;
 		private Map<String, List<AnimationEvent>> timeline;
 	}
 }

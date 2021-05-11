@@ -15,7 +15,6 @@ public class FormatVersions {
 	public static final SemVersion V1_14_0 = SemVersion.of("1.14.0");
 	public static final SemVersion V1_15_0 = SemVersion.of("1.15.0");
 	public static final SemVersion V1_16_0 = SemVersion.of("1.16.0");
-	public static final SemVersion V1_16_20 = SemVersion.of("1.16.20");
 	public static final SemVersion V1_16_100 = SemVersion.of("1.16.100");
 	public static final SemVersion V1_16_200 = SemVersion.of("1.16.200");
 	public static final SemVersion V1_16_220 = SemVersion.of("1.16.220");

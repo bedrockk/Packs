@@ -5,7 +5,6 @@ import lombok.experimental.UtilityClass;
 @UtilityClass
 @SuppressWarnings("unused")
 public class EntityComponentIds {
-
 	public static final String BEHAVIOR_ADMIRE_ITEM = "minecraft:behavior.admire_item";
 	public static final String BEHAVIOR_AVOID_BLOCK = "minecraft:behavior.avoid_block";
 	public static final String BEHAVIOR_AVOID_MOB_TYPE = "minecraft:behavior.avoid_mob_type";

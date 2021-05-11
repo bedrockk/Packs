@@ -1,19 +1,17 @@
 package com.bedrockk.behaviorpacks.definition.feature;
 
 import com.bedrockk.behaviorpacks.definition.FeatureDefinition;
-import com.bedrockk.behaviorpacks.description.DefinitionDescription;
+import com.bedrockk.behaviorpacks.description.definition.SimpleDefinitionDescription;
 import com.bedrockk.behaviorpacks.node.PackNode;
 import com.bedrockk.behaviorpacks.type.ImmutableVec3;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.RequiredArgsConstructor;
 
-import java.util.Map;
-
 @EqualsAndHashCode(callSuper = true)
 @Data
 public class SearchFeatureDefinition extends FeatureDefinition {
-	private Map<String, DefinitionDescription> description;
+	private SimpleDefinitionDescription description;
 	private String placesFeature;
 	private SearchVolume searchVolume;
 	private SearchAxis searchAxis;

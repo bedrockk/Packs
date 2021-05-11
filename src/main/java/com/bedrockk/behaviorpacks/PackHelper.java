@@ -10,9 +10,11 @@ import com.fasterxml.jackson.core.JsonParser;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.*;
 import com.fasterxml.jackson.databind.json.JsonMapper;
+import lombok.experimental.UtilityClass;
 
 import java.io.IOException;
 
+@UtilityClass
 public class PackHelper {
 	public static final SemVersion FORMAT_VERSION = SemVersion.of("1.16.220");
 	public static final JsonMapper MAPPER = JsonMapper.builder()
@@ -50,6 +52,34 @@ public class PackHelper {
 
 	public static AnimationControllerDefinition deserializeAnimationController(String json) throws IOException {
 		return deserialize(json, AnimationControllerDefinition.class);
+	}
+
+	public static ClientAnimationControllerDefinition deserializeClientAnimationController(String json) throws IOException {
+		return deserialize(json, ClientAnimationControllerDefinition.class);
+	}
+
+	public static ClientAnimationDefinition deserializeClientAnimation(String json) throws IOException {
+		return deserialize(json, ClientAnimationDefinition.class);
+	}
+
+	public static SpawnGroupDefinition deserializeSpawnGroup(String json) throws IOException {
+		return deserialize(json, SpawnGroupDefinition.class);
+	}
+
+	public static SpawnRuleDefinition deserializeSpawnRule(String json) throws IOException {
+		return deserialize(json, SpawnRuleDefinition.class);
+	}
+
+	public static FogSettingsDefinition deserializeFogSettings(String json) throws IOException {
+		return deserialize(json, FogSettingsDefinition.class);
+	}
+
+	public static AttachableDefinition deserializeAttachable(String json) throws IOException {
+		return deserialize(json, AttachableDefinition.class);
+	}
+
+	public static BiomeDefinition deserializeBiome(String json) throws IOException {
+		return deserialize(json, BiomeDefinition.class);
 	}
 
 	public static RecipeDefinition deserializeRecipe(String json) throws IOException {

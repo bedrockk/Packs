@@ -5,7 +5,6 @@ import lombok.experimental.UtilityClass;
 @UtilityClass
 @SuppressWarnings("unused")
 public class BlockComponentIds {
-
 	public static final String DESTROY_TIME = "minecraft:destroy_time";
 	public static final String BLOCK_LIGHT_EMISSION = "minecraft:block_light_emission";
 	public static final String BLOCK_LIGHT_ABSORPTION = "minecraft:block_light_absorption";
