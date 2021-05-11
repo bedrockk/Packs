@@ -5,6 +5,8 @@ import com.bedrockk.packs.description.DefinitionDescription;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.Data;
 
+import java.util.List;
+
 @Data
 public class ItemDefinitionDescription implements DefinitionDescription {
 	private String identifier;
@@ -12,4 +14,5 @@ public class ItemDefinitionDescription implements DefinitionDescription {
 	private boolean experimental;
 	@JsonSince("1.16.100")
 	private String category;
+	private List<String> aliases;
 }

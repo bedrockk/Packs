@@ -1,5 +1,6 @@
 package com.bedrockk.packs.definition;
 
+import com.bedrockk.packs.description.definition.FeatureRuleDefinitionDescription;
 import com.bedrockk.packs.node.PackNode;
 import com.bedrockk.packs.type.*;
 import com.fasterxml.jackson.annotation.JsonProperty;
@@ -11,15 +12,9 @@ import java.util.Locale;
 @EqualsAndHashCode(callSuper = true)
 @Data
 public class FeatureRuleDefinition extends VersionedDefinition {
-	private Description description;
+	private FeatureRuleDefinitionDescription description;
 	private Conditions conditions;
 	private Distribution distribution;
-
-	@Data
-	public static class Description implements PackNode{
-		private String identifier;
-		private String placesFeature;
-	}
 
 	@Data
 	public static class Conditions implements PackNode {
