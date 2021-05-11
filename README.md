@@ -7,7 +7,7 @@
 A library for de/serialization of definitions on Minecraft: BE Resource/Behavior Packs
 
 
-**_Still is under heavy development_**
+**_Still under heavy development_**
 
 ### TODO:
 
