@@ -34,7 +34,7 @@ A library for de/serialization of definitions on Minecraft: BE Resource/Behavior
 - [x] Spawn Rule Definition
 - [ ] Texture Set Definition
 - [x] Trade Table Definition
-- [ ] # Basic Resource Pack File Definitions
+- [ ] Basic Resource Pack File Definitions
 
 ### How to get Java Package
 
