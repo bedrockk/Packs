@@ -5,8 +5,8 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>com.bedrockk</groupId>
-    <artifactId>behaviorpacks</artifactId>
-    <version>1.0.1-SNAPSHOT</version>
+    <artifactId>packs</artifactId>
+    <version>1.0.2-SNAPSHOT</version>
 
     <properties>
         <jackson.version>2.12.3</jackson.version>
