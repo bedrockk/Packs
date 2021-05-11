@@ -38,6 +38,10 @@ public class PackHelper {
 		return deserialize(json, EntityDefinition.class);
 	}
 
+	public static ClientEntityDefinition deserializeClientEntity(String json) throws IOException {
+		return deserialize(json, ClientEntityDefinition.class);
+	}
+
 	public static BlockDefinition deserializeBlock(String json) throws IOException {
 		return deserialize(json, BlockDefinition.class);
 	}
@@ -100,6 +104,10 @@ public class PackHelper {
 
 	public static TradeTableDefinition deserializeTradeTable(String json) throws IOException {
 		return deserialize(json, TradeTableDefinition.class);
+	}
+
+	public static TextureSetDefinition deserializeTextureSet(String json) throws IOException {
+		return deserialize(json, TextureSetDefinition.class);
 	}
 
 	public static String serialize(Object object) throws JsonProcessingException {
