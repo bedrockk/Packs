@@ -18,7 +18,7 @@ A library for de/serialization of definitions on Minecraft: BE Resource/Behavior
 - [x] Attachable Definition
 - [x] Biome Definition
 - [x] Block Definition
-- [ ] Client Entity Definition
+- [x] Client Entity Definition
 - [x] Entity Definition
 - [x] Feature Definition
 - [x] Feature Rule Definition
@@ -32,7 +32,7 @@ A library for de/serialization of definitions on Minecraft: BE Resource/Behavior
 - [ ] Render Controller Definition
 - [x] Spawn Group Definition
 - [x] Spawn Rule Definition
-- [ ] Texture Set Definition
+- [x] Texture Set Definition
 - [x] Trade Table Definition
 - [ ] Basic Resource Pack File Definitions
 
