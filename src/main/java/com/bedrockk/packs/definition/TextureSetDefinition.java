@@ -3,6 +3,8 @@ package com.bedrockk.packs.definition;
 import com.bedrockk.packs.PackHelper;
 import com.bedrockk.packs.node.PackNode;
 import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonValue;
+import com.fasterxml.jackson.databind.JsonNode;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 
@@ -28,6 +30,14 @@ public class TextureSetDefinition extends VersionedDefinition {
 				return new Texture(null, Color.decode(value));
 			}
 			return new Texture(PackHelper.MAPPER.convertValue(value, Path.class), null);
+		}
+
+		@JsonValue
+		public JsonNode toJson() {
+			if (path != null) {
+				return PackHelper.toJsonNode(path);
+			}
+			return PackHelper.toJsonNode(color);
 		}
 	}
 }
