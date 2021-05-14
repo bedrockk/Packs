@@ -27,10 +27,10 @@ public class RenderControllerDefinition implements VersionedNode, Definition {
 		private boolean ignoreLightning;
 		private boolean filterLightning;
 		private double lightColorMultiplier;
-		private String geometry;
+		private ExpressionNode geometry;
 		private List<ExpressionNode> partyVisibility;
-		private List<Map<String, String>> materials;
-		private List<String> textures;
+		private List<Map<String, ExpressionNode>> materials;
+		private List<ExpressionNode> textures;
 		private DynamicColor color;
 		private DynamicColor overlayColor;
 		private DynamicColor onFireColor;
