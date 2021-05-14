@@ -2,6 +2,7 @@ package com.bedrockk.packs.json;
 
 import com.bedrockk.packs.PackHelper;
 import com.bedrockk.packs.definition.VersionedDefinition;
+import com.bedrockk.packs.node.VersionedNode;
 import com.bedrockk.packs.type.SemVersion;
 import com.fasterxml.jackson.annotation.JsonTypeInfo;
 import com.fasterxml.jackson.core.JsonParser;

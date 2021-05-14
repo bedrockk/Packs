@@ -3,6 +3,7 @@ package com.bedrockk.packs.definition;
 import com.bedrockk.packs.definition.feature.*;
 import com.bedrockk.packs.definition.recipe.*;
 import com.bedrockk.packs.json.DefinitionTypeResolverBuilder;
+import com.bedrockk.packs.node.VersionedNode;
 import com.bedrockk.packs.type.SemVersion;
 import com.bedrockk.packs.utils.DefinitionIds;
 import com.fasterxml.jackson.annotation.JsonIgnore;
@@ -45,7 +46,7 @@ import com.fasterxml.jackson.databind.annotation.JsonTypeResolver;
 		@Type(name = DefinitionIds.FEATURE_RECT_LAYOUT, value = RectLayoutFeatureDefinition.class),
 		@Type(name = DefinitionIds.FEATURE_VEGETATION_PATCH, value = VegetationPatchFeatureDefinition.class),
 })
-public abstract class VersionedDefinition implements Definition {
+public abstract class VersionedDefinition implements VersionedNode, Definition {
 	@JsonIgnore
 	protected SemVersion formatVersion;
 

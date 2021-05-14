@@ -31,7 +31,9 @@ public class PackHelper {
 
 	public static synchronized <T extends Definition> T deserialize(String json, Class<T> type) throws IOException {
 		CURRENT_DEFINITION_VERSION = null;
-		return MAPPER.readValue(json, type);
+		T value = MAPPER.readValue(json, type);
+		CURRENT_DEFINITION_VERSION = null;
+		return value;
 	}
 
 	public static EntityDefinition deserializeEntity(String json) throws IOException {
@@ -108,6 +110,10 @@ public class PackHelper {
 
 	public static TextureSetDefinition deserializeTextureSet(String json) throws IOException {
 		return deserialize(json, TextureSetDefinition.class);
+	}
+
+	public static RenderControllerDefinition deserializeRenderController(String json) throws IOException {
+		return deserialize(json, RenderControllerDefinition.class);
 	}
 
 	public static String serialize(Object object) throws JsonProcessingException {

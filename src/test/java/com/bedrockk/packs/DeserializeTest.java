@@ -104,6 +104,17 @@ public class DeserializeTest {
 		assertResult(input, root);
 	}
 
+	@Test
+	@DisplayName("Render Controller Test")
+	public void testRenderController() throws IOException {
+		InputStream file = getClass().getClassLoader().getResourceAsStream("test_render_controller.json");
+		Assertions.assertNotNull(file);
+
+		String input = Util.readFile(file);
+		RenderControllerDefinition root = PackHelper.deserializeRenderController(input);
+		assertResult(input, root);
+	}
+
 	private static void assertResult(String input, Definition definition) throws JsonProcessingException {
 		JsonNode expected = PackHelper.MAPPER.readTree(input);
 		assertTree(expected, PackHelper.toJsonNode(definition));

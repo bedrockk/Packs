@@ -36,8 +36,8 @@ public class ClientEntityDefinition extends VersionedDefinition {
 	public static class SpawnEgg implements PackNode {
 		private String texture;
 		private int textureIndex;
-		private ColorReference baseColor;
-		private ColorReference overlayColor;
+		private HexColor baseColor;
+		private HexColor overlayColor;
 	}
 
 	@Data

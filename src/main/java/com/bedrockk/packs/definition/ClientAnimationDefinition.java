@@ -1,18 +1,22 @@
 package com.bedrockk.packs.definition;
 
 import com.bedrockk.packs.PackHelper;
+import com.bedrockk.packs.json.VersionPropertyDeserializer;
 import com.bedrockk.packs.node.PackNode;
+import com.bedrockk.packs.node.VersionedNode;
 import com.bedrockk.packs.type.*;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.JsonNode;
+import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import lombok.Data;
 
 import java.util.*;
 
 @Data
-public class ClientAnimationDefinition implements Definition {
+public class ClientAnimationDefinition implements VersionedNode, Definition {
+	@JsonDeserialize(using = VersionPropertyDeserializer.class)
 	private SemVersion formatVersion;
 	private Map<String, Animation> animations;
 
