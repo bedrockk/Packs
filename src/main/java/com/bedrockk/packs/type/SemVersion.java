@@ -5,66 +5,55 @@ import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
 import com.fasterxml.jackson.databind.JsonNode;
 import lombok.Data;
+import lombok.Value;
 
 import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
 
-@Data
-public class SemVersion implements Comparable<SemVersion> {
-	private int major;
-	private int minor;
-	private int revision;
-	private boolean isString = false;
-
-	@JsonCreator
-	public static SemVersion of(String version) {
-		SemVersion v = of(Arrays.stream(version.split("\\.")).mapToInt(Integer::parseInt).boxed().collect(Collectors.toList()));
-		v.setString(true);
-		return v;
+public record SemVersion(int major, int minor, int revision, boolean isText) implements Comparable<SemVersion> {
+	public SemVersion(int major, int minor, int revision) {
+		this(major, minor, revision, false);
 	}
 
 	@JsonCreator
-	public static SemVersion of(List<Integer> parts) {
-		SemVersion version = new SemVersion();
-		version.setMajor(parts.get(0));
-		version.setMinor(parts.size() > 1 ? parts.get(1) : 0);
-		version.setRevision(parts.size() > 2 ? parts.get(2) : 0);
+	public static SemVersion of(String version) {
+		var v = Arrays.stream(version.split("\\.")).mapToInt(Integer::parseInt).toArray();
+		return new SemVersion(v[0], v.length > 1 ? v[1] : 0, v.length > 2 ? v[2] : 0, true);
+	}
 
-		return version;
+	@JsonCreator
+	public static SemVersion of(int[] parts) {
+		return new SemVersion(parts[0], parts.length > 1 ? parts[1] : 0, parts.length > 2 ? parts[2] : 0, false);
 	}
 
 	@JsonValue
 	public JsonNode toJson() {
-		if (!isString) {
-			return PackHelper.toJsonNode(Arrays.asList(major, minor, revision));
-		} else {
-			return PackHelper.toJsonNode(toString());
-		}
+		return PackHelper.toJsonNode(isText ? toString() : new int[]{major, minor, revision});
 	}
 
 	public String toString() {
-		return getMajor() + "." + getMinor() + "." + getRevision();
+		return major + "." + minor + "." + revision;
 	}
 
 	public boolean isHigher(SemVersion other) {
-		return this.compareTo(other) > 0;
+		return compareTo(other) > 0;
 	}
 
 	public boolean isHigherOrEqual(SemVersion other) {
-		return this.compareTo(other) >= 0;
+		return compareTo(other) >= 0;
 	}
 
 	public boolean isLower(SemVersion other) {
-		return this.compareTo(other) < 0;
+		return compareTo(other) < 0;
 	}
 
 	public boolean isLowerOrEqual(SemVersion other) {
-		return this.compareTo(other) <= 0;
+		return compareTo(other) <= 0;
 	}
 
 	public boolean isSame(SemVersion other) {
-		return this.compareTo(other) == 0;
+		return compareTo(other) == 0;
 	}
 
 	@Override
@@ -73,13 +62,13 @@ public class SemVersion implements Comparable<SemVersion> {
 			return 0;
 		}
 
-		if (getMajor() > o.getMajor()) {
+		if (major > o.major) {
 			return 1;
-		} else if (getMajor() == o.getMajor() && getMinor() > o.getMinor()) {
+		} else if (major == o.major && minor > o.minor) {
 			return 1;
-		} else if (getMajor() == o.getMajor() && getMinor() == o.getMinor() && getRevision() > o.getRevision()) {
+		} else if (major == o.major && minor == o.minor && revision > o.revision) {
 			return 1;
-		} else if (getMajor() == o.getMajor() && getMinor() == o.getMinor() && getRevision() == o.getRevision()) {
+		} else if (major == o.major && minor == o.minor && revision == o.revision) {
 			return 0;
 		}
 

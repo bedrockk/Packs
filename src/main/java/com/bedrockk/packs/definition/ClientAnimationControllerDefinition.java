@@ -30,7 +30,7 @@ public class ClientAnimationControllerDefinition implements VersionedNode, Defin
 		private boolean blendViaShortestPath;
 		private List<ExpressionNode> parameters;
 		private Map<String, Variable> variables;
-		private List<AnimationEntry> animations;
+		private List<ConditionalEntry> animations;
 		private List<Map<String, ExpressionNode>> transitions;
 		private List<Particle> particleEffects;
 		private List<Sound> soundEffects;

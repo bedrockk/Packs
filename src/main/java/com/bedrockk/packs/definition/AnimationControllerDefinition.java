@@ -3,8 +3,8 @@ package com.bedrockk.packs.definition;
 import com.bedrockk.packs.json.VersionPropertyDeserializer;
 import com.bedrockk.packs.node.PackNode;
 import com.bedrockk.packs.node.VersionedNode;
-import com.bedrockk.packs.type.AnimationEntry;
 import com.bedrockk.packs.type.AnimationEvent;
+import com.bedrockk.packs.type.ConditionalEntry;
 import com.bedrockk.packs.type.ExpressionNode;
 import com.bedrockk.packs.type.SemVersion;
 import com.fasterxml.jackson.annotation.JsonProperty;
@@ -29,7 +29,7 @@ public class AnimationControllerDefinition implements VersionedNode, Definition 
 
 	@Data
 	public static class State implements PackNode {
-		private List<AnimationEntry> animations;
+		private List<ConditionalEntry> animations;
 		private List<Map<String, ExpressionNode>> transitions;
 		private List<AnimationEvent> onEntry;
 		private List<AnimationEvent> onExit;

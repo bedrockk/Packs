@@ -41,9 +41,9 @@ public class JsonList<E> extends ArrayList<E> {
 	@JsonValue
 	public JsonNode toJson() {
 		if (this.isMinimized() && this.size() == 1) {
-			var node1 = PackHelper.toJsonNode(this.get(0));
-			if (!node1.isArray()) {
-				return node1;
+			var node = PackHelper.toJsonNode(this.get(0));
+			if (!node.isArray()) {
+				return node;
 			}
 		}
 		ArrayNode node = PackHelper.MAPPER.createArrayNode();

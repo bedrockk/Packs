@@ -320,4 +320,6 @@ public class EntityComponentIds {
 	public static final String WALK_ANIMATION_SPEED = "minecraft:walk_animation_speed";
 	public static final String WANTS_JOCKEY = "minecraft:wants_jockey";
 	public static final String WATER_MOVEMENT = "minecraft:water_movement";
+	public static final String ANNOTATION_OPEN_DOOR = "minecraft:annotation.open_door";
+	public static final String ANNOTATION_BREAK_DOOR = "minecraft:annotation.break_door";
 }

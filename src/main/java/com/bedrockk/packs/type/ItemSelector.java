@@ -31,36 +31,28 @@ public class ItemSelector implements Description {
 
 	@JsonCreator
 	public static ItemSelector fromJson(JsonNode node) {
-		if (node.isTextual()) {
-			return new ItemSelector(node.asText());
-		} else if (node.isObject()) {
+		if (node.isObject()) {
 			String name = node.has("name") ? node.get("name").asText() : null;
 			List<String> tags = node.findValuesAsText("any_tag");
-
 			return new ItemSelector(name, tags);
 		}
-
-		return null;
+		return new ItemSelector(node.asText());
 	}
 
 	@JsonValue
 	public JsonNode toJson() {
-		if (anyTags.isEmpty()) {
-			return PackHelper.MAPPER.convertValue(name, JsonNode.class);
-		} else {
-			ObjectNode node = PackHelper.MAPPER.createObjectNode();
-			ArrayNode arrayNode = PackHelper.MAPPER.createArrayNode();
-			arrayNode.addAll(anyTags.stream()
-					.map(s -> PackHelper.MAPPER.convertValue(s, JsonNode.class))
-					.collect(Collectors.toList())
-			);
+		if (!anyTags.isEmpty()) {
+			var node = PackHelper.MAPPER.createObjectNode();
+			var arrayNode = PackHelper.MAPPER.createArrayNode();
+
+			arrayNode.addAll(anyTags.stream().map(PackHelper::toJsonNode).collect(Collectors.toList()));
 			node.set("any_tag", arrayNode);
 			if (name != null) {
-				node.set("name", PackHelper.MAPPER.convertValue(name, JsonNode.class));
+				node.set("name", PackHelper.toJsonNode(name));
 			}
-
 			return node;
 		}
+		return PackHelper.toJsonNode(name);
 	}
 
 	public String getName() {

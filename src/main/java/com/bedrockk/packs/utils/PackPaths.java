@@ -30,7 +30,6 @@ public class PackPaths {
 	public static final String BP_FEATURE_RULE = "feature_rules/";
 	public static final String BP_FUNCTION = "functions/";
 	public static final String BP_FUNCTION_TICK = "functions/tick.json";
-	public static final String BP_ITEM = "entities/";
 	public static final String BP_BEHAVIOR_TREE = "behavior_trees/";
 	public static final String BP_LOOT_TABLE = "loot_tables/";
 	public static final String BP_TRADING = "trading/";

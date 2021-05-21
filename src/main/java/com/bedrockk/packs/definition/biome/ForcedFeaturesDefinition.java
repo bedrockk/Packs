@@ -10,7 +10,7 @@ import lombok.Data;
 import java.util.HashMap;
 
 @Data
-public class ForcedFeaturesDefinition extends HashMap <String, ForcedFeaturesDefinition.Entry> implements BiomeComponentDefinition {
+public class ForcedFeaturesDefinition extends HashMap<String, ForcedFeaturesDefinition.Entry> implements BiomeComponentDefinition {
 
 	@Data
 	public static class Entry implements PackNode {

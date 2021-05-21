@@ -7,16 +7,31 @@ import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.node.ObjectNode;
 import lombok.Data;
 
+import java.util.Collections;
 import java.util.HashMap;
 import java.util.Map;
 
-@Data
 public class BlockStateMap {
-	public static final BlockStateMap EMPTY = new BlockStateMap();
+	public static final BlockStateMap EMPTY = new BlockStateMap() {
+		@Override
+		public void setString(String name, String value) {
+			// NOOP
+		}
 
-	private Map<String, String> stringMap = new HashMap<>();
-	private Map<String, Number> numberMap = new HashMap<>();
-	private Map<String, Boolean> boolMap = new HashMap<>();
+		@Override
+		public void setBool(String name, boolean value) {
+			// NOOP
+		}
+
+		@Override
+		public void setNumber(String name, Number value) {
+			// NOOP
+		}
+	};
+
+	private final Map<String, String> stringMap = new HashMap<>();
+	private final Map<String, Number> numberMap = new HashMap<>();
+	private final Map<String, Boolean> boolMap = new HashMap<>();
 
 	public boolean isEmpty() {
 		return this.stringMap.isEmpty() && this.numberMap.isEmpty() && this.boolMap.isEmpty();
@@ -46,6 +61,18 @@ public class BlockStateMap {
 		this.boolMap.put(name, value);
 	}
 
+	public Map<String, String> getAllString() {
+		return Collections.unmodifiableMap(stringMap);
+	}
+
+	public Map<String, Number> getAllNumber() {
+		return Collections.unmodifiableMap(numberMap);
+	}
+
+	public Map<String, Boolean> getAllBool() {
+		return Collections.unmodifiableMap(boolMap);
+	}
+
 	@JsonCreator
 	public static BlockStateMap fromJson(Map<String, JsonNode> node) {
 		BlockStateMap map = new BlockStateMap();
@@ -63,10 +90,10 @@ public class BlockStateMap {
 
 	@JsonValue
 	public ObjectNode toJson() {
-		ObjectNode node = PackHelper.MAPPER.createObjectNode();
-		this.stringMap.forEach((k, v) -> node.set(k, PackHelper.toJsonNode(v)));
-		this.numberMap.forEach((k, v) -> node.set(k, PackHelper.toJsonNode(v)));
-		this.boolMap.forEach((k, v) -> node.set(k, PackHelper.toJsonNode(v)));
+		var node = PackHelper.MAPPER.createObjectNode();
+		stringMap.forEach((k, v) -> node.set(k, PackHelper.toJsonNode(v)));
+		numberMap.forEach((k, v) -> node.set(k, PackHelper.toJsonNode(v)));
+		boolMap.forEach((k, v) -> node.set(k, PackHelper.toJsonNode(v)));
 		return node;
 	}
 }
