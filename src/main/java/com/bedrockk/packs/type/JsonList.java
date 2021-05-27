@@ -26,8 +26,8 @@ public class JsonList<E> extends ArrayList<E> {
 		return list;
 	}
 
-	public static <A> ListBuilder<JsonList<A>, A> builder() {
-		return new ListBuilder<>((new TypeReference<JsonList<A>>() {}).getType());
+	public static <A> ListBuilder<JsonList<A>, A> builder(JsonList<A> list) {
+		return new ListBuilder<>(list);
 	}
 
 	@JsonCreator

@@ -16,7 +16,7 @@ import java.util.HashMap;
 public class ForcedFeaturesDefinition extends HashMap<String, ForcedFeaturesDefinition.Entry> implements BiomeComponentDefinition {
 
 	public static MapBuilder<ForcedFeaturesDefinition, String, Entry> builder() {
-		return new MapBuilder<>(ForcedFeaturesDefinition.class);
+		return new MapBuilder<>(new ForcedFeaturesDefinition());
 	}
 
 	@Data

@@ -23,7 +23,7 @@ import static com.bedrockk.packs.definition.item.RenderOffsetsDefinition.*;
 public class RenderOffsetsDefinition extends HashMap<HandType, Map<CameraType, RenderOffset>> implements ItemComponentNode {
 
 	public static MapBuilder<RenderOffsetsDefinition, HandType, Map<CameraType, RenderOffset>> builder() {
-		return new MapBuilder<>(RenderOffsetsDefinition.class);
+		return new MapBuilder<>(new RenderOffsetsDefinition());
 	}
 
 	@Data

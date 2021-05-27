@@ -1,23 +1,12 @@
 package com.bedrockk.packs.utils;
 
-import lombok.SneakyThrows;
-
-import java.lang.reflect.Type;
-import java.util.HashMap;
 import java.util.Map;
 
 public final class MapBuilder<T extends Map<K, V>, K, V> {
-	private final Class<T> targetClass;
-	private final Map<K, V> map = new HashMap<>();
+	private final T map;
 
-	public MapBuilder(Class<T> targetClass) {
-		this.targetClass = targetClass;
-	}
-
-	@SneakyThrows
-	@SuppressWarnings("unchecked")
-	public MapBuilder(Type type) {
-		this.targetClass = (Class<T>) Class.forName(type.getTypeName());
+	public MapBuilder(T map) {
+		this.map = map;
 	}
 
 	public MapBuilder<T, K, V> put(K key, V value) {
@@ -35,10 +24,7 @@ public final class MapBuilder<T extends Map<K, V>, K, V> {
 		return this;
 	}
 
-	@SneakyThrows
 	public T build() {
-		var clazz = targetClass.getDeclaredConstructor().newInstance();
-		clazz.putAll(map);
-		return clazz;
+		return map;
 	}
 }

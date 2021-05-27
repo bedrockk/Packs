@@ -17,8 +17,8 @@ public class TimeMap<E> extends HashMap<Double, E> {
 
 	private int type = TYPE_OBJECT;
 
-	public static <E> MapBuilder<TimeMap<E>, Double, E> builder() {
-		return new MapBuilder<>((new TypeReference<TimeMap<E>>() {}).getType());
+	public static <E> MapBuilder<TimeMap<E>, Double, E> builder(TimeMap<E> map) {
+		return new MapBuilder<>(map);
 	}
 
 	public int getType() {

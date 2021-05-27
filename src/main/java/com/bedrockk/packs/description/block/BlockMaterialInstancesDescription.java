@@ -16,7 +16,7 @@ import java.util.Locale;
 public class BlockMaterialInstancesDescription extends HashMap<String, MaterialInstance> implements BlockDescription {
 
 	public static MapBuilder<BlockMaterialInstancesDescription, String, MaterialInstance> builder() {
-		return new MapBuilder<>(BlockMaterialInstancesDescription.class);
+		return new MapBuilder<>(new BlockMaterialInstancesDescription());
 	}
 
 	@Data

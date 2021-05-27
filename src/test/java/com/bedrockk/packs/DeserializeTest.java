@@ -4,6 +4,7 @@ import com.bedrockk.packs.definition.*;
 import com.bedrockk.packs.definition.recipe.RecipeDefinition;
 import com.bedrockk.molang.util.Util;
 import com.bedrockk.packs.type.JsonList;
+import com.bedrockk.packs.type.TimeMap;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.JsonNode;
@@ -18,6 +19,13 @@ import java.util.Collections;
 
 @DisplayName("Item Deserialize Test")
 public class DeserializeTest {
+
+	@Test
+	@DisplayName("Hmmm Test")
+	public void testHmmm() {
+		var list = JsonList.<String>builder(new JsonList<>()).add("tttrerte").build();
+		var timeMap = TimeMap.<String>builder(new TimeMap<>()).put(0.1, "sdad").build();
+	}
 
 	@Test
 	@DisplayName("Entity Test")
