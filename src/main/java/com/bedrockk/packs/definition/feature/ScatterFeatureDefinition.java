@@ -8,9 +8,13 @@ import com.bedrockk.packs.type.ExpressionNode;
 import com.bedrockk.packs.type.FeatureCoordinate;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
+import lombok.experimental.SuperBuilder;
+import lombok.extern.jackson.Jacksonized;
 
 @EqualsAndHashCode(callSuper = true)
 @Data
+@SuperBuilder
+@Jacksonized
 public class ScatterFeatureDefinition extends FeatureDefinition {
 	private SimpleDefinitionDescription description;
 	private String placesFeature;

@@ -4,19 +4,26 @@ import com.bedrockk.packs.description.definition.FeatureRuleDefinitionDescriptio
 import com.bedrockk.packs.node.PackNode;
 import com.bedrockk.packs.type.*;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import lombok.Builder;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
+import lombok.experimental.SuperBuilder;
+import lombok.extern.jackson.Jacksonized;
 
 import java.util.Locale;
 
 @EqualsAndHashCode(callSuper = true)
 @Data
+@SuperBuilder
+@Jacksonized
 public class FeatureRuleDefinition extends VersionedDefinition {
 	private FeatureRuleDefinitionDescription description;
 	private Conditions conditions;
 	private Distribution distribution;
 
 	@Data
+	@Builder
+	@Jacksonized
 	public static class Conditions implements PackNode {
 		private PlacementPass placementPass;
 		@JsonProperty("minecraft:biome_filter")
@@ -24,6 +31,8 @@ public class FeatureRuleDefinition extends VersionedDefinition {
 	}
 
 	@Data
+	@Builder
+	@Jacksonized
 	public static class Distribution implements PackNode {
 		private ExpressionNode iterations;
 		private ChanceInformation scatterChance;

@@ -4,9 +4,15 @@ import com.bedrockk.packs.node.PackNode;
 import com.bedrockk.packs.type.BlockReference;
 import com.bedrockk.packs.type.Range;
 import com.fasterxml.jackson.annotation.JsonCreator;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
+import lombok.NoArgsConstructor;
+import lombok.extern.jackson.Jacksonized;
 
 @Data
+@Builder
+@Jacksonized
 public class Trunk {
 	private Range trunkHeight;
 	private Integer heightModifier;
@@ -15,14 +21,15 @@ public class Trunk {
 	private Decoration trunkDecoration;
 
 	@Data
+	@NoArgsConstructor
+	@AllArgsConstructor(staticName = "of")
 	public static class SubmergeAbility implements PackNode {
-		private int maxDepth;
+		private boolean value;
+		private Integer maxDepth;
 
 		@JsonCreator
-		public static SubmergeAbility fromJson(boolean value) {
-			var ab = new SubmergeAbility();
-			ab.maxDepth = value ? 1 : 0;
-			return ab;
+		public static SubmergeAbility of(boolean value) {
+			return new SubmergeAbility(value, null);
 		}
 	}
 }

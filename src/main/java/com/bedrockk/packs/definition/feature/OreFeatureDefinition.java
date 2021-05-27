@@ -1,6 +1,7 @@
 package com.bedrockk.packs.definition.feature;
 
 import com.bedrockk.packs.PackHelper;
+import com.bedrockk.packs.annotation.JsonConverter;
 import com.bedrockk.packs.annotation.JsonSince;
 import com.bedrockk.packs.definition.FeatureDefinition;
 import com.bedrockk.packs.description.definition.SimpleDefinitionDescription;
@@ -8,26 +9,34 @@ import com.bedrockk.packs.json.VersionedConverter;
 import com.bedrockk.packs.node.PackNode;
 import com.bedrockk.packs.type.BlockReference;
 import com.bedrockk.packs.utils.FormatVersions;
-import com.fasterxml.jackson.databind.JsonNode;
-import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import com.fasterxml.jackson.databind.node.ObjectNode;
+import lombok.Builder;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
+import lombok.Singular;
+import lombok.experimental.SuperBuilder;
+import lombok.extern.jackson.Jacksonized;
 
 import java.util.List;
 
 @Data
 @JsonSince("1.16.220")
 @EqualsAndHashCode(callSuper = true)
-@JsonDeserialize(converter = OreFeatureDefinition.Converter.class)
+@SuperBuilder
+@JsonConverter(current = OreFeatureDefinition.Converter.class)
+@Jacksonized
 public class OreFeatureDefinition extends FeatureDefinition {
 	private SimpleDefinitionDescription description;
 	private int count;
+	@Singular
 	private List<ReplaceRule> replaceRules;
 
 	@Data
+	@Builder
+	@Jacksonized
 	public static class ReplaceRule implements PackNode {
 		private BlockReference placesBlock;
+		@Singular("canReplace")
 		private List<BlockReference> mayReplace;
 	}
 

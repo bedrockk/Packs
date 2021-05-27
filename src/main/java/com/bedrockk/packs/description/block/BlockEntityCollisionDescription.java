@@ -8,29 +8,36 @@ import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonValue;
 import com.fasterxml.jackson.databind.JsonNode;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 @Data
+@Builder
 @JsonSince("1.16.100")
+@NoArgsConstructor
+@AllArgsConstructor(staticName = "of")
 public class BlockEntityCollisionDescription implements BlockDescription {
 	private ImmutableVec3 origin;
 	private ImmutableVec3 size;
 	@JsonIgnore
-	private boolean hasCollision;
+	@Builder.Default
+	private boolean hasCollision = true;
 
 	@JsonCreator
-	public static BlockEntityCollisionDescription fromJson(boolean value) {
-		var desc = new BlockEntityCollisionDescription();
-		desc.hasCollision = value;
-		return desc;
+	public static BlockEntityCollisionDescription of(boolean value) {
+		return of(ImmutableVec3.ZERO, ImmutableVec3.ZERO, value);
 	}
 
 	@JsonValue
 	public JsonNode toJson() {
 		if (hasCollision) {
-			return PackHelper.toJsonNode(true);
-		} else {
-			return PackHelper.toJsonNode(this);
+			var node = PackHelper.MAPPER.createObjectNode();
+			node.set("origin", PackHelper.toJsonNode(origin));
+			node.set("size", PackHelper.toJsonNode(size));
+			return node;
 		}
+		return PackHelper.toJsonNode(false);
 	}
 }

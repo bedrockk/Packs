@@ -9,12 +9,12 @@ import com.fasterxml.jackson.databind.node.ObjectNode;
 
 public record BlockReference(String name, BlockStateMap states) {
 	@JsonCreator
-	public static BlockReference fromJson(String name) {
+	public static BlockReference of(String name) {
 		return new BlockReference(name, BlockStateMap.EMPTY);
 	}
 
 	@JsonCreator
-	public static BlockReference fromJson(@JsonProperty("name") String name, @JsonProperty("states") BlockStateMap states) {
+	public static BlockReference of(@JsonProperty("name") String name, @JsonProperty("states") BlockStateMap states) {
 		return new BlockReference(name, states);
 	}
 

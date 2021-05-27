@@ -8,8 +8,12 @@ public record AnimationEvent(int type, Object event) {
 	public static final int TYPE_COMMAND = 1;
 	public static final int TYPE_EXPRESSION = 2;
 
+	public static AnimationEvent of(ExpressionNode node) {
+		return new AnimationEvent(TYPE_EXPRESSION, node);
+	}
+
 	@JsonCreator
-	public static AnimationEvent fromJson(String event) {
+	public static AnimationEvent of(String event) {
 		if (event.startsWith("@s ")) {
 			return new AnimationEvent(TYPE_ENTITY_EVENT, event.substring(3));
 		} else if (event.startsWith("/")) {

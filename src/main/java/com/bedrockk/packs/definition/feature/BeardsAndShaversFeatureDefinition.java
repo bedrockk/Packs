@@ -8,13 +8,15 @@ import com.bedrockk.packs.type.BlockReference;
 import com.bedrockk.packs.type.ImmutableVec3;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
-
-import java.util.List;
+import lombok.experimental.SuperBuilder;
+import lombok.extern.jackson.Jacksonized;
 
 @EqualsAndHashCode(callSuper = true)
 @Data
 @MinecraftBeta
 @JsonSince("1.17.0")
+@SuperBuilder
+@Jacksonized
 public class BeardsAndShaversFeatureDefinition extends FeatureDefinition {
 	private SimpleDefinitionDescription description;
 	private String placesFeature;

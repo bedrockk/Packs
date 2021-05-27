@@ -5,87 +5,54 @@ import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.node.ObjectNode;
+import lombok.Builder;
 import lombok.Data;
+import lombok.Singular;
 
 import java.util.Collections;
-import java.util.HashMap;
 import java.util.Map;
 
+@Data
+@Builder(builderClassName = "Builder")
 public class BlockStateMap {
-	public static final BlockStateMap EMPTY = new BlockStateMap() {
-		@Override
-		public void setString(String name, String value) {
-			// NOOP
-		}
+	public static final BlockStateMap EMPTY = new BlockStateMap(Collections.emptyMap(), Collections.emptyMap(), Collections.emptyMap());
 
-		@Override
-		public void setBool(String name, boolean value) {
-			// NOOP
-		}
-
-		@Override
-		public void setNumber(String name, Number value) {
-			// NOOP
-		}
-	};
-
-	private final Map<String, String> stringMap = new HashMap<>();
-	private final Map<String, Number> numberMap = new HashMap<>();
-	private final Map<String, Boolean> boolMap = new HashMap<>();
+	@Singular("property")
+	private Map<String, String> stringMap;
+	@Singular("property")
+	private Map<String, Number> numberMap;
+	@Singular("property")
+	private Map<String, Boolean> boolMap;
 
 	public boolean isEmpty() {
-		return this.stringMap.isEmpty() && this.numberMap.isEmpty() && this.boolMap.isEmpty();
+		return stringMap.isEmpty() && numberMap.isEmpty() && boolMap.isEmpty();
 	}
 
 	public String getString(String name) {
-		return this.stringMap.get(name);
-	}
-
-	public void setString(String name, String value) {
-		this.stringMap.put(name, value);
+		return stringMap.get(name);
 	}
 
 	public Number getNumber(String name) {
-		return this.numberMap.get(name);
-	}
-
-	public void setNumber(String name, Number value) {
-		this.numberMap.put(name, value);
+		return numberMap.get(name);
 	}
 
 	public boolean getBool(String name) {
-		return this.boolMap.get(name);
-	}
-
-	public void setBool(String name, boolean value) {
-		this.boolMap.put(name, value);
-	}
-
-	public Map<String, String> getAllString() {
-		return Collections.unmodifiableMap(stringMap);
-	}
-
-	public Map<String, Number> getAllNumber() {
-		return Collections.unmodifiableMap(numberMap);
-	}
-
-	public Map<String, Boolean> getAllBool() {
-		return Collections.unmodifiableMap(boolMap);
+		return boolMap.get(name);
 	}
 
 	@JsonCreator
 	public static BlockStateMap fromJson(Map<String, JsonNode> node) {
-		BlockStateMap map = new BlockStateMap();
+		var builder = BlockStateMap.builder();
 		node.forEach((k, v) -> {
 			if (v.isTextual()) {
-				map.setString(k, v.textValue());
+				builder.property(k, v.textValue());
 			} else if (v.isNumber()) {
-				map.setNumber(k, v.numberValue());
+				builder.property(k, v.numberValue());
 			} else if (v.isBoolean()) {
-				map.setBool(k, v.booleanValue());
+				builder.property(k, v.booleanValue());
 			}
 		});
-		return map;
+		return builder.build();
 	}
 
 	@JsonValue

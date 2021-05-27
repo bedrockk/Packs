@@ -13,11 +13,13 @@ public record WeightedEntry<T>(int type, T value, int weight) {
 	@JsonCreator
 	public static <E> WeightedEntry<E> fromJson(JsonNode node) {
 		if (!node.isArray()) {
-			return new WeightedEntry<>(TYPE_PLAIN, PackHelper.MAPPER.convertValue(node, new TypeReference<>() {
-			}), 1);
+			return new WeightedEntry<>(TYPE_PLAIN, PackHelper.convert(node, new TypeReference<>() {}), 1);
 		}
-		return new WeightedEntry<>(TYPE_ARRAY, PackHelper.MAPPER.convertValue(node.get(0), new TypeReference<>() {
-		}), node.get(1).asInt());
+		return new WeightedEntry<>(
+				TYPE_ARRAY,
+				PackHelper.convert(node.get(0), new TypeReference<>() {}),
+				node.get(1).asInt()
+		);
 	}
 
 	@JsonValue

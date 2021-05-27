@@ -2,9 +2,13 @@ package com.bedrockk.packs.definition.feature.tree;
 
 import com.bedrockk.packs.node.PackNode;
 import com.bedrockk.packs.type.BlockReference;
+import lombok.Builder;
 import lombok.Data;
+import lombok.extern.jackson.Jacksonized;
 
 @Data
+@Builder
+@Jacksonized
 public class FancyTrunk {
 	private Height trunkHeight;
 	private int trunkWidth;
@@ -14,6 +18,8 @@ public class FancyTrunk {
 	private double foliageAltitudeFactor;
 
 	@Data
+	@Builder
+	@Jacksonized
 	public static class Height implements PackNode {
 		private int base;
 		private int variance;
@@ -21,6 +27,8 @@ public class FancyTrunk {
 	}
 
 	@Data
+	@Builder
+	@Jacksonized
 	public static class Branches implements PackNode {
 		private double slope;
 		private double density;

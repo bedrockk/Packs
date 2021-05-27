@@ -5,7 +5,7 @@ import com.fasterxml.jackson.annotation.JsonValue;
 import com.fasterxml.jackson.databind.node.ObjectNode;
 
 public class EmptyObject {
-	public static final EmptyObject INSTANCE = new EmptyObject();
+	public static final EmptyObject GET = new EmptyObject();
 	private static final ObjectNode NODE = PackHelper.MAPPER.createObjectNode();
 
 	@JsonValue

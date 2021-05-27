@@ -1,26 +1,34 @@
 package com.bedrockk.packs.definition.entity;
 
+import lombok.Builder;
 import lombok.Data;
+import lombok.extern.jackson.Jacksonized;
 
 @Data
+@Builder
+@Jacksonized
 public class FlockingDefinition implements EntityComponentDefinition {
 
-	private double blockDistance = 0.0;
-	private double blockWeight = 0.0;
-	private double breachInfluence = 0.0;
+	private double blockDistance;
+	private double blockWeight;
+	private double breachInfluence;
+	@Builder.Default
 	private double cohesionThreshold = 1.0;
+	@Builder.Default
 	private double cohesionWeight = 1.0;
-	private double goalWeight = 0.0;
-	private int highFlockLimit = 0;
-	private boolean inWater = false;
-	private double influenceRadius = 0.0;
-	private double innnerCohesionThreshold = 0.0;
-	private double lonerChance = 0.0;
-	private int lowFlockLimit = 0;
-	private boolean matchVariants = false;
-	private double maxHeight = 0.0;
-	private double minHeight = 0.0;
+	private double goalWeight;
+	private int highFlockLimit;
+	private boolean inWater;
+	private double influenceRadius;
+	private double innnerCohesionThreshold;
+	private double lonerChance;
+	private int lowFlockLimit;
+	private boolean matchVariants;
+	private double maxHeight;
+	private double minHeight;
+	@Builder.Default
 	private double separationThreshold = 2.0;
+	@Builder.Default
 	private double separationWeight = 1.0;
-	private boolean useCenterOfMass = false;
+	private boolean useCenterOfMass;
 }

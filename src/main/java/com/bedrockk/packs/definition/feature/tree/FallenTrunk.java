@@ -2,9 +2,14 @@ package com.bedrockk.packs.definition.feature.tree;
 
 import com.bedrockk.packs.type.BlockReference;
 import com.bedrockk.packs.type.Range;
+import lombok.Builder;
 import lombok.Data;
+import lombok.extern.jackson.Jacksonized;
 
 @Data
+@Builder
+@Jacksonized
+
 public class FallenTrunk {
 	private Range logLength;
 	private Integer stumpHeight;

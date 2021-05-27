@@ -4,12 +4,14 @@ import com.bedrockk.packs.definition.FeatureDefinition;
 import com.bedrockk.packs.description.definition.SimpleDefinitionDescription;
 import com.bedrockk.packs.node.PackNode;
 import com.bedrockk.packs.type.ImmutableVec3;
-import lombok.Data;
-import lombok.EqualsAndHashCode;
-import lombok.RequiredArgsConstructor;
+import lombok.*;
+import lombok.experimental.SuperBuilder;
+import lombok.extern.jackson.Jacksonized;
 
 @EqualsAndHashCode(callSuper = true)
 @Data
+@SuperBuilder
+@Jacksonized
 public class SearchFeatureDefinition extends FeatureDefinition {
 	private SimpleDefinitionDescription description;
 	private String placesFeature;
@@ -18,6 +20,8 @@ public class SearchFeatureDefinition extends FeatureDefinition {
 	private Integer requiredSuccesses;
 
 	@Data
+	@NoArgsConstructor
+	@AllArgsConstructor(staticName = "of")
 	public static class SearchVolume implements PackNode {
 		private ImmutableVec3 min;
 		private ImmutableVec3 max;

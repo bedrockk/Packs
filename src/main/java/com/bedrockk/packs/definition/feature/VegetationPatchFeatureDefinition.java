@@ -7,6 +7,9 @@ import com.bedrockk.packs.description.definition.SimpleDefinitionDescription;
 import com.bedrockk.packs.type.BlockReference;
 import com.bedrockk.packs.type.Range;
 import lombok.Data;
+import lombok.Singular;
+import lombok.experimental.SuperBuilder;
+import lombok.extern.jackson.Jacksonized;
 
 import java.util.List;
 import java.util.Locale;
@@ -14,8 +17,11 @@ import java.util.Locale;
 @Data
 @MinecraftBeta
 @JsonSince("1.17.0")
+@SuperBuilder
+@Jacksonized
 public class VegetationPatchFeatureDefinition extends FeatureDefinition {
 	private SimpleDefinitionDescription description;
+	@Singular
 	private List<BlockReference> replaceableBlocks;
 	private BlockReference groundBlock;
 	private String vegetationFeature;

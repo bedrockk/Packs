@@ -2,37 +2,51 @@ package com.bedrockk.packs.definition.entity;
 
 import com.bedrockk.packs.node.PackNode;
 import com.bedrockk.packs.type.*;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
+import lombok.NoArgsConstructor;
+import lombok.extern.jackson.Jacksonized;
 
 @Data
+@Builder
+@Jacksonized
 public class ProjectileDefinition implements EntityComponentDefinition {
 	private OnHit onHit;
 
 	private String shootSound;
 	private String hitSound;
 	private String hitGroundSound;
-	private double angleOffset = 0.0;
+	private double angleOffset;
+	@Builder.Default
 	private double gravity = 0.05;
+	@Builder.Default
 	private double inertia = 0.99;
+	@Builder.Default
 	private double liquidInertia = 0.6;
+	@Builder.Default
 	private double power = 1.3;
-	private double anchor = 0.0;
-	private double uncertaintyBase = 0.0;
-	private double uncertaintyMultiplier = 0.0;
+	private double anchor;
+	private double uncertaintyBase;
+	private double uncertaintyMultiplier;
 
-	private Boolean isDangerous = false;
+	private boolean isDangerous;
+	@Builder.Default
 	private boolean multipleTargets = true;
-	private boolean reflectOnHurt = false;
-	private boolean catchFire = false;
-	private boolean stopOnHurt = false;
-	private boolean semiRandomDiffDamage = false;
+	private boolean reflectOnHurt;
+	private boolean catchFire;
+	private boolean stopOnHurt;
+	private boolean semiRandomDiffDamage;
+	@Builder.Default
 	private boolean shootTarget = true;
-	private boolean shouldBounce = false;
-	private boolean homing = false;
+	private boolean shouldBounce;
+	private boolean homing;
 
 	private ImmutableVec3 offset;
 
 	@Data
+	@Builder
+	@Jacksonized
 	public static class OnHit implements PackNode {
 		private DefinitionEvent definitionEvent;
 		private GrantXp grantXp;
@@ -48,10 +62,11 @@ public class ProjectileDefinition implements EntityComponentDefinition {
 		private EmptyObject teleportOwner;
 		private ParticleOnHit particleOnHit;
 		private CatchFire catchFire;
-
 	}
 
 	@Data
+	@Builder
+	@Jacksonized
 	public static class DefinitionEvent implements PackNode {
 		private boolean affectProjectile;
 		private boolean affectShooter;
@@ -62,6 +77,8 @@ public class ProjectileDefinition implements EntityComponentDefinition {
 	}
 
 	@Data
+	@Builder
+	@Jacksonized
 	public static class GrantXp implements PackNode {
 		private int minXP;
 		private int maxXP;
@@ -69,6 +86,8 @@ public class ProjectileDefinition implements EntityComponentDefinition {
 	}
 
 	@Data
+	@Builder
+	@Jacksonized
 	public static class SpawnAoeCloud implements PackNode {
 		private double radius;
 		private double radiusOnUse;
@@ -81,6 +100,8 @@ public class ProjectileDefinition implements EntityComponentDefinition {
 	}
 
 	@Data
+	@Builder
+	@Jacksonized
 	public static class ImpactDamage implements PackNode {
 		private ExpressionNode filter;
 		private Range damage;
@@ -97,6 +118,8 @@ public class ProjectileDefinition implements EntityComponentDefinition {
 	}
 
 	@Data
+	@Builder
+	@Jacksonized
 	public static class SpawnChance implements PackNode {
 		private double firstSpawnPercentChance;
 		private double firstSpawnChance;
@@ -110,6 +133,8 @@ public class ProjectileDefinition implements EntityComponentDefinition {
 	}
 
 	@Data
+	@Builder
+	@Jacksonized
 	public static class MobEffect implements PackNode {
 		private EffectType effect;
 		private int duration;
@@ -120,11 +145,15 @@ public class ProjectileDefinition implements EntityComponentDefinition {
 	}
 
 	@Data
+	@NoArgsConstructor
+	@AllArgsConstructor(staticName = "of")
 	public static class StickInGround implements PackNode {
 		private double shadeTime;
 	}
 
 	@Data
+	@Builder
+	@Jacksonized
 	public static class ParticleOnHit implements PackNode {
 		private String particleType;
 		private int numParticles;
@@ -133,6 +162,8 @@ public class ProjectileDefinition implements EntityComponentDefinition {
 	}
 
 	@Data
+	@NoArgsConstructor
+	@AllArgsConstructor(staticName = "of")
 	public static class CatchFire implements PackNode {
 		private boolean fireAffectedByGriefing;
 	}

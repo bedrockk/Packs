@@ -2,22 +2,30 @@ package com.bedrockk.packs.definition.entity.goal;
 
 import com.bedrockk.packs.definition.entity.EntityComponentDefinition;
 import com.bedrockk.packs.definition.entity.PrioritizedEntityType;
+import lombok.Builder;
 import lombok.Data;
+import lombok.Singular;
+import lombok.extern.jackson.Jacksonized;
 
 import java.util.List;
 
 @Data
+@Builder
+@Jacksonized
 public class NearestPrioritizedAttackableTargetGoalDefinition implements EntityComponentDefinition {
 	private int priority;
-	private int attackInterval = 0;
+	private int attackInterval;
+	@Singular
 	private List<PrioritizedEntityType> entityTypes;
-	private boolean mustReach = false;
-	private boolean mustSee = false;
+	private boolean mustReach;
+	private boolean mustSee;
+	@Builder.Default
 	private double mustSeeForgetDuration = 3.0;
-	private double persistTime = 0.0;
-	private boolean reselectTargets = false;
+	private double persistTime;
+	private boolean reselectTargets;
+	@Builder.Default
 	private int scanInterval = 10;
-	private boolean setPersistent = false;
+	private boolean setPersistent;
 	private double targetSearchHeight;
-	private double withinRadius = 0.0;
+	private double withinRadius;
 }

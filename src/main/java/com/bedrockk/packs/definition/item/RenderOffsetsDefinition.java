@@ -7,8 +7,11 @@ import com.bedrockk.packs.node.ItemComponentNode;
 import com.bedrockk.packs.node.PackNode;
 import com.bedrockk.packs.type.ImmutableVec3;
 import com.bedrockk.packs.utils.FormatVersions;
+import com.bedrockk.packs.utils.MapBuilder;
 import com.fasterxml.jackson.databind.JsonNode;
+import lombok.Builder;
 import lombok.Data;
+import lombok.extern.jackson.Jacksonized;
 
 import java.util.HashMap;
 import java.util.Locale;
@@ -19,7 +22,13 @@ import static com.bedrockk.packs.definition.item.RenderOffsetsDefinition.*;
 @JsonSince("1.16.200")
 public class RenderOffsetsDefinition extends HashMap<HandType, Map<CameraType, RenderOffset>> implements ItemComponentNode {
 
+	public static MapBuilder<RenderOffsetsDefinition, HandType, Map<CameraType, RenderOffset>> builder() {
+		return new MapBuilder<>(RenderOffsetsDefinition.class);
+	}
+
 	@Data
+	@Builder
+	@Jacksonized
 	public static class RenderOffset implements PackNode {
 		private ImmutableVec3 position;
 		private ImmutableVec3 rotation;

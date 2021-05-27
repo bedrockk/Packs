@@ -13,6 +13,10 @@ public class HexColor extends Color {
 		super(Integer.decode(hex), true);
 	}
 
+	public static HexColor of(String hex) {
+		return new HexColor(hex);
+	}
+
 	@JsonValue
 	public JsonNode toJson() {
 		return PackHelper.toJsonNode("#" + Integer.toHexString(getRGB()));

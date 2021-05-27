@@ -1,13 +1,17 @@
 package com.bedrockk.packs.definition.entity;
 
+import lombok.Builder;
 import lombok.Data;
+import lombok.extern.jackson.Jacksonized;
 
 @Data
+@Builder
+@Jacksonized
 public class TradeTableDefinition implements EntityComponentDefinition {
 
-	private boolean convertTradesEconomy = false;
+	private boolean convertTradesEconomy;
 	private String displayName;
-	private boolean newScreen = false;
-	private boolean persistTrades = false;
+	private boolean newScreen;
+	private boolean persistTrades;
 	private String table;
 }

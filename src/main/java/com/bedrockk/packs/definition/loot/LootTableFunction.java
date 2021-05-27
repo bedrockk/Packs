@@ -28,5 +28,4 @@ import com.fasterxml.jackson.annotation.JsonTypeInfo;
 		@Type(name = "specific_enchants", value = SpecificEnchantsFunction.class)
 })
 public interface LootTableFunction extends PackNode {
-
 }

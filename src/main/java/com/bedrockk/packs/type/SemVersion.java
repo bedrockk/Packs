@@ -4,12 +4,8 @@ import com.bedrockk.packs.PackHelper;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
 import com.fasterxml.jackson.databind.JsonNode;
-import lombok.Data;
-import lombok.Value;
 
 import java.util.Arrays;
-import java.util.List;
-import java.util.stream.Collectors;
 
 public record SemVersion(int major, int minor, int revision, boolean isText) implements Comparable<SemVersion> {
 	public SemVersion(int major, int minor, int revision) {

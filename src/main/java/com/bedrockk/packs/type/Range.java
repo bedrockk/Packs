@@ -14,6 +14,10 @@ public record Range(double min, double max, int type) {
 	public static final int TYPE_ARRAY = 3;
 	public static final int TYPE_PLAIN = 4;
 
+	public static Range of(double min, double max) {
+		return new Range(min, max, TYPE_OBJECT);
+	}
+
 	@JsonCreator
 	public static Range fromJson(JsonNode node) {
 		if (node.isObject()) {

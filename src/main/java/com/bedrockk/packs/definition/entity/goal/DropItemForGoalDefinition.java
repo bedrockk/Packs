@@ -5,16 +5,22 @@ import com.bedrockk.packs.definition.entity.EntityEventTriggerDefinition;
 import com.bedrockk.packs.definition.entity.EntityType;
 import com.bedrockk.packs.type.ImmutableVec3;
 import com.bedrockk.packs.type.Range;
+import lombok.Builder;
 import lombok.Data;
+import lombok.Singular;
+import lombok.extern.jackson.Jacksonized;
 
 import java.nio.file.Path;
 import java.util.List;
 
 @Data
+@Builder
+@Jacksonized
 public class DropItemForGoalDefinition implements EntityComponentDefinition {
 	private int priority;
 	private int cooldown;
 	private double dropItemChance;
+	@Singular
 	private List<EntityType> entityTypes;
 	private double goalRadius;
 	private Path lootTable;

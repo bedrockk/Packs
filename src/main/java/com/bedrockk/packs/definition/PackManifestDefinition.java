@@ -2,32 +2,47 @@ package com.bedrockk.packs.definition;
 
 import com.bedrockk.packs.node.PackNode;
 import com.bedrockk.packs.type.SemVersion;
-import lombok.Data;
+import lombok.*;
+import lombok.extern.jackson.Jacksonized;
 
-import java.util.*;
+import java.util.List;
+import java.util.Locale;
+import java.util.UUID;
 
 @Data
+@Builder
+@Jacksonized
 public class PackManifestDefinition implements Definition {
+	@Builder.Default
 	private int formatVersion = 1;
 	private Header header;
-	private List<Module> modules = Collections.emptyList();
-	private List<Dependency> dependencies = Collections.emptyList();
-	private List<Capability> capabilities = Collections.emptyList();
-	private List<SubPack> subpacks = Collections.emptyList();
+	@Singular
+	private List<Module> modules;
+	@Singular
+	private List<Dependency> dependencies;
+	@Singular
+	private List<Capability> capabilities;
+	@Singular
+	private List<SubPack> subpacks;
 	private Metadata metadata;
 
 	@Data
+	@Builder
+	@Jacksonized
 	public static class Header implements PackNode {
 		private String name;
 		private UUID uuid;
 		private SemVersion version;
 		private String description;
 		private SemVersion baseGameVersion;
-		private boolean lockTemplateOptions = false;
+		private boolean lockTemplateOptions;
+		@Builder.Default
 		private String minEngineVersion = "1.16.0";
 	}
 
 	@Data
+	@Builder
+	@Jacksonized
 	public static class Module implements PackNode {
 		private String description;
 		private ModuleType type;
@@ -36,12 +51,16 @@ public class PackManifestDefinition implements Definition {
 	}
 
 	@Data
+	@NoArgsConstructor
+	@AllArgsConstructor(staticName = "of")
 	public static class Dependency implements PackNode {
 		private UUID uuid;
 		private SemVersion version;
 	}
 
 	@Data
+	@NoArgsConstructor
+	@AllArgsConstructor(staticName = "of")
 	public static class SubPack implements PackNode {
 		private String folderName;
 		private String name;
@@ -49,8 +68,11 @@ public class PackManifestDefinition implements Definition {
 	}
 
 	@Data
+	@Builder
+	@Jacksonized
 	public static class Metadata implements PackNode {
-		private List<String> authors = new ArrayList<>();
+		@Singular
+		private List<String> authors;
 		private String license;
 		private String url;
 	}

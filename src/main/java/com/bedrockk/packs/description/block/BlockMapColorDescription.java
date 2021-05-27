@@ -1,13 +1,13 @@
 package com.bedrockk.packs.description.block;
 
+import com.bedrockk.packs.annotation.JsonConverter;
 import com.bedrockk.packs.description.BlockDescription;
 import com.bedrockk.packs.json.VersionedConverter;
 import com.bedrockk.packs.node.SingleValueNode;
 import com.bedrockk.packs.utils.FormatVersions;
 import com.fasterxml.jackson.databind.JsonNode;
-import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 
-@JsonDeserialize(converter = BlockMapColorDescription.Converter.class)
+@JsonConverter(current = BlockMapColorDescription.Converter.class)
 public class BlockMapColorDescription extends SingleValueNode<Integer> implements BlockDescription {
 	public BlockMapColorDescription(Integer value) {
 		super(value);

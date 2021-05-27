@@ -8,6 +8,8 @@ import com.fasterxml.jackson.annotation.JsonSubTypes;
 import com.fasterxml.jackson.annotation.JsonSubTypes.Type;
 import com.fasterxml.jackson.annotation.JsonTypeInfo;
 import lombok.Data;
+import lombok.Singular;
+import lombok.experimental.SuperBuilder;
 
 import java.util.List;
 
@@ -18,6 +20,8 @@ import java.util.List;
 		@Type(name = "empty", value = EmptyEntry.class)
 })
 @Data
+@SuperBuilder
 public abstract class LootPoolEntry implements PackNode {
+	@Singular
 	private List<LootTableCondition> conditions;
 }

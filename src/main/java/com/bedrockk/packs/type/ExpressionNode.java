@@ -1,10 +1,10 @@
 package com.bedrockk.packs.type;
 
-import com.bedrockk.packs.PackHelper;
 import com.bedrockk.molang.MoLang;
 import com.bedrockk.molang.parser.Expression;
 import com.bedrockk.molang.runtime.MoLangRuntime;
 import com.bedrockk.molang.runtime.value.MoValue;
+import com.bedrockk.packs.PackHelper;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
 import com.fasterxml.jackson.databind.JsonNode;

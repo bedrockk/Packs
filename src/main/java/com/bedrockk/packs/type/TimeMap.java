@@ -1,6 +1,7 @@
 package com.bedrockk.packs.type;
 
 import com.bedrockk.packs.PackHelper;
+import com.bedrockk.packs.utils.MapBuilder;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
 import com.fasterxml.jackson.core.type.TypeReference;
@@ -15,6 +16,10 @@ public class TimeMap<E> extends HashMap<Double, E> {
 	public static final int TYPE_MINIMIZED = 2;
 
 	private int type = TYPE_OBJECT;
+
+	public static <E> MapBuilder<TimeMap<E>, Double, E> builder() {
+		return new MapBuilder<>((new TypeReference<TimeMap<E>>() {}).getType());
+	}
 
 	public int getType() {
 		return type;
@@ -34,15 +39,15 @@ public class TimeMap<E> extends HashMap<Double, E> {
 		if (node.isObject()) {
 			for (Iterator<String> it = node.fieldNames(); it.hasNext(); ) {
 				String name = it.next();
-				map.put(Double.valueOf(name), PackHelper.MAPPER.convertValue(node.get(name), new TypeReference<>() {}));
+				map.put(Double.valueOf(name), PackHelper.convert(node.get(name), new TypeReference<>() {}));
 			}
 		} else if (node.isArray()) {
 			for (int i = 0; i < node.size(); i++) {
-				map.put((double) i, PackHelper.MAPPER.convertValue(node.get(i), new TypeReference<>() {}));
+				map.put((double) i, PackHelper.convert(node.get(i), new TypeReference<>() {}));
 			}
 			map.setType(TYPE_ARRAY);
 		} else {
-			map.put(0.0, PackHelper.MAPPER.convertValue(node, new TypeReference<>() {}));
+			map.put(0.0, PackHelper.convert(node, new TypeReference<>() {}));
 			map.setType(TYPE_MINIMIZED);
 		}
 		return map;

@@ -8,6 +8,7 @@ import com.bedrockk.packs.type.SemVersion;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.core.JsonParser;
 import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.*;
 import com.fasterxml.jackson.databind.json.JsonMapper;
 import lombok.experimental.UtilityClass;
@@ -29,7 +30,7 @@ public class PackHelper {
 			.build();
 	public static SemVersion CURRENT_DEFINITION_VERSION;
 
-	public static synchronized <T extends Definition> T deserialize(String json, Class<T> type) throws IOException {
+	public static synchronized <T> T deserialize(String json, Class<T> type) throws IOException {
 		CURRENT_DEFINITION_VERSION = null;
 		T value = MAPPER.readValue(json, type);
 		CURRENT_DEFINITION_VERSION = null;
@@ -122,6 +123,20 @@ public class PackHelper {
 
 	public static String serializeAsPretty(Object object) throws JsonProcessingException {
 		return MAPPER.writerWithDefaultPrettyPrinter().writeValueAsString(object);
+	}
+
+	public static <T> T convert(Object value, Class<T> type) {
+		if (value == null) {
+			return null;
+		}
+		return MAPPER.convertValue(value, type);
+	}
+
+	public static <T> T convert(Object value, TypeReference<T> type) {
+		if (value == null) {
+			return null;
+		}
+		return MAPPER.convertValue(value, type);
 	}
 
 	public static JsonNode toJsonNode(Object object) {

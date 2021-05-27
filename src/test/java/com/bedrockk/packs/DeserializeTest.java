@@ -3,7 +3,9 @@ package com.bedrockk.packs;
 import com.bedrockk.packs.definition.*;
 import com.bedrockk.packs.definition.recipe.RecipeDefinition;
 import com.bedrockk.molang.util.Util;
+import com.bedrockk.packs.type.JsonList;
 import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.JsonNode;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
@@ -12,6 +14,7 @@ import org.opentest4j.AssertionFailedError;
 
 import java.io.IOException;
 import java.io.InputStream;
+import java.util.Collections;
 
 @DisplayName("Item Deserialize Test")
 public class DeserializeTest {

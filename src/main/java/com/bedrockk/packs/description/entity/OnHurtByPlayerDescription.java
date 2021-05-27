@@ -1,13 +1,8 @@
 package com.bedrockk.packs.description.entity;
 
-import com.bedrockk.packs.definition.EntityFilterDefinition;
 import com.bedrockk.packs.description.EntityDescription;
-import com.bedrockk.packs.type.FilterTarget;
-import lombok.Data;
+import lombok.experimental.SuperBuilder;
 
-@Data
-public class OnHurtByPlayerDescription implements EntityDescription {
-	private String event;
-	private EntityFilterDefinition filters;
-	private FilterTarget target = FilterTarget.SELF;
+@SuperBuilder
+public class OnHurtByPlayerDescription extends EntityEventTriggerDescription implements EntityDescription {
 }

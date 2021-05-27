@@ -4,14 +4,19 @@ import com.bedrockk.packs.PackHelper;
 import com.bedrockk.packs.node.PackNode;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
+import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.JsonNode;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
+import lombok.experimental.SuperBuilder;
+import lombok.extern.jackson.Jacksonized;
 
 import java.awt.*;
 import java.nio.file.Path;
 
 @Data
+@SuperBuilder
+@Jacksonized
 @EqualsAndHashCode(callSuper = true)
 public class TextureSetDefinition extends VersionedDefinition {
 	private Texture color;
@@ -29,7 +34,7 @@ public class TextureSetDefinition extends VersionedDefinition {
 			if (value.startsWith("#")) {
 				return new Texture(null, Color.decode(value));
 			}
-			return new Texture(PackHelper.MAPPER.convertValue(value, Path.class), null);
+			return new Texture(PackHelper.convert(value, new TypeReference<>() {}), null);
 		}
 
 		@JsonValue

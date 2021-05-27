@@ -11,6 +11,7 @@ import com.fasterxml.jackson.annotation.JsonSubTypes;
 import com.fasterxml.jackson.annotation.JsonSubTypes.Type;
 import com.fasterxml.jackson.annotation.JsonTypeInfo;
 import com.fasterxml.jackson.databind.annotation.JsonTypeResolver;
+import lombok.experimental.SuperBuilder;
 
 @JsonTypeInfo(use = JsonTypeInfo.Id.CUSTOM)
 @JsonTypeResolver(DefinitionTypeResolverBuilder.class)
@@ -46,17 +47,18 @@ import com.fasterxml.jackson.databind.annotation.JsonTypeResolver;
 		@Type(name = DefinitionIds.FEATURE_RECT_LAYOUT, value = RectLayoutFeatureDefinition.class),
 		@Type(name = DefinitionIds.FEATURE_VEGETATION_PATCH, value = VegetationPatchFeatureDefinition.class),
 })
+@SuperBuilder
 public abstract class VersionedDefinition implements VersionedNode, Definition {
 	@JsonIgnore
-	protected SemVersion formatVersion;
+	private SemVersion formatVersion;
 
-	public @JsonIgnore
-	SemVersion getFormatVersion() {
+	@JsonIgnore
+	public SemVersion getFormatVersion() {
 		return formatVersion;
 	}
 
-	public @JsonIgnore
-	void setFormatVersion(SemVersion formatVersion) {
+	@JsonIgnore
+	public void setFormatVersion(SemVersion formatVersion) {
 		this.formatVersion = formatVersion;
 	}
 }

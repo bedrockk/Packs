@@ -5,14 +5,23 @@ import com.bedrockk.packs.type.ChanceInformation;
 import com.bedrockk.packs.type.CoordinateEvalOrderType;
 import com.bedrockk.packs.type.ExpressionNode;
 import com.bedrockk.packs.type.FeatureCoordinate;
+import com.bedrockk.packs.utils.MapBuilder;
+import lombok.Builder;
 import lombok.Data;
+import lombok.extern.jackson.Jacksonized;
 
 import java.util.HashMap;
 
 @Data
 public class ForcedFeaturesDefinition extends HashMap<String, ForcedFeaturesDefinition.Entry> implements BiomeComponentDefinition {
 
+	public static MapBuilder<ForcedFeaturesDefinition, String, Entry> builder() {
+		return new MapBuilder<>(ForcedFeaturesDefinition.class);
+	}
+
 	@Data
+	@Builder
+	@Jacksonized
 	public static class Entry implements PackNode {
 		private ExpressionNode iterations;
 		private ChanceInformation scatterChance;
