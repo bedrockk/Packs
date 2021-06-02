@@ -31,7 +31,12 @@ public class PackHelper {
 	public static SemVersion CURRENT_DEFINITION_VERSION;
 
 	public static synchronized <T> T deserialize(String json, Class<T> type) throws IOException {
-		CURRENT_DEFINITION_VERSION = null;
+		var node = MAPPER.readTree(json);
+		if (node.isObject() && node.has("format_version") && node.get("format_version").isTextual()) {
+			CURRENT_DEFINITION_VERSION = SemVersion.of(node.get("format_version").asText());
+		} else {
+			CURRENT_DEFINITION_VERSION = null;
+		}
 		T value = MAPPER.readValue(json, type);
 		CURRENT_DEFINITION_VERSION = null;
 		return value;

@@ -2,10 +2,11 @@ package com.bedrockk.packs.definition.item;
 
 import com.bedrockk.packs.PackHelper;
 import com.bedrockk.packs.annotation.JsonSince;
-import com.bedrockk.packs.json.VersionedConverter;
+import com.bedrockk.packs.json.VersionConverter;
 import com.bedrockk.packs.node.ItemComponentNode;
 import com.bedrockk.packs.node.PackNode;
 import com.bedrockk.packs.type.ImmutableVec3;
+import com.bedrockk.packs.type.SemVersion;
 import com.bedrockk.packs.utils.FormatVersions;
 import com.bedrockk.packs.utils.MapBuilder;
 import com.fasterxml.jackson.databind.JsonNode;
@@ -35,13 +36,17 @@ public class RenderOffsetsDefinition extends HashMap<HandType, Map<CameraType, R
 		private ImmutableVec3 scale;
 	}
 
-	public static class Converter extends VersionedConverter<JsonNode> {
+	public static class Converter extends VersionConverter<RenderOffsetsDefinition> {
+
 		@Override
-		public JsonNode convert(JsonNode value) {
-			if (value.isTextual() && getVersion().isLower(FormatVersions.V1_16_200)) {
-				return PackHelper.MAPPER.createObjectNode(); // empty map for now
-			}
-			return value;
+		public boolean isValid(SemVersion version) {
+			return version.isLower(FormatVersions.V1_16_200);
+		}
+
+		@Override
+		public JsonNode apply(JsonNode value) {
+			// TODO
+			return value.isTextual() ? PackHelper.MAPPER.createObjectNode() : value;
 		}
 	}
 

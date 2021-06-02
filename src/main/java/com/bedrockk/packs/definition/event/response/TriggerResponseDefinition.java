@@ -15,6 +15,7 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor(staticName = "of")
 public class TriggerResponseDefinition implements EventResponseDefinition {
 	private String event;
+	@Builder.Default
 	private EventResponseTarget target = EventResponseTarget.SELF;
 	private ExpressionNode condition;
 

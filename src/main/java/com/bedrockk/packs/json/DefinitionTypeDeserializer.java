@@ -57,7 +57,6 @@ public class DefinitionTypeDeserializer extends AsPropertyTypeDeserializer {
 
 				if (name.equals("format_version")) {
 					formatVersion = SemVersion.of(p.getValueAsString());
-					PackHelper.CURRENT_DEFINITION_VERSION = formatVersion;
 				} else {
 					TokenBuffer tb = new TokenBuffer(p, ctxt);
 					tb.copyCurrentStructure(p);
@@ -66,7 +65,7 @@ public class DefinitionTypeDeserializer extends AsPropertyTypeDeserializer {
 				}
 			}
 		} else {
-			throw new InvalidTypeIdException(p, "Could not found root object for definition", _baseType, "NAMED");
+			throw new InvalidTypeIdException(p, "Could not found root object for definition: " + t, _baseType, "NAMED");
 		}
 
 		if (formatVersion != null && definition instanceof VersionedDefinition) {

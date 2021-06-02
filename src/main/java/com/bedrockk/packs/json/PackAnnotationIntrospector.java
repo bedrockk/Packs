@@ -27,23 +27,7 @@ public class PackAnnotationIntrospector extends JacksonAnnotationIntrospector {
 		return FormatVersions.V1_17_0;
 	}
 
-	@Override
-	public Object findDeserializationConverter(Annotated a) {
-		var c = super.findDeserializationConverter(a);
-		if (c == null) {
-			var ann = _findAnnotation(a, JsonConverter.class);
-			return ann == null ? null : _classIfExplicit(ann.current(), Converter.None.class);
-		}
-		return c;
-	}
-
-	@Override
-	public Object findSerializationConverter(Annotated a) {
-		var c = super.findSerializationConverter(a);
-		if (c == null) {
-			var ann = _findAnnotation(a, JsonConverter.class);
-			return ann == null ? null : _classIfExplicit(ann.past(), Converter.None.class);
-		}
-		return c;
+	public JsonConverter findJsonConverter(Annotated a) {
+		return _findAnnotation(a, JsonConverter.class);
 	}
 }

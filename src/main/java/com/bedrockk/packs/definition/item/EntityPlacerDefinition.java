@@ -2,9 +2,11 @@ package com.bedrockk.packs.definition.item;
 
 import com.bedrockk.packs.annotation.JsonConverter;
 import com.bedrockk.packs.annotation.JsonSince;
-import com.bedrockk.packs.json.VersionedConverter;
+import com.bedrockk.packs.json.VersionConverter;
 import com.bedrockk.packs.node.ItemComponentNode;
+import com.bedrockk.packs.type.SemVersion;
 import com.bedrockk.packs.utils.FormatVersions;
+import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.node.ObjectNode;
 import lombok.Builder;
 import lombok.Data;
@@ -25,11 +27,19 @@ public class EntityPlacerDefinition implements ItemComponentNode {
 	@Singular("canDispenseOn")
 	private List<String> dispenseOn;
 
-	public static class Converter extends VersionedConverter<ObjectNode> {
+	public static class Converter extends VersionConverter<EntityPlacerDefinition> {
+
 		@Override
-		public ObjectNode convert(ObjectNode value) {
-			if (getVersion().isLower(FormatVersions.V1_16_100) && value.has("allowedBlocks")) {
-				value.set("useOn", value.remove("allowedBlocks"));
+		public boolean isValid(SemVersion version) {
+			return version.isLower(FormatVersions.V1_16_100);
+		}
+
+		@Override
+		public JsonNode apply(JsonNode value) {
+			if (value instanceof ObjectNode node) {
+				if (node.has("allowedBlocks")) {
+					node.set("useOn", node.remove("allowedBlocks"));
+				}
 			}
 			return value;
 		}

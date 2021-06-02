@@ -5,10 +5,12 @@ import com.bedrockk.packs.annotation.JsonConverter;
 import com.bedrockk.packs.annotation.JsonSince;
 import com.bedrockk.packs.definition.FeatureDefinition;
 import com.bedrockk.packs.description.definition.SimpleDefinitionDescription;
-import com.bedrockk.packs.json.VersionedConverter;
+import com.bedrockk.packs.json.VersionConverter;
 import com.bedrockk.packs.node.PackNode;
 import com.bedrockk.packs.type.BlockReference;
+import com.bedrockk.packs.type.SemVersion;
 import com.bedrockk.packs.utils.FormatVersions;
+import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.node.ObjectNode;
 import lombok.Builder;
 import lombok.Data;
@@ -40,17 +42,23 @@ public class OreFeatureDefinition extends FeatureDefinition {
 		private List<BlockReference> mayReplace;
 	}
 
-	public static class Converter extends VersionedConverter<ObjectNode> {
+	public static class Converter extends VersionConverter<OreFeatureDefinition> {
+
 		@Override
-		public ObjectNode convert(ObjectNode value) {
-			if (getVersion().isLower(FormatVersions.V1_16_220) && value.has("may_replace")) {
+		public boolean isValid(SemVersion version) {
+			return version.isLower(FormatVersions.V1_16_220);
+		}
+
+		@Override
+		public JsonNode apply(JsonNode value) {
+			if (value instanceof ObjectNode node && value.has("may_replace")) {
 				var array = PackHelper.MAPPER.createArrayNode();
 				var rule = PackHelper.MAPPER.createObjectNode();
-				rule.set("places_block", value.remove("places_block"));
-				rule.set("may_replace", value.remove("may_replace"));
+				rule.set("places_block", node.remove("places_block"));
+				rule.set("may_replace", node.remove("may_replace"));
 				array.add(rule);
 
-				value.set("replace_rules", array);
+				node.set("replace_rules", array);
 			}
 			return value;
 		}

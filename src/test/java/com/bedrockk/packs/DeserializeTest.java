@@ -1,23 +1,25 @@
 package com.bedrockk.packs;
 
+import com.bedrockk.molang.util.Util;
 import com.bedrockk.packs.definition.*;
 import com.bedrockk.packs.definition.recipe.RecipeDefinition;
-import com.bedrockk.molang.util.Util;
 import com.bedrockk.packs.type.JsonList;
 import com.bedrockk.packs.type.TimeMap;
 import com.fasterxml.jackson.core.JsonProcessingException;
-import com.fasterxml.jackson.core.type.TypeReference;
+import com.fasterxml.jackson.databind.BeanDescription;
 import com.fasterxml.jackson.databind.JsonNode;
+import com.fasterxml.jackson.databind.introspect.BasicBeanDescription;
+import com.fasterxml.jackson.databind.util.BeanUtil;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.opentest4j.AssertionFailedError;
 
+import java.beans.BeanDescriptor;
 import java.io.IOException;
 import java.io.InputStream;
-import java.util.Collections;
 
-@DisplayName("Item Deserialize Test")
+@DisplayName("Deserialize Tests")
 public class DeserializeTest {
 
 	@Test
@@ -57,6 +59,17 @@ public class DeserializeTest {
 
 		String input = Util.readFile(file);
 		ItemDefinition root = PackHelper.deserializeItem(input);
+		assertResult(input, root);
+	}
+
+	@Test
+	@DisplayName("Block Test")
+	public void testBlock() throws IOException {
+		InputStream file = getClass().getClassLoader().getResourceAsStream("test_block.json");
+		Assertions.assertNotNull(file);
+
+		String input = Util.readFile(file);
+		var root = PackHelper.deserializeBlock(input);
 		assertResult(input, root);
 	}
 
@@ -138,8 +151,8 @@ public class DeserializeTest {
 				JsonNode v = e.getValue();
 				if (actual.has(k)) {
 					assertTree(v, actual.get(k));
-				} else {
-					throw new AssertionFailedError("Key " + k + " not found in output at: \n" + actual.toPrettyString());
+				} else if (!v.isEmpty()) {
+					throw new AssertionFailedError("Key \"" + k + "\" not found in output at: \n" + actual.toPrettyString());
 				}
 			});
 		} else if (expected.isArray() && actual.isArray()) {
