@@ -14,4 +14,5 @@ jobs:
       - name: Publish package
         run: gradle -Pversion=${{ github.event.release.tag_name }} build publish
         env:
+          GITHUB_USER: ${{ github.actor }}
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
