@@ -141,7 +141,7 @@ public class DeserializeTest {
 
 	private static void assertResult(String input, Definition definition) throws JsonProcessingException {
 		JsonNode expected = PackHelper.MAPPER.readTree(input);
-		assertTree(expected, PackHelper.toJsonNode(definition));
+		assertTree(expected, PackHelper.MAPPER.readTree(PackHelper.serialize(definition)));
 	}
 
 	private static void assertTree(JsonNode expected, JsonNode actual) {

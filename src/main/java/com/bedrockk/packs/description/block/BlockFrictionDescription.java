@@ -14,16 +14,11 @@ public class BlockFrictionDescription extends SingleValueNode<Double> implements
 		super(value);
 	}
 
-	public static class Converter extends VersionConverter<BlockFrictionDescription> {
+	public static class Converter implements VersionConverter {
 
 		@Override
-		public boolean isValid(SemVersion version) {
-			return version.isLower(FormatVersions.V1_16_0);
-		}
-
-		@Override
-		public JsonNode apply(JsonNode value) {
-			return value.isDouble() ? value.get("value") : value;
+		public JsonNode toCurrent(JsonNode value, SemVersion version) {
+			return version.isLower(FormatVersions.V1_16_0) && value.isDouble() ? value.get("value") : value;
 		}
 	}
 }

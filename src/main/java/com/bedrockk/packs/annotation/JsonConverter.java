@@ -1,5 +1,6 @@
 package com.bedrockk.packs.annotation;
 
+import com.bedrockk.packs.json.VersionConverter;
 import com.fasterxml.jackson.databind.util.Converter;
 
 import java.lang.annotation.ElementType;
@@ -11,7 +12,7 @@ import java.lang.annotation.Target;
 @Target({ElementType.TYPE, ElementType.FIELD})
 public @interface JsonConverter {
 
-	Class<? extends Converter> current() default Converter.None.class;
+	Class<? extends VersionConverter> current() default  VersionConverter.None.class;
 
-	Class<? extends Converter> past() default Converter.None.class;
+	Class<? extends VersionConverter> past() default VersionConverter.None.class;
 }

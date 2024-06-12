@@ -12,16 +12,16 @@ import com.fasterxml.jackson.databind.util.Converter;
 public class PackDeserializers extends Deserializers.Base {
 
 	@Override
-	@SuppressWarnings("unchecked")
 	public JsonDeserializer<?> findBeanDeserializer(JavaType type, DeserializationConfig config, BeanDescription beanDesc) throws JsonMappingException {
 		var intro = (PackAnnotationIntrospector) config.getAnnotationIntrospector();
 		var since = intro.findJsonSince(beanDesc.getClassInfo());
 		var until = intro.findJsonUntil(beanDesc.getClassInfo());
 		var converter = intro.findJsonConverter(beanDesc.getClassInfo());
 		var current = PackHelper.CURRENT_DEFINITION_VERSION;
+		var attr = PackHelper.MAPPER.getDeserializationConfig().getAttributes().getAttribute("no-converter");
 
-		if (converter != null) {
-			var conv = (Converter<JsonNode, JsonNode>) ClassUtil.createInstance(converter.current(), true);
+		if (converter != null && attr != null && !((boolean) attr)) {
+			var conv = ClassUtil.createInstance(converter.current(), true);
 			return new VersionConverterDeserializer(conv, type);
 		}
 

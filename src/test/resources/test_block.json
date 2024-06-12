@@ -1,11 +1,13 @@
 {
-  "format_version": "1.17.0",
+  "format_version": "1.15.0",
   "minecraft:block": {
     "description": {
       "identifier": "bedrockk:testblock"
     },
     "components": {
-      "minecraft:map_color": 31231231
+      "minecraft:map_color": {
+        "color": 121212
+      }
     }
   }
 }

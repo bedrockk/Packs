@@ -13,9 +13,9 @@ public class UseDurationDefinition extends SingleValueNode<Integer> implements I
 		super(value);
 	}
 
-	public static class Converter extends VersionConverter<UseDurationDefinition> {
+	public static class Converter implements VersionConverter {
 		@Override
-		public JsonNode apply(JsonNode value) {
+		public JsonNode toCurrent(JsonNode value, SemVersion version) {
 			return value.isDouble() ? PackHelper.toJsonNode((int) value.asDouble() * 20) : value;
 		}
 	}

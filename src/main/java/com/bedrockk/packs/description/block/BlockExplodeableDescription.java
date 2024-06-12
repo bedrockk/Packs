@@ -1,6 +1,5 @@
 package com.bedrockk.packs.description.block;
 
-import com.bedrockk.packs.PackHelper;
 import com.bedrockk.packs.annotation.JsonConverter;
 import com.bedrockk.packs.description.BlockDescription;
 import com.bedrockk.packs.json.VersionConverter;
@@ -15,16 +14,11 @@ public class BlockExplodeableDescription extends SingleValueNode<Double> impleme
 		super(value);
 	}
 
-	public static class Converter extends VersionConverter<BlockExplodeableDescription> {
+	public static class Converter implements VersionConverter {
 
 		@Override
-		public boolean isValid(SemVersion version) {
-			return version.isLower(FormatVersions.V1_16_0);
-		}
-
-		@Override
-		public JsonNode apply(JsonNode value) {
-			return value.isDouble() ? value.get("value") : value;
+		public JsonNode toCurrent(JsonNode value, SemVersion version) {
+			return version.isLower(FormatVersions.V1_16_0) && value.isDouble() ? value.get("value") : value;
 		}
 	}
 }

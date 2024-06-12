@@ -42,16 +42,11 @@ public class OreFeatureDefinition extends FeatureDefinition {
 		private List<BlockReference> mayReplace;
 	}
 
-	public static class Converter extends VersionConverter<OreFeatureDefinition> {
+	public static class Converter implements VersionConverter {
 
 		@Override
-		public boolean isValid(SemVersion version) {
-			return version.isLower(FormatVersions.V1_16_220);
-		}
-
-		@Override
-		public JsonNode apply(JsonNode value) {
-			if (value instanceof ObjectNode node && value.has("may_replace")) {
+		public JsonNode toCurrent(JsonNode value, SemVersion version) {
+			if (version.isLower(FormatVersions.V1_16_220) && value instanceof ObjectNode node && value.has("may_replace")) {
 				var array = PackHelper.MAPPER.createArrayNode();
 				var rule = PackHelper.MAPPER.createObjectNode();
 				rule.set("places_block", node.remove("places_block"));

@@ -2,10 +2,8 @@ package com.bedrockk.packs.json;
 
 import com.fasterxml.jackson.annotation.JsonTypeInfo;
 import com.fasterxml.jackson.core.JsonParser;
-import com.fasterxml.jackson.databind.BeanProperty;
-import com.fasterxml.jackson.databind.DeserializationConfig;
-import com.fasterxml.jackson.databind.DeserializationContext;
-import com.fasterxml.jackson.databind.JavaType;
+import com.fasterxml.jackson.core.util.JsonParserSequence;
+import com.fasterxml.jackson.databind.*;
 import com.fasterxml.jackson.databind.exc.InvalidTypeIdException;
 import com.fasterxml.jackson.databind.jsontype.NamedType;
 import com.fasterxml.jackson.databind.jsontype.TypeDeserializer;
@@ -16,6 +14,7 @@ import com.fasterxml.jackson.databind.util.TokenBuffer;
 import java.io.IOException;
 import java.io.Serial;
 import java.util.Collection;
+import java.util.Map;
 
 public class NamedTypeDeserializer extends AsPropertyTypeDeserializer {
 	@Serial
@@ -41,12 +40,10 @@ public class NamedTypeDeserializer extends AsPropertyTypeDeserializer {
 
 	@Override
 	public Object deserializeTypedFromObject(JsonParser p, DeserializationContext ctxt) throws IOException {
-		String name = p.currentName();
+		var name = p.currentName();
 		if (name != null) {
-			TokenBuffer tb = new TokenBuffer(p, ctxt);
-			tb.copyCurrentStructure(p);
-
-			return _deserializeTypedForId(p, ctxt, tb, name);
+			JsonDeserializer<Object> deser = _findDeserializer(ctxt, name);
+			return deser.deserialize(p, ctxt);
 		} else {
 			throw new InvalidTypeIdException(p, "Could not found root for definition", _baseType, "NAMED");
 		}

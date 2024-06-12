@@ -27,16 +27,11 @@ public class EntityPlacerDefinition implements ItemComponentNode {
 	@Singular("canDispenseOn")
 	private List<String> dispenseOn;
 
-	public static class Converter extends VersionConverter<EntityPlacerDefinition> {
+	public static class Converter implements VersionConverter {
 
 		@Override
-		public boolean isValid(SemVersion version) {
-			return version.isLower(FormatVersions.V1_16_100);
-		}
-
-		@Override
-		public JsonNode apply(JsonNode value) {
-			if (value instanceof ObjectNode node) {
+		public JsonNode toCurrent(JsonNode value, SemVersion version) {
+			if (version.isLower(FormatVersions.V1_16_100) && value instanceof ObjectNode node) {
 				if (node.has("allowedBlocks")) {
 					node.set("useOn", node.remove("allowedBlocks"));
 				}

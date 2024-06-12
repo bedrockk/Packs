@@ -36,20 +36,6 @@ public class RenderOffsetsDefinition extends HashMap<HandType, Map<CameraType, R
 		private ImmutableVec3 scale;
 	}
 
-	public static class Converter extends VersionConverter<RenderOffsetsDefinition> {
-
-		@Override
-		public boolean isValid(SemVersion version) {
-			return version.isLower(FormatVersions.V1_16_200);
-		}
-
-		@Override
-		public JsonNode apply(JsonNode value) {
-			// TODO
-			return value.isTextual() ? PackHelper.MAPPER.createObjectNode() : value;
-		}
-	}
-
 	public enum HandType {
 		MAIN_HAND,
 		OFF_HAND;

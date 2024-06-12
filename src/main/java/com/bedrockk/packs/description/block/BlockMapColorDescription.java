@@ -1,5 +1,6 @@
 package com.bedrockk.packs.description.block;
 
+import com.bedrockk.packs.PackHelper;
 import com.bedrockk.packs.annotation.JsonConverter;
 import com.bedrockk.packs.description.BlockDescription;
 import com.bedrockk.packs.json.VersionConverter;
@@ -12,20 +13,29 @@ import com.fasterxml.jackson.databind.JsonNode;
 @JsonConverter(current = BlockMapColorDescription.Converter.class)
 public class BlockMapColorDescription extends SingleValueNode<Integer> implements BlockDescription {
 	@JsonCreator
-	public BlockMapColorDescription(Integer value) {
+	public BlockMapColorDescription(int value) {
 		super(value);
 	}
 
-	public static class Converter extends VersionConverter<BlockMapColorDescription> {
+	@JsonCreator
+	public static BlockMapColorDescription of(JsonNode node) {
+		return new BlockMapColorDescription(node.asInt());
+	}
+
+	public static class Converter implements VersionConverter {
 
 		@Override
-		public boolean isValid(SemVersion version) {
-			return version.isLower(FormatVersions.V1_16_0);
+		public JsonNode toCurrent(JsonNode node, SemVersion version) {
+			return version.isLower(FormatVersions.V1_16_0) && node.isObject() ? node.get("color") : node;
 		}
 
-		@Override
-		public JsonNode apply(JsonNode node) {
-			return node.isObject() ? node.get("color") : node;
+		public JsonNode toSpecific(JsonNode node, SemVersion version) {
+			if (version.isLower(FormatVersions.V1_16_0) && node.isNumber()) {
+				var wrap = PackHelper.MAPPER.createObjectNode();
+				wrap.set("value", node);
+				return wrap;
+			}
+			return node;
 		}
 	}
 }

@@ -9,7 +9,6 @@ import com.bedrockk.packs.type.SemVersion;
 import com.bedrockk.packs.utils.FormatVersions;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.node.ObjectNode;
-import com.fasterxml.jackson.databind.util.StdConverter;
 import lombok.*;
 import lombok.extern.jackson.Jacksonized;
 
@@ -33,16 +32,11 @@ public class SetBannerDetailsFunction implements LootTableFunction {
 		private String color;
 	}
 
-	public static class Converter extends VersionConverter<SetBannerDetailsFunction> {
+	public static class Converter implements VersionConverter {
 
 		@Override
-		public boolean isValid(SemVersion version) {
-			return version.isLower(FormatVersions.V1_16_100);
-		}
-
-		@Override
-		public JsonNode apply(JsonNode value) {
-			if (value instanceof ObjectNode node && value.has("type")) {
+		public JsonNode toCurrent(JsonNode value, SemVersion version) {
+			if (version.isLower(FormatVersions.V1_16_100) && value instanceof ObjectNode node && value.has("type")) {
 				var type = value.get("type");
 				if (type.isObject() && type.has("min") && type.has("max")) {
 					node.set("type", PackHelper.toJsonNode("default"));

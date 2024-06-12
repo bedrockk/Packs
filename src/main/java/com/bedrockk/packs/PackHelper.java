@@ -1,9 +1,11 @@
 package com.bedrockk.packs;
 
+import com.bedrockk.packs.annotation.JsonConverter;
 import com.bedrockk.packs.definition.*;
 import com.bedrockk.packs.definition.recipe.RecipeDefinition;
 import com.bedrockk.packs.json.PackAnnotationIntrospector;
 import com.bedrockk.packs.json.PackModule;
+import com.bedrockk.packs.json.VersionConverter;
 import com.bedrockk.packs.type.SemVersion;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.core.JsonParser;
@@ -11,6 +13,7 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.*;
 import com.fasterxml.jackson.databind.json.JsonMapper;
+import com.fasterxml.jackson.databind.util.ClassUtil;
 import lombok.experimental.UtilityClass;
 
 import java.io.IOException;
@@ -37,6 +40,7 @@ public class PackHelper {
 		} else {
 			CURRENT_DEFINITION_VERSION = null;
 		}
+		MAPPER.setConfig(MAPPER.getDeserializationConfig().withAttribute("no-converter", false));
 		T value = MAPPER.readValue(json, type);
 		CURRENT_DEFINITION_VERSION = null;
 		return value;
@@ -122,12 +126,32 @@ public class PackHelper {
 		return deserialize(json, RenderControllerDefinition.class);
 	}
 
-	public static String serialize(Object object) throws JsonProcessingException {
-		return MAPPER.writeValueAsString(object);
+	public static <T> String serialize(T object) throws JsonProcessingException {
+		return serialize(object, null, false);
 	}
 
-	public static String serializeAsPretty(Object object) throws JsonProcessingException {
-		return MAPPER.writerWithDefaultPrettyPrinter().writeValueAsString(object);
+	public static <T> String serializePretty(T object) throws JsonProcessingException {
+		return serialize(object, null, true);
+	}
+
+	public static <T> String serialize(T object, SemVersion version, boolean pretty) throws JsonProcessingException {
+		var converter = object.getClass().getAnnotation(JsonConverter.class);
+		Object input = object;
+		if (converter != null && converter.past() != VersionConverter.None.class) {
+			var inst = ClassUtil.createInstance(converter.past(), true);
+			if (inst != null) {
+				var node = toJsonNode(object);
+				if (version == null) {
+					if (node.has("format_version") && node.get("format_version").isTextual()) {
+						version = SemVersion.of(node.get("format_version").asText());
+					} else {
+						version = FORMAT_VERSION;
+					}
+				}
+				input = inst.convert(toJsonNode(input), version);
+			}
+		}
+		return pretty ? MAPPER.writerWithDefaultPrettyPrinter().writeValueAsString(object) : MAPPER.writeValueAsString(object);
 	}
 
 	public static <T> T convert(Object value, Class<T> type) {
